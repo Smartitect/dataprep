@@ -120,16 +120,15 @@ import seaborn as sns
 from azureml.dataprep import value
 
 #%% [markdown]
+#---
 ## Stage 1 : Read Data
-#%% [markdown]
-## PEOPLE
+### 1.1 Ingest PEOPLE
 # Let's take a look at the **PEOPLE.csv** file. We'll import it using the `auto_read_file` (new name for `smart_read_file` if we're not mistaken) function. This will automatically detect the file type and how to parse it. If we're lucky, it will detect the types of each column and apply any corresponding type transformations.
 
-### 1.1 Ingest PEOPLE
 #%%
 folderPath = './data/people.csv'
 peopleData = dprep.auto_read_file(folderPath)
-peopleData.head(100)
+peopleData.head(5)
 
 #%% [markdown]
 ### 1.2 Profile PEOPLE
@@ -138,14 +137,17 @@ peopleData.head(100)
 peopleData.get_profile()
 
 #%% [markdown]
-# We can immediately see that we have some problems with our data. Our first row isn't helpful. We have the new line code `\0d0a` in numerous columns. We also have extra columns defined in our dataset that we aren't expecting. This is possibly because we have rows in our dataset which include extra commas, and this is shifting values to the right. Row 76 is an example of a bad row.
+# We can immediately see that we have some problems with our data. Our first row isn't helpful. We have the new line code `\0d0a` in numerous columns.
+# We also have extra columns defined in our dataset that we aren't expecting. This is possibly because we have rows in our dataset which include extra commas, and this is shifting values to the right.
+# #Row 76 is an example of a bad row, let's return it by converting to a pandas dataframe and using the `iloc` integer location to return and print the row.
 #%%
 df = peopleData.to_pandas_dataframe()
-problemRow1 = df.iloc[76]
+problemRow1 = df.iloc[76, 0:10]
 print(problemRow1)
 
 #%% [markdown]
-# In the csv file, the "ADDRESS" column value has unquoted commas and so its value has spilt onto adjacent columns. Also, we stumbled across row 14608 in the original csv, which has a speech mark at the start of the row which has cancelled out all of its following commas, so that the whole row contents lies within the "ADDRESS value".
+# In the csv file, the "ADDRESS" column value has unquoted commas and so its value has spilt onto adjacent columns.
+# Also, we stumbled across row 14608 in the original csv, which has a speech mark at the start of the row which has cancelled out all of its following commas, so that the whole row contents lies within the "ADDRESS value".
 # All of the data for this row is bunched up into the first column because of a lone speech mark in the original csv.
 # Here is the value within the ADDRESS column:
 
@@ -201,8 +203,9 @@ if goodPeopleDataCount + quarantinedPeopleDataCount == originalPeopleDataCount:
 else:
     print('Hmmm somethings not right, row counts do not tally!')
 
-
-#%% [markdown]
+#%%[markdown]
+#**ACTION** : need to come back to the approach to separating good out from quarnatined PEOPLE data to understand why row counts don't tally!
+#
 # Let's continue cleaning the good dataset. We have the custom string '<null'> representing our null value. Let's change that to `null`, along with any empty string in any of the columns:
 #%%
 goodPeopleDataColumns = list(goodPeopleData.get_profile().columns.keys())
