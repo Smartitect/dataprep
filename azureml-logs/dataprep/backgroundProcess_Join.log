@@ -3,3 +3,8 @@
 2018-12-20 20:15:26.4341|DEBUG|Join|GatherSample|Left sample gathered|fde2f6dc-046d-11e9-89a2-e982204aa8d5
 2018-12-20 20:15:26.5208|DEBUG|Join|GatherSample|Right sample gathered|fde2f6dc-046d-11e9-89a2-e982204aa8d5
 2018-12-20 20:15:27.2202|DEBUG|Join|Suggestions|Suggestions generated|extraData cannot be serialized: Serializing delegates is not supported on this platform.|fde2f6dc-046d-11e9-89a2-e982204aa8d5
+2018-12-20 20:22:30.8732|DEBUG|Join|GatherSample|Left sample gathered|82432424-0494-11e9-805c-e982204aa8d5
+2018-12-20 20:22:30.9441|DEBUG|Join|GatherSample|Right sample gathered|82432424-0494-11e9-805c-e982204aa8d5
+2018-12-20 20:22:31.2471|DEBUG|Join|GatherSample|Left sample gathered|82432424-0494-11e9-805c-e982204aa8d5
+2018-12-20 20:22:31.3331|DEBUG|Join|GatherSample|Right sample gathered|82432424-0494-11e9-805c-e982204aa8d5
+2018-12-20 20:22:31.9380|DEBUG|Join|Suggestions|Suggestions generated|extraData cannot be serialized: Serializing delegates is not supported on this platform.|82432424-0494-11e9-805c-e982204aa8d5

@@ -5,3 +5,6 @@
 
 # Data files results
 data/
+
+# Log files
+.log
