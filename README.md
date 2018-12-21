@@ -1,14 +1,16 @@
 # Data quality scenarios:
 
-[X] Dealing with poor quality raw data (e.g. commas in address column skewing CSV import)
-[] Intelligent mapping to "canonical form"
-[] Spotting anomalies in the data (e.g. date of birth defaults used "1/1/1971")
-[] Gender is not Male or Female / Incorrect Gender for members title
-[] Missing Invalid or Temporary NI Number
-[X] Missing Addresses / Check for commas in members address / Missing postcodes
-[] Date Joined Company is after Date Joined Scheme
-[] Date of Birth is after Date Joined Scheme / Missing Invalid or known false Date of Birth
-[] Missing Scheme Retirement Date
+| Requirement | Achieved? | Notes |
+| --- | --- | --- |
+| Dealing with poor quality raw data (e.g. commas in address column skewing CSV import) | No |  |
+| Intelligent mapping to "canonical form"  | No |  |
+| Spotting anomalies in the data (e.g. date of birth defaults used "1/1/1971") | No |  |
+| Gender is not Male or Female / Incorrect Gender for members title | No |  |
+| Missing Invalid or Temporary NI Number | No |  |
+| Missing Addresses / Check for commas in members address / Missing postcodes | No |  |
+| Date Joined Company is after Date Joined Scheme | No |  |
+ Date of Birth is after Date Joined Scheme / Missing Invalid or known false Date of Birth | No |  |
+| Missing Scheme Retirement Date  | No |  |
 
 # Data reconciliation scenarios:
 
