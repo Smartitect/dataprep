@@ -1,3 +1,18 @@
+# Overview
+
+Proof of concept to assess how dataprep could be leveraged to support general data wrangling of pension scheme data.
+
+# Meta Process
+
+Thinking is that we adopt a structured approach, and have tried to structure the notebook accordingly:
+1. Ingest - load each of the raw files from source repository;
+2. Manipulate A - manipulate each of the raw data as follows:
+    - A.1 - apply some basic cleaning of the data: for example remove redundant leading or trailing rows, make sure empty cells are set accordingly
+    - A.2 - Apply the right data types: primary (ie string, datetime, number or boolean) and secondary (ie postcode, email address, national insurance number, sex)
+    - A.2 - Profile the data: do some basic profiliing to identify records that are not fit to move to next stage
+    - A.3 - Quarantine: shift any records that do not fit the minimum requirements into "quarantine" so that they can fixed and re-played through the process at a later stage
+3. Manipulate B - join the data se
+
 # Data quality scenarios:
 
 | Requirement | Achieved? | Notes |
