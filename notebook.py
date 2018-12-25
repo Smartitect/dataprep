@@ -1,9 +1,11 @@
 #%% [markdown]
+##Stage 1 - Ingest
 # Let's start by importing the data prep SDK and pandas library:
 #%%
 import pandas as pd
 import azureml.dataprep as dprep
 import seaborn as sns
+import os as os
 from azureml.dataprep import value
 
 #%% [markdown]
@@ -13,9 +15,22 @@ from azureml.dataprep import value
 # Let's take a look at the **PEOPLE.csv** file. We'll import it using the `auto_read_file` (new name for `smart_read_file` if we're not mistaken) function. This will automatically detect the file type and how to parse it. If we're lucky, it will detect the types of each column and apply any corresponding type transformations.
 
 #%%
-folderPath = './data/people.csv'
-peopleData = dprep.auto_read_file(folderPath)
-peopleData.head(5)
+path = "./data"
+dirs = os.listdir( path )
+fileList = []
+
+for file in dirs:
+    fullFilePath = path + "/" + file
+    if fullFilePath.endswith(".csv") or fullFilePath.endswith(".csv"):
+        fileList.append(fullFilePath)
+        globals()[file] = dprep.read_csv(fullFilePath)
+
+
+
+
+fileList
+
+
 
 #%% [markdown]
 ### 1.2 Profile PEOPLE

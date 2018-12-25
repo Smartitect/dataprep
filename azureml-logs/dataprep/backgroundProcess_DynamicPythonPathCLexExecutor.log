@@ -1,3 +1,6 @@
 2018-12-20 15:43:28.3825|DEBUG|DynamicPythonPathCLexExecutor|EnsureCLexExecutorReady|No more tasks in progress. Creating new CLexExecutor.|fde2f6dc-046d-11e9-89a2-e982204aa8d5
 2018-12-20 20:19:11.6020|DEBUG|DynamicPythonPathCLexExecutor|EnsureCLexExecutorReady|No more tasks in progress. Creating new CLexExecutor.|82432424-0494-11e9-805c-e982204aa8d5
 2018-12-21 11:38:01.9136|DEBUG|DynamicPythonPathCLexExecutor|EnsureCLexExecutorReady|No more tasks in progress. Creating new CLexExecutor.|dbc618ca-0514-11e9-835f-e04f435b3b32
+2018-12-21 16:12:46.6851|DEBUG|DynamicPythonPathCLexExecutor|EnsureCLexExecutorReady|No more tasks in progress. Creating new CLexExecutor.|3e76565c-053b-11e9-acdb-7c2a31a3893b
+2018-12-21 16:15:53.7968|DEBUG|DynamicPythonPathCLexExecutor|EnsureCLexExecutorReady|No more tasks in progress. Creating new CLexExecutor.|af7b9114-053b-11e9-8561-7c2a31a3893b
+2018-12-21 18:12:23.7444|DEBUG|DynamicPythonPathCLexExecutor|EnsureCLexExecutorReady|No more tasks in progress. Creating new CLexExecutor.|f40476ac-054b-11e9-b260-7c2a31a3893b

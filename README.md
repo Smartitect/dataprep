@@ -4,14 +4,20 @@ Proof of concept to assess how dataprep could be leveraged to support general da
 
 # Meta Process
 
-Thinking is that we adopt a structured approach, and have tried to structure the notebook accordingly:
+Plan is to adopt a structured approach using the notebook:
 1. Ingest - load each of the raw files from source repository;
-2. Manipulate A - manipulate each of the raw data as follows:
-    - A.1 - apply some basic cleaning of the data: for example remove redundant leading or trailing rows, make sure empty cells are set accordingly
-    - A.2 - Apply the right data types: primary (ie string, datetime, number or boolean) and secondary (ie postcode, email address, national insurance number, sex)
-    - A.2 - Profile the data: do some basic profiliing to identify records that are not fit to move to next stage
-    - A.3 - Quarantine: shift any records that do not fit the minimum requirements into "quarantine" so that they can fixed and re-played through the process at a later stage
-3. Manipulate B - join the data se
+2. Manipulate Stage 1 - manipulate each of the raw data as follows:
+    - Apply some basic cleaning of the data: for example remove redundant leading rows, make sure empty cells are set accordingly
+    - Apply the right data types: primary (ie string, datetime, number or boolean) and secondary (ie postcode, email address, national insurance number, sex)
+    - Profile the data: do some basic profiliing to identify records that are not fit to move to next stage
+    - Quarantine: shift any records that do not fit the minimum requirements into "quarantine" so that they can fixed and re-played through the process at a later stage
+3. Manipulate Stage 2 - more sophisticated manipulation to join the data sets together and promote into canonical form;
+4. Analyse - apply the more sophisticated data quality and data reconciliation checks;
+5. Publish - publish the results:
+    - Publish the output canonical data set, ready for import into operational platform;
+    - Publish an audit report that includes all of the reconciliation checks;
+    - Export the quarantied records that need to fixed (if any);
+    - Publish a data quality report.
 
 # Data quality scenarios:
 
