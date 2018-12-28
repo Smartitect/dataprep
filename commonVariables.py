@@ -7,6 +7,7 @@ import re as re
 import collections
 from azureml.dataprep import value
 from azureml.dataprep import col
+from azureml.dataprep import Package
 
 # Let's also set up global variables
 #%%
@@ -17,6 +18,4 @@ dataPath = "./data"
 packagePath = "./packages"
 
 # Name of package file
-packageFile = "packages.dprep"
-
-fullPackagePath = packagePath + '/' + packageFile
+packageFile = "Packages.dprep"
