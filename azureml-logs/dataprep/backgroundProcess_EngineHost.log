@@ -10,3 +10,7 @@
 2018-12-21 16:15:52.8408|DEBUG|EngineHost|Startup|MessageLoop initialized|af7b9114-053b-11e9-8561-7c2a31a3893b
 2018-12-21 18:12:21.6830|DEBUG|EngineHost|Startup|MessageParser initialized|f40476ac-054b-11e9-b260-7c2a31a3893b
 2018-12-21 18:12:21.7439|DEBUG|EngineHost|Startup|MessageLoop initialized|f40476ac-054b-11e9-b260-7c2a31a3893b
+2018-12-28 10:32:18.5515|DEBUG|EngineHost|Startup|MessageParser initialized|d954b66e-0a8b-11e9-b0ff-e982204aa8d5
+2018-12-28 10:32:18.5828|DEBUG|EngineHost|Startup|MessageLoop initialized|d954b66e-0a8b-11e9-b0ff-e982204aa8d5
+2018-12-28 12:32:12.5789|DEBUG|EngineHost|Startup|MessageParser initialized|999ac800-0a9c-11e9-bcd3-e982204aa8d5
+2018-12-28 12:32:12.5975|DEBUG|EngineHost|Startup|MessageLoop initialized|999ac800-0a9c-11e9-bcd3-e982204aa8d5

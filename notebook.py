@@ -1,34 +1,116 @@
 #%% [markdown]
-##Stage 1 - Ingest
+## Stage 0 - Setting Up
 # Let's start by importing the data prep SDK and pandas library:
 #%%
 import pandas as pd
 import azureml.dataprep as dprep
 import seaborn as sns
 import os as os
+import re as re
 from azureml.dataprep import value
 
 #%% [markdown]
+# Let's also set up global variables
+#%%
+# Path to the source data
+dataPath = "./data"
+
+# Path to the location where the dataprep packags that are created
+packagePath = "./packages"
+
+# Name of package file
+packageFile = "packages.dprep"
+
+# Load in file names to be processed from the config.csv file
+dataFiles = dprep.read_csv('dataFiles.csv').to_pandas_dataframe()
+
+# Create a fully qualified path to the data files and append this to the dataFiles data frame
+fullFilePaths = dataPath + '/' + dataFiles.FileName
+fullFilePaths.name = "FullFilePath"
+dataFiles = pd.concat([dataFiles, fullFilePaths], axis=1)
+
+# now grab the number of headers in the first row of each file
+expectedColumnCount = []
+for index, row in dataFiles.iterrows():
+    firstRow = open(row["FullFilePath"]).readline().strip()
+    pattern = re.compile(',\w')
+    patternCount = len(re.findall(pattern,firstRow))
+    expectedColumnCount.append(patternCount + 1)
+columnCount = pd.DataFrame({'ColumnCount':expectedColumnCount})
+dataFiles = pd.concat([dataFiles, columnCount], axis=1)
+dataFiles
+
+#%% [markdown]
 #---
-## Stage 1 : Read Data
-### 1.1 Ingest PEOPLE
-# Let's take a look at the **PEOPLE.csv** file. We'll import it using the `auto_read_file` (new name for `smart_read_file` if we're not mistaken) function. This will automatically detect the file type and how to parse it. If we're lucky, it will detect the types of each column and apply any corresponding type transformations.
+## Stage 1 + 2 : Ingest and Manipulate Part 1
+# Stepping through each file in the config.csv file to extract and do a basic clean up:
+# - Load the CSV data;
+# - Replace the custom string `<null>` representing a null and any other empty cells to a real `null`;
+# - Remove the first row;
+# - Quarantine rows (extract them and put them into a parallel data flow so that they can be fixed at a later stage) which have values in columns that are not listed in the header record;
+# - Try to detect data types in each column using **column types builder**
+# - Save the data flow that has been created for each file away so that it can be referenced and used later on
 
 #%%
-path = "./data"
-dirs = os.listdir( path )
-fileList = []
+for index, row in dataFiles.iterrows():
+    dataName = row["DataName"]
+    fullFilePath = row["FullFilePath"]
+    columnCount = row["ColumnCount"]
+    packageName = row["PackageName"]
+    print('{0}: loading data from file path {1}'.format(dataName, fullFilePath))
+    dataFlow = dprep.read_csv(fullFilePath)
+    print('{0}: loaded {1} rows'.format(dataName, dataFlow.row_count))
+    # Get a list of the columns
+    dataFlowColumns = list(dataFlow.get_profile().columns.keys())
+    # Now clean up the data in those columns
+    print('{0}: cleaning up {1} columns (expected {2})'.format(dataName, len(dataFlowColumns), columnCount))
+    # Replace any instances of the <null> string
+    dataFlow = dataFlow.replace_na(dataFlowColumns, custom_na_list='<null>')
+    # Remove the first row
+    # NOTE : it would be good to add check to this to make sure it is the blank row we anticipate that begins `SCHEME=AR` 
+    print('{0}: removing first row'.format(dataName))
+    dataFlow = dataFlow.skip(1)
+    # Quarantine rows which don't have the right columns
+    quarantinedDataFlow = dataFlow.drop_nulls(dataFlowColumns[columnCount:])
+    print('{0}: created quarantined data with {1} rows'.format(dataName, quarantinedDataFlow.row_count))
+    # Filter out the quarantined rows from the main data set
+    # NOTE : can't figure out how to do this - see note below...
+    # Detect and apply column types
+    builder = dataFlow.builders.set_column_types()
+    builder.learn()
+    builder.ambiguous_date_conversions_keep_month_day()
+    dataFlow = builder.to_dataflow()
+    # Finally save the data flow so it can be used later
+    dataFlow = dataFlow.set_name(packageName)
+    packageToSave = dprep.Package(dataFlow)
+    packageToSave = packageToSave.save(packagePath + '/' + packageFile)
 
-for file in dirs:
-    fullFilePath = path + "/" + file
-    if fullFilePath.endswith(".csv") or fullFilePath.endswith(".csv"):
-        fileList.append(fullFilePath)
-        globals()[file] = dprep.read_csv(fullFilePath)
+#%%
+quarantinedDataFlow.head(10)
 
+#%% [markdown]
+# I'm struggling to find a method of filtering rows that have values in unanticipated columns - for example, the following does not work as I can't pass in the the `dataFlowColumns` list to the script block.
+#```
+# testdataFlow = dataFlow.new_script_filter("""
+# def includerow(row, dataFlowColumns):
+#    val = row[dataFlowColumns].isnull().any(index=None)
+#    return
+# """)
+# ```
+   
+#%%
+dataFlow.head(100)
+dataFlow.drop_nulls()
 
+#%%
+dataFlow.get_profile()
 
+#%% [markdown]
+#---
+## Stage 3 : Manipulate Part 2
+### PEOPLE
+# Let's take a look at the **PEOPLE.csv** file.
 
-fileList
 
 
 
@@ -108,12 +190,7 @@ else:
 #%%[markdown]
 #**ACTION** : need to come back to the approach to separating good out from quarnatined PEOPLE data to understand why row counts don't tally!
 #
-# Let's continue cleaning the good dataset. We have the custom string '<null'> representing our null value. Let's change that to `null`, along with any empty string in any of the columns:
-#%%
-goodPeopleDataColumns = list(goodPeopleData.get_profile().columns.keys())
-goodPeopleData = goodPeopleData.replace(goodPeopleDataColumns, '<null>', None)
-goodPeopleData = goodPeopleData.replace(goodPeopleDataColumns, '', None)
-goodPeopleData.head(5)
+
 
 #%% [markdown]
 # Now replace the CR/LF `\0d0a` string with a comma in the address, and replace empty values with an empty string:

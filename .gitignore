@@ -6,5 +6,11 @@
 # Data files results
 data/
 
+# Dataprep packages
+dataprep_pacakges/
+
 # Log files
 .log
+
+# Local settings for Visual Studio Code
+.vscode/settings.json
