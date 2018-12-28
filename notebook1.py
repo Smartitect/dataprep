@@ -1,5 +1,12 @@
+
+#%% [markdown]
+#---
+## Stage 1 : Ingest and Manipulate Part 1
+# So this is where we are 
+
 #%%
-from commonCode.py import *
+# Import common variables from 
+from commonVariables import *
 
 # Load in file names to be processed from the config.csv file
 dataFiles = dprep.read_csv('dataFiles.csv').to_pandas_dataframe()
@@ -22,12 +29,13 @@ dataFiles
 
 #%% [markdown]
 #---
-## Stage 1 + 2 : Ingest and Manipulate Part 1
+## Stage 1 : Ingest and Manipulate Part 1
 # Stepping through each file in the config.csv file to extract and do a basic clean up:
 # - Load the CSV data;
 # - Replace the custom string `<null>` representing a null and any other empty cells to a real `null`;
 # - Remove the first row;
 # - Quarantine rows (extract them and put them into a parallel data flow so that they can be fixed at a later stage) which have values in columns that are not listed in the header record;
+# - Drop any columns that we weren't expecting
 # - Try to detect data types in each column using **column types builder**
 # - Save the data flow that has been created for each file away so that it can be referenced and used later on
 

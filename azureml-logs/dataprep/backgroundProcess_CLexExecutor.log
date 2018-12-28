@@ -418,3 +418,51 @@
 2018-12-28 19:12:05.3946|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"b1709ec9-c095-4b07-8b83-2d74466a3871"}|e6e157e8-0ac7-11e9-be27-e982204aa8d5
 2018-12-28 19:12:05.5797|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"a7ec1be0-d32e-4c72-abe5-a080fc69111c"}|e6e157e8-0ac7-11e9-be27-e982204aa8d5
 2018-12-28 19:12:05.5797|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"a7ec1be0-d32e-4c72-abe5-a080fc69111c"}|e6e157e8-0ac7-11e9-be27-e982204aa8d5
+2018-12-28 19:31:38.2113|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"53cf858f-6dfb-493b-8bb7-fbd7ce640d72"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:31:38.2113|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"53cf858f-6dfb-493b-8bb7-fbd7ce640d72"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:12.2362|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"9108b9f2-6486-457a-8270-018f4a4f3b9a"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:12.2362|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"9108b9f2-6486-457a-8270-018f4a4f3b9a"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:12.4764|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"85f261a5-2895-48c4-82bb-b06acb59fc8d"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:12.4764|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"85f261a5-2895-48c4-82bb-b06acb59fc8d"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:18.2322|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"22391162-d671-4040-9cad-40a629f039bf"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:18.2322|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"22391162-d671-4040-9cad-40a629f039bf"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:20.1253|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"6152a489-c1f1-400c-9a6b-fee7e74d9685"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:20.1253|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"6152a489-c1f1-400c-9a6b-fee7e74d9685"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:25.2037|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"ce840d55-f5df-4a2b-84d2-797a5af88ead"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:25.2037|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"ce840d55-f5df-4a2b-84d2-797a5af88ead"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:26.3624|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"1b6a8c4e-9117-4aa5-94f8-1d5698fe9201"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:26.3624|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"1b6a8c4e-9117-4aa5-94f8-1d5698fe9201"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:30.6033|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"f687af1b-9b4c-499d-b45e-1ff0a01fbae3"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:30.6033|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"f687af1b-9b4c-499d-b45e-1ff0a01fbae3"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:31.0779|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"0d6ccdbf-b66a-438b-9d82-5d4be50c0942"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:31.0779|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"0d6ccdbf-b66a-438b-9d82-5d4be50c0942"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:35.7176|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"1da55866-be88-4080-b995-a155c6eb0d66"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:35.7176|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"1da55866-be88-4080-b995-a155c6eb0d66"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:36.5945|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"b2ece1ee-43b1-41d9-96ee-211fe2849e39"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:36.5945|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"b2ece1ee-43b1-41d9-96ee-211fe2849e39"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:40.8743|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"2a65ea88-6e04-4940-8081-83fe36bd670f"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:40.8743|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"2a65ea88-6e04-4940-8081-83fe36bd670f"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:41.7024|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"a6919abe-1501-459e-b0cf-efdf0fce4561"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:41.7024|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"a6919abe-1501-459e-b0cf-efdf0fce4561"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:46.1797|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"61c9c389-adb3-486e-9bc1-70bd9584d687"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:46.1797|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"61c9c389-adb3-486e-9bc1-70bd9584d687"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:47.4059|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"6693f9bd-5488-4cad-aeb3-cc23fa1e1421"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:47.4059|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"6693f9bd-5488-4cad-aeb3-cc23fa1e1421"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:51.3632|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"4563ddfe-41fd-4ff7-8d5d-0e0dacbb61f7"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:51.3632|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"4563ddfe-41fd-4ff7-8d5d-0e0dacbb61f7"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:52.2488|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"d995f849-d424-49ba-ab3b-9c096e828e7b"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:52.2488|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"d995f849-d424-49ba-ab3b-9c096e828e7b"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:55.9571|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"9ee42c54-e40a-41df-af1e-f362bf08c798"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:55.9571|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"9ee42c54-e40a-41df-af1e-f362bf08c798"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:56.9059|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"a83678f5-968c-497b-b0d8-e4cb86ee9f18"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:32:56.9059|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"a83678f5-968c-497b-b0d8-e4cb86ee9f18"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:33:00.9254|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"6b02004f-24a6-4c27-86ae-81036fafbf8b"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:33:00.9254|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"6b02004f-24a6-4c27-86ae-81036fafbf8b"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:33:01.9582|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"2cb793f8-c836-4099-9ae4-0c176e62e8c1"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:33:01.9582|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"2cb793f8-c836-4099-9ae4-0c176e62e8c1"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:33:02.5491|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"5b74d7c7-8188-4f72-9599-8ece3f181692"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:33:02.5491|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"5b74d7c7-8188-4f72-9599-8ece3f181692"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:33:06.3241|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"4dfa3ad2-9eea-4fe7-a7b5-cde917d8fc50"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:33:06.3241|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"4dfa3ad2-9eea-4fe7-a7b5-cde917d8fc50"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:33:07.5944|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|Start Execution|{"Id":"f60d1e5a-a871-49c5-8392-51d1a77f7b0d"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:33:07.5944|DEBUG|CLexExecutor|ExecuteLariatScriptAsync|End Execution (Success)|{"Id":"f60d1e5a-a871-49c5-8392-51d1a77f7b0d"}|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5

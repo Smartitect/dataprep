@@ -1,2 +1,4 @@
 DataName,FileName,RemoveNulls,PackageName
 People,PEOPLE.csv,TRUE,PEOPLE
+Members,MEMBERS.csv,TRUE,MEMBERS
+Service,SERVICE.csv,TRUE,SERVICE

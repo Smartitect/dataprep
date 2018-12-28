@@ -18,3 +18,5 @@
 2018-12-28 17:27:49.3264|DEBUG|EngineHost|Startup|MessageLoop initialized|e53463cc-0ac5-11e9-a369-e982204aa8d5
 2018-12-28 17:42:10.5754|DEBUG|EngineHost|Startup|MessageParser initialized|e6e157e8-0ac7-11e9-be27-e982204aa8d5
 2018-12-28 17:42:10.5965|DEBUG|EngineHost|Startup|MessageLoop initialized|e6e157e8-0ac7-11e9-be27-e982204aa8d5
+2018-12-28 19:31:37.2319|DEBUG|EngineHost|Startup|MessageParser initialized|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
+2018-12-28 19:31:37.2510|DEBUG|EngineHost|Startup|MessageLoop initialized|30d53ad4-0ad7-11e9-9ce7-e982204aa8d5
