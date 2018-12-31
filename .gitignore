@@ -6,11 +6,12 @@
 # Data files results
 data/
 
-# Dataprep packages
-dataprep_pacakges/
-
 # Log files
+azureml-logs/
 .log
+
+# Python cache
+__pycache__
 
 # Local settings for Visual Studio Code
 .vscode/settings.json
