@@ -18,8 +18,11 @@ dataPath = "./data"
 packagePath = "./packages"
 
 # Name of package file
-packageFile = "_package.dprep"
+packageFileSuffix = "_package.dprep"
 
 # Create a full path builder helper function for packages
-def createFullPackagePath(dataName, stage, qualityFlag):
-    return packagePath + '/' + dataName + '_' + stage + '_' + packageFile
+def savePackage(dataFlowToPackage, packageName, stage, qualityFlag):
+    dataFlowToPackage = dataFlowToPackage.set_name(packageName)
+    packageToSave = dprep.Package(dataFlowToPackage)
+    fullPackagePath = packagePath + '/' + packageName + '_' + stage + '_' + qualityFlag + packageFileSuffix
+    packageToSave = packageToSave.save(fullPackagePath)

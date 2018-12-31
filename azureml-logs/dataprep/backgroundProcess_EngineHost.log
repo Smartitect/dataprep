@@ -30,3 +30,5 @@
 2018-12-28 22:05:23.1233|DEBUG|EngineHost|Startup|MessageLoop initialized|abb47ff6-0aec-11e9-b5c2-e982204aa8d5
 2018-12-31 09:24:17.0912|DEBUG|EngineHost|Startup|MessageParser initialized|d7dfe050-0cdd-11e9-93ae-db9f785e2441
 2018-12-31 09:24:17.1172|DEBUG|EngineHost|Startup|MessageLoop initialized|d7dfe050-0cdd-11e9-93ae-db9f785e2441
+2018-12-31 09:30:53.1511|DEBUG|EngineHost|Startup|MessageParser initialized|c3ddaaa2-0cde-11e9-a481-db9f785e2441
+2018-12-31 09:30:53.1858|DEBUG|EngineHost|Startup|MessageLoop initialized|c3ddaaa2-0cde-11e9-a481-db9f785e2441

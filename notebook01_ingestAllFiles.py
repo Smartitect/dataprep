@@ -63,11 +63,9 @@ for index, row in dataFiles.iterrows():
         # Fork a new data flow with rows which have more that have data in the un-expected columns
         quarantinedDataFlow = dataFlow.drop_nulls(dataFlowColumns[columnCount:])
         print('{0}: created quarantined data with {1} rows'.format(dataName, quarantinedDataFlow.row_count))
-        fullPackgePath = createFullPackagePath(dataName, 1, 'B')
-        # print('{0}: saving package {1} to file {2}'.format(dataName, dataName, fullPackagePath))
-        dataFlow = dataFlow.set_name(dataName)
-        packageToSave = dprep.Package(quarantinedDataFlow)
-        packageToSave = packageToSave.save(fullPackagePath)
+        # Finally save the data flow so it can be used later
+        print('{0}: saving package to file'.format(dataName))
+        savePackage(dataFlow, dataName, '1', 'B')
     # Filter out the quarantined rows from the main data set
     # NOTE : can't figure out a better way of doign this for now - see note below...
     for columnToCheck in dataFlowColumns[columnCount:]:
@@ -85,12 +83,8 @@ for index, row in dataFiles.iterrows():
     builder.ambiguous_date_conversions_keep_month_day()
     dataFlow = builder.to_dataflow()
     # Finally save the data flow so it can be used later
-    fullPackgePath = createFullPackagePath(dataName, 1, 'A')
-    print('{0}: saving package {1} to file {2}'.format(dataName, dataName, fullPackagePath))
-    dataFlow = dataFlow.set_name(dataName)
-    packageToSave = dprep.Package(dataFlow)
-    packageToSave = packageToSave.save(fullPackagePath)
-    fullPackgePath = createFullPackagePath(dataName, 1, 'B')
+    print('{0}: saving package {1} to file'.format(dataName))
+    savePackage(dataFlow, dataName, '1', 'A')
 
 #%% [markdown]
 # ---
