@@ -25,14 +25,14 @@ The concept of quarantining data at each stage is adopted to remove data data th
 
 | Requirement | Achieved? | Notes |
 | --- | --- | --- |
-| Dealing with poor quality raw data (e.g. commas in address column skewing CSV import) | No |  |
+| Dealing with poor quality raw data (e.g. commas in address column skewing CSV import) | Partial | Offending rows pushed into quaratine.  Not figured out how to address this yet. |
 | Intelligent mapping to "canonical form"  | No |  |
 | Spotting anomalies in the data (e.g. date of birth defaults used "1/1/1971") | No |  |
 | Gender is not Male or Female / Incorrect Gender for members title | No |  |
 | Missing Invalid or Temporary NI Number | No |  |
-| Missing Addresses / Check for commas in members address / Missing postcodes | No |  |
+| Missing Addresses / Check for commas in members address / Missing postcodes | Partial | Cleaned up addresses. |
 | Date Joined Company is after Date Joined Scheme | No |  |
- Date of Birth is after Date Joined Scheme / Missing Invalid or known false Date of Birth | No |  |
+| Date of Birth is after Date Joined Scheme / Missing Invalid or known false Date of Birth | No |  |
 | Missing Scheme Retirement Date  | No |  |
 
 # Data reconciliation scenarios:
