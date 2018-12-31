@@ -1,21 +1,59 @@
 #%% [markdown]
 #---
 # # Stage 2 : Manipulate PEOPLE
-# Let's pick up with the **PEOPLE** package we prepared earlier.
+# Let's pick up with the **PEOPLE** package we prepared earlier in stage 1.
+
+# ## Common
+# So this is where we are trying to do all the common stuff to ingest all of the files.  Key is recognition that there are common patterns we can exploit across the files.
+# NOTE - still to figure out how to do this from a single file and import it successfully.
 
 #%%
-# Import common variables 
-from commonCode import *
+# Import all of the libraries we need to use...
+import pandas as pd
+import azureml.dataprep as dprep
+import seaborn as sns
+import os as os
+import re as re
+import collections
+from azureml.dataprep import value
+from azureml.dataprep import col
 from azureml.dataprep import Package
 
-fullPackagePath = packagePath + '/' + 'people' + packageFile
-packageToOpen = Package.open(fullPackagePath)
-peopleDataFlow = packageToOpen['PEOPLE']
+# Let's also set up global variables and common functions...
 
+# Path to the source data
+dataPath = "./data"
+
+# Path to the location where the dataprep packags that are created
+packagePath = "./packages"
+
+# Name of package file
+packageFileSuffix = "_package.dprep"
+
+# A helper function to create full package path
+def createFullPackagePath(packageName, stage, qualityFlag):
+    return packagePath + '/' + packageName + '_' + stage + '_' + qualityFlag + packageFileSuffix
+
+# A save package helper function
+def savePackage(dataFlowToPackage, packageName, stage, qualityFlag):
+    dataFlowToPackage = dataFlowToPackage.set_name(packageName)
+    packageToSave = dprep.Package(dataFlowToPackage)
+    fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
+    packageToSave = packageToSave.save(fullPackagePath)
+    return fullPackagePath
+
+# An open package helper function
+def openPackage(packageName, stage, qualityFlag):
+    fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
+    packageToOpen = Package.open(fullPackagePath)
+    dataFlow = packageToOpen[packageName]
+    return dataFlow
 
 #%% [markdown]
-# Inspect the top 100 rows:
+# Load the A class PEOPLE data from stage 1 and inspect the top 100 rows:
+
 #%%
+peopleDataFlow = openPackage('PEOPLE', '1', 'A')
 peopleDataFlow.head(100)
 
 #%% [markdown]
@@ -31,7 +69,7 @@ peopleDataFlow.get_profile()
 #%% [markdown]
 # Inspect the progile -so good things to see:
 # - No errors in any of the date columns having applied this type to the column
-# - No missing values for DOB : date of birth
+# - One missing value for DOB : date of birth
 # - Lots of missing values for DATEDIED which is intuitive
 # - Only 203 people with married date, doesn't seem right : MARRDATE
 #
@@ -50,7 +88,11 @@ peopleDataFlow = peopleDataFlow.to_long(['ID'])
 peopleDataFlow.get_profile().columns['SEX'].value_counts
 
 #%% [markdown]
-# Looks good all either an M or an F, no anomolies or missing values.
+# Looks good, apart from one record, all either an M or an F, no anomolies or missing values.
+# Let's quarantine the row which is missing this field:
+
+#%%
+quarantinedPeopleDataFlow = peopleDataFlow.filter(peopleDataFlow['SEX'] == None)
 
 #%% [markdown]
 # ## TITLE
@@ -132,27 +174,10 @@ peopleDataFlow = peopleDataFlow.replace('MSTA_grouped', '1', None)
 peopleDataFlow.get_profile().columns['MSTA_grouped'].value_counts
 
 
-#%% [markdown]
-# ## MEMBER
-# Let's take a look at the **MEMBERS.csv** file.
-# ### Ingest MEMBER
-#%%
-fullPackagePath = packagePath + '/' + 'members' + packageFile
-packageToOpen = Package.open(fullPackagePath)
-membersDataFlow = packageToOpen['MEMBERS']
-
-#%%
-membersDataFlow.head(100)
 
 #%% [markdown]
-# Commentary on data
+# ## Save PEOPLE data
+# Finally we'll save away what we've created so that it can be picked up later on in the process.
 #%%
-membersDataFlow.get_profile()
-
-#%% [markdown]
-# Commentary on profile
-
-#%%
-membersDataFlow = membersDataFlow.to_long(['PEOPLEID'])
-
-
+fullPackagePath = savePackage(peopleDataFlow, 'PEOPLE', '2', 'A')
+print('Saved package to file {0}'.format(fullPackagePath))

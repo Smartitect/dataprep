@@ -1,0 +1,1106 @@
+{
+  "schemaVersion": 63,
+  "id": "44baa0b6-ed71-4782-bca8-ad60c0201adc",
+  "activities": [
+    {
+      "id": "68477d7b-0b59-490e-a57c-ffd040b608f9",
+      "name": "PEOPLE",
+      "blocks": [
+        {
+          "id": "f8689cb2-75f9-49cf-9b3a-694edb719ea5",
+          "type": "Microsoft.DPrep.GetFilesBlock",
+          "arguments": {
+            "isArchive": false,
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "../data/PEOPLE.csv"
+                }
+              ]
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "644932f5-d504-46d1-b3e8-8d33b61eacf0",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "columnHeadersMode": 3,
+            "fileEncoding": 0,
+            "handleQuotedLineBreaks": false,
+            "preview": false,
+            "separator": ",",
+            "skipRows": 0,
+            "skipRowsMode": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "deba6e54-7df9-4aaf-8929-518b81f8576c",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Path"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "e4067fd7-5e26-4efd-b51a-e58cb5ac582f",
+          "type": "Microsoft.DPrep.ReplaceNaBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "ADDRESS",
+                  "AGECERT",
+                  "ARI",
+                  "DATEDIED",
+                  "DOB",
+                  "FORENAME",
+                  "GENEMAIL",
+                  "GENPHONE",
+                  "GENPOSTAL",
+                  "GENSMS",
+                  "GMPDATE",
+                  "ID",
+                  "INITIALS",
+                  "MARRCERT",
+                  "MARRDATE",
+                  "MEMNO",
+                  "MINRETIREMENTDATE",
+                  "MSTA",
+                  "NINO",
+                  "OTHERNO",
+                  "OVERSEAS",
+                  "PENSERYEARS",
+                  "POSTCODE",
+                  "PROTECTIONAMT",
+                  "PROTECTIONTYPE",
+                  "PROTECTPCENT",
+                  "PSFLAG",
+                  "PSPART",
+                  "QUOEMAIL",
+                  "QUOPHONE",
+                  "QUOPOSTAL",
+                  "QUOSMS",
+                  "REGCHECKED",
+                  "REGISTRATION",
+                  "SEX",
+                  "SPAD",
+                  "SURNAME",
+                  "TITLE",
+                  "Column39",
+                  "Column40",
+                  "Column41",
+                  "Column42",
+                  "Column43",
+                  "Column44"
+                ]
+              }
+            },
+            "customNaList": "<null>",
+            "useDefaultNaList": true,
+            "useEmptyStringAsNa": true,
+            "useNanAsNa": true
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "7d02f487-45dd-4b1b-9a10-b7f8f5f4be8a",
+          "type": "Microsoft.DPrep.SkipBlock",
+          "arguments": {
+            "count": 1
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "8d6497da-ded1-4ea4-9720-b13ac9b07770",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column39"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "c527f98c-553c-44ff-94da-7d062ec11d6f",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column39"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "8de65d5a-7b62-4557-9711-4a0d4b23a564",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column40"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "d87154fb-a70c-4162-abf5-5b4c1e555c3c",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column40"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "a4527cd9-1456-4bc6-974b-1be5e48c426c",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column41"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "c8a434c6-1bf6-42d1-810e-0839cbc1c3de",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column41"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "2db3d1d2-95cb-43e5-8881-e24786b518a2",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column42"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "d905ca92-7a8b-4cd8-8199-8edd0dd44319",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column42"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "8453595d-1d6b-4ba9-a700-e5a6e0e07b14",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column43"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "9fba125f-1228-4f64-9b05-4a51cd7d0c9f",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column43"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "595336c8-4f8e-4485-934d-eef5b8835b54",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column44"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "c8dd93bd-25c7-4e8c-8486-9802299b51c2",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column44"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "2605de22-8809-4b39-82ec-870a221f2d6e",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column39",
+                  "Column40",
+                  "Column41",
+                  "Column42",
+                  "Column43",
+                  "Column44"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "7e611649-e1b3-4174-bcb5-d390d7050a14",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "AGECERT"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "GENSMS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "ID"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MARRCERT"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "OVERSEAS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PROTECTIONAMT"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PROTECTIONTYPE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PROTECTPCENT"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PSFLAG"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PSPART"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "QUOEMAIL"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "QUOPHONE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "QUOPOSTAL"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "QUOSMS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "REGCHECKED"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "REGISTRATION"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "ARI"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "DATEDIED"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "FORENAME"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MARRDATE"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MEMNO"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MINRETIREMENTDATE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MSTA"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "NINO"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SPAD"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SURNAME"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "DOB"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "GENEMAIL"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "GENPHONE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "GENPOSTAL"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "GMPDATE"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PENSERYEARS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "POSTCODE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "TITLE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "ADDRESS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "INITIALS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "OTHERNO"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SEX"
+                  }
+                },
+                "typeProperty": 0
+              }
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "9c11c5c0-2a4f-4744-8d2b-1c0b6f218b5c",
+          "type": "Microsoft.DPrep.StrReplaceBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "ADDRESS"
+                ]
+              }
+            },
+            "matchEntireCellContents": false,
+            "replaceWith": ", ",
+            "useSpecialCharacters": false,
+            "valueToFind": "\\0d0a"
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "29d594d5-97ff-48db-a4b8-9ff907dae4c7",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "ADDRESS"
+                ]
+              }
+            },
+            "replaceWithType": 7,
+            "stringValueToFind": ", , , ",
+            "valueToFindType": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "ea8c8c55-7b11-446d-aed4-b110231b60ee",
+          "type": "Microsoft.DPrep.ToDateTimeBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "MINRETIREMENTDATE"
+                ]
+              }
+            },
+            "dateTimeFormats": [
+              "%d/%m/%Y"
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "45ce72a4-2566-42ce-8ce2-43de8e807c8a",
+          "type": "Microsoft.DPrep.ToLongBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "83c40217-32ed-4fbd-b26a-7cd013aaadeb",
+          "type": "Microsoft.DPrep.ClusterTextBlock",
+          "arguments": {
+            "addSimilarityScoreColumn": true,
+            "canonicalValueColumnName": "TITLE_grouped",
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "TITLE"
+              }
+            },
+            "groups": [
+              {
+                "canonicalValue": "Mrs",
+                "duplicates": [
+                  {
+                    "duplicateValue": "Mrs",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  },
+                  {
+                    "duplicateValue": "mrs",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  },
+                  {
+                    "duplicateValue": "Mrs.",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  }
+                ]
+              },
+              {
+                "canonicalValue": "Rev",
+                "duplicates": [
+                  {
+                    "duplicateValue": "Rev",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  },
+                  {
+                    "duplicateValue": "REV",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  }
+                ]
+              }
+            ],
+            "hasUserOverrides": false,
+            "similarityScoreColumnName": "TITLE_grouped_score",
+            "similarityThreshold": 0.9
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "a4c193d9-f259-4a67-ad20-1521d539906d",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "TITLE_grouped"
+                ]
+              }
+            },
+            "replaceWithType": 0,
+            "stringReplaceWith": "Sister",
+            "stringValueToFind": "Sist",
+            "valueToFindType": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "05d1b5bb-8a97-4b4b-a733-b3912ccaec3d",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "TITLE_grouped"
+                ]
+              }
+            },
+            "replaceWithType": 0,
+            "stringReplaceWith": "Sister",
+            "stringValueToFind": "Sis",
+            "valueToFindType": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "e9c1e201-1114-42cc-9e28-627cbdd2122b",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "TITLE_grouped"
+                ]
+              }
+            },
+            "replaceWithType": 7,
+            "stringValueToFind": "M",
+            "valueToFindType": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "4cdea38e-e382-4475-bd03-250204631488",
+          "type": "Microsoft.DPrep.ClusterTextBlock",
+          "arguments": {
+            "addSimilarityScoreColumn": true,
+            "canonicalValueColumnName": "MSTA_grouped",
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "MSTA"
+              }
+            },
+            "groups": [
+              {
+                "canonicalValue": "Separated",
+                "duplicates": [
+                  {
+                    "duplicateValue": "Separated",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  },
+                  {
+                    "duplicateValue": "Seperated",
+                    "similarityScore": 0.96428573131561279,
+                    "useForReplacement": true
+                  }
+                ]
+              }
+            ],
+            "hasUserOverrides": false,
+            "similarityScoreColumnName": "MSTA_grouped_score",
+            "similarityThreshold": 0.1
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "e0f92f16-500e-4fd7-8d9a-d26fee0738d9",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "MSTA_grouped"
+                ]
+              }
+            },
+            "replaceWithType": 7,
+            "stringValueToFind": "Unknown",
+            "valueToFindType": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "627817a7-6bc9-4099-94e1-23b0da933079",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "MSTA_grouped"
+                ]
+              }
+            },
+            "replaceWithType": 0,
+            "stringReplaceWith": "Widowed",
+            "stringValueToFind": "Widow/Wido",
+            "valueToFindType": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "6f739e1d-39b2-4f7f-97a7-d79af90c517d",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "MSTA_grouped"
+                ]
+              }
+            },
+            "replaceWithType": 7,
+            "stringValueToFind": "0",
+            "valueToFindType": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "7c452bd4-3aaf-4cb4-b9de-923f03addffe",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "MSTA_grouped"
+                ]
+              }
+            },
+            "replaceWithType": 0,
+            "stringReplaceWith": "Civil Partner",
+            "stringValueToFind": "Civil Part",
+            "valueToFindType": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "7bd2f814-75ee-4db0-958f-9363185b8764",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "MSTA_grouped"
+                ]
+              }
+            },
+            "replaceWithType": 7,
+            "stringValueToFind": "1",
+            "valueToFindType": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        }
+      ],
+      "inspectors": []
+    }
+  ],
+  "runConfigurations": []
+}

@@ -5,19 +5,21 @@ Proof of concept to assess how dataprep could be leveraged to support general da
 # Meta Process
 
 Plan is to adopt a structured approach using the notebook:
-1. Ingest - load each of the raw files from source repository;
-2. Manipulate Part 1 - manipulate each of the raw data as follows:
-    - Apply some basic cleaning of the data: for example remove redundant leading rows, make sure empty cells are set accordingly
-    - Apply the right data types: primary (ie string, datetime, number or boolean) and secondary (ie postcode, email address, national insurance number, sex)
-    - Profile the data: do some basic profiliing to identify records that are not fit to move to next stage
-    - Quarantine: shift any records that do not fit the minimum requirements into "quarantine" so that they can fixed and re-played through the process at a later stage
-3. Manipulate Part 2 - more sophisticated manipulation to join the data sets together and promote into canonical form;
-4. Analyse - apply the more sophisticated data quality and data reconciliation checks;
+1. Ingest - load each of the raw files from source repository and apply manipulation that is common to all files - such as:
+    - Removing redundant leading rows;
+    - Make sure empty cells are set to "None" correctly;
+    - Automatically detect and apply the right primary data types: ie string, datetime, number or boolean.
+2. Manipulate - apply more sophisticated manipulation tailored to each specific data file loaded based on profiling the data to address any anomalies;
+3. Join - join the data sets together;
+4. Map to Canonical Form - with all of the data assembled and joined, we can now map to a canonical form and apply generic data quality checks and analysis
+5. Analyse - apply the more sophisticated data quality and data reconciliation checks;
 5. Publish - publish the results:
     - Publish the output canonical data set, ready for import into operational platform;
     - Publish an audit report that includes all of the reconciliation checks;
     - Export the quarantied records that need to fixed (if any);
     - Publish a data quality report.
+
+The concept of quarantining data at each stage is adopted to remove data data that does not meet minimum data quality requirements from the core workflow.  But in each case these quarantined data sets are saved to a branched data flow to create an audit trail and on the basis that they may be able to be fixed through some more advanced processing logic and replayed through the process at a later stage.
 
 # Data quality scenarios:
 
