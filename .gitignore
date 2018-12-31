@@ -11,7 +11,7 @@ azureml-logs/
 .log
 
 # Python cache
-__pycache__
+.__pycache__/
 
 # Local settings for Visual Studio Code
-.vscode/settings.json
+.vscode/
