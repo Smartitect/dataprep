@@ -94,3 +94,9 @@ Install a 64bit version of Python from https://www.python.org/downloads/windows/
 Install VS Code and the Python Extension https://marketplace.visualstudio.com/items?itemName=ms-python.python
 
 Install the DataPrep SDK via `pip install --upgrade azureml-dataprep`
+
+Install the Jupyter notebooks extension for VS Code.
+
+Synch the GitHub repository locally.
+
+Drop the data files into a `./data` folder in the root location where all of the python files are located.
