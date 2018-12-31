@@ -81,6 +81,21 @@ joinedDataFlow = dprep.Dataflow.join(left_dataflow=peopleDataFlow,
 #%%
 joinedDataFlow.head(5)
 
+#%%
+joinedDataFlow.get_profile()
+
+#%% [markdown]
+# Just running a couple of checks now to see how well the join has worked:
+
+#%%
+print('PEOPLE row count = {0}'.format(peopleDataFlow.row_count))
+print('MEMBERS row count = {0}'.format(membersDataFlow.row_count))
+print('JOINED row count = {0}'.format(joinedDataFlow.row_count))
+
+#%%
+orphanedPeopleDataFlow = joinedDataFlow.filter(joinedDataFlow['MEMBER_PEOPLEID'] == None)
+orphanedPeopleDataFlow.head(20)
+
 #%% [markdown]
 # ## Save JOINED data
 # Finally save the JOINED data flow that comes out of stage 3 for consumption downstream

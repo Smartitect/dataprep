@@ -59,25 +59,39 @@ canonicalDataFlow = openPackage('JOINED', '3', 'A')
 #%% [markdown]
 # ## Date Checks
 
-# ### Check : Date Joined Company is after Date Joined Scheme
+# ### Check : Date Joined Scheme is after Date Joined Company
+# NOTE - it would be great if you could do this using an `dataflow.assert_value` call but it appears you can can't reference other columns as part of this.
 
 #%%
 canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test1',
                            prior_column='MEMBERS_DJS',
                            expression=canonicalDataFlow['MEMBERS_DJS'] > canonicalDataFlow['PEOPLE_DOB'])
 
+#%%
+canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test2',
+                           prior_column='Test1',
+                           expression=canonicalDataFlow['MEMBERS_DJS'] > canonicalDataFlow['MEMBERS_DJC'])
 
 #%%
-canonicalDataFlow = canonicalDataFlow.new_script_column(new_column_name='Test2', insert_after='Test1', script="""
+canonicalDataFlow = canonicalDataFlow.new_script_column(new_column_name='Test3', insert_after='Test2', script="""
 def newvalue(row):
-    return 'ERROR - DJS earlier than DJC'
+    if row['MEMBERS_DJS'] == None or row['MEMBERS_DJC'] == '':
+        return None
+    elif row['MEMBERS_DJS'] < row['MEMBERS_DJC']:
+        return "DJS gt DJC"
+    else:
+        return "DJC lte DJS"
 """)
 
 #%%
-canonicalDataFlow.get_profile()
+canonicalDataFlow.get_profile().columns['Test1'].value_counts
 
 #%%
-canonicalDataFlow.head(20)
+canonicalDataFlow.get_profile().columns['Test2'].value_counts
+
+#%%
+canonicalDataFlow.get_profile().columns['Test3'].value_counts
 
 #%% [markdown]
-# ### Check : Date of Birth is after Date Joined Scheme
+# Hmmm...
+# Interesting that the numbers don't quite tally between Test2 and Test3?
