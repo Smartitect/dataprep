@@ -94,4 +94,5 @@ canonicalDataFlow.get_profile().columns['Test3'].value_counts
 
 #%% [markdown]
 # Hmmm...
-# Interesting that the numbers don't quite tally between Test2 and Test3?
+# Interesting that the numbers don't quite tally between Test2 and Test3?  Needs further investigation.
+

@@ -142,25 +142,5 @@ for index, row in dataFiles.iterrows():
     fullPackagePath = savePackage(dataFlow, dataName, '1', 'A')
     print('{0}: saved package to {1}'.format(dataName, fullPackagePath))
 
-#%% [markdown]
-# ---
-# # Notes
-# ## Importing data from file
-# Struggling to use auto_read_file.
-# Also struggling to get the options working 
-# ```
-# memberData = dprep.read_csv(folderPath, skip_rows=1, inference_arguments=dprep.InferenceArguments(day_first=False))
-# ````
-# Unfortunately **skip_rows** leads to the header row being dropped and then the first row being promoted to a header row.
-# There is a **skip_mode** attirbute for **read_csv**, but struggling to find documentation for this.
-#
-# ## Filtering rows
-# I'm struggling to find a more elegant method of filtering rows that have values in unanticipated columns - for example, the following does not work as I can't pass in the the `dataFlowColumns` list to the script block.
-#```
-# testdataFlow = dataFlow.new_script_filter("""
-# def includerow(row, dataFlowColumns):
-#    val = row[dataFlowColumns].isnull().any(index=None)
-#    return
-# """)
-# ```
+
 

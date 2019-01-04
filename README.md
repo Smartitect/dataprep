@@ -42,8 +42,61 @@ The concept of quarantining data at each stage is adopted to remove data data th
 | Best practices for naming conventions | Partial | Through several iterations, have started to apply a logical meta model.|
 | Interacting dynamically with the graphical representation to see the subset of data either passing or failing tests. | No |   |
 
-## Validation agasint regular expressions
+## Observations so far
+### 1 - Importing data from file
+Struggling to use auto_read_file.  Also struggling to get the options working for other file reading functions:
+```
+memberData = dprep.read_csv(folderPath, skip_rows=1, inference_arguments=dprep.InferenceArguments(day_first=False))
+```
+Unfortunately **skip_rows** leads to the header row being dropped and then the first row being promoted to a header row.
+There is a **skip_mode** attirbute for **read_csv**, but struggling to find documentation for this.
 
+### 2 - Filtering rows
+I'm struggling to find a more elegant method of filtering rows that have values in unanticipated columns - for example, the following does not work as I can't pass in the the `dataFlowColumns` list to the script block.
+```
+testdataFlow = dataFlow.new_script_filter("""
+def includerow(row, dataFlowColumns):
+    val = row[dataFlowColumns].isnull().any(index=None)
+    return
+""")
+```
+
+## 3 - Branched filtering
+It would be great to send the rows are are filtered to a new data flow to make it more elegant to quarantine rows.
+This would avoid the need to write two sets of statements above to filter the rows with "too many columns" from the first class A dataset and then re-direct the rows with "too many columns" into a quarantined dataflow for future processing.
+
+## 4 - Fuzzy grouping not quite doing the job?
+Surprised that fuzzy grouping didn't do a better job with both the MSTA and TITLE columns of data.
+
+## 5 - Some kind of branch variation of filter?
+It would be really useful to run a variant of the filter function where some the rows of data thare are filtered out are sent to a new data flow that you could name.  This would allow you to easily "quarantine" rows of data and avoid rows of data being missed?
+
+## 6 - Join - better documentation and perhaps control over how the "join" function is actually working?
+Is it performing a inner or outer join?  Can we control this?
+For example, it would have be good to only join records from PEOPLE where there are matching records from MEMBERS?
+
+## 7 - Statistics from the join process?
+It would be good to get some feedback from the join process in terms of what it has been able to achieve in creating a successful join.
+
+## 8 - Canonical mapping
+No functionality exists to automate this task.  Could machine learning be used to analyse the target canonical form and suggest how the source could be mapped?  This would be really useful for trying to re-train existing models for example, as well as our specific use case here.
+
+## 9 - Use of assert
+This would be a killer capability if you could:
+- Assert based on matching to a regular expressions (this is supported elsewhere natively such as filtering columns, could it be added here?)
+- Assert based on comparing two columns in the data set (again, this is allowed in other functions such as new , so could it be added here?)
+The net result of the above, is that you would not need to add extra data quality columns.  Instead, you could build up layers of meta data and then write some simple filters based on that meta data to filter out the rows that have assert related errors against them.
+
+## 10 - More sophisticated filtering based on assert
+Some kind of more sophisticated report that would generate a series of data flows from a source data flow based on the assert codes on the named columns?
+This would be a great way of building up layers of errors based on applying assertions and then generating some kind of data structures at the end that be:
+- Fed into downstream processing
+- Have more sophisticated logic applied to them in order to clean them up
+- Used to generate detailed data quality reports
+
+---
+# More detailed requirements...
+## Validation agasint regular expressions
 UK Postcode: to be applied to the `PEOPLE.POSTCODE` column:
 
 ```regexp
