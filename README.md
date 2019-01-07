@@ -76,8 +76,9 @@ This would avoid the need to write two sets of statements : first set to first s
 ## 4 - Fuzzy grouping not quite doing the job?
 Surprised that fuzzy grouping didn't do a better job with both the MSTA and TITLE columns of data.  Are there other settings I could experiment, or are there ways to train the model over time based on our specific domain?
 
-## 5 - Join - better documentation and perhaps control over how the "join" function is actually working?
-Is it performing a inner or outer join?  Can we control this?
+## 5 - Join - not detecting / suggesting join, also better documentation and perhaps control over how the "join" function is actually working?
+Use of the join function is not auotmatically detecting / suggesting the join despite logical steps being taken to set up the two dataflows to enable this.
+Also it would be good to understand if the join fucntion is performing an inner or outer join?  Can we control this?
 For example, it would have be good to only join records from MEMBERS where there are matching records from PEOPLE, given that PEOPLE is the core record, and we have quarantined some of the original PEOPLE records.  So logically, there should be "orphaned" MEMBERS records.
 
 ## 6 - Statistics from the join process?
