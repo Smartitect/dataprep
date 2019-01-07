@@ -25,8 +25,8 @@ The concept of quarantining data at each stage is adopted to remove data data th
 
 | Requirement | Achieved? | Notes |
 | --- | --- | --- |
-| Dealing with poor quality raw data (e.g. commas in address column skewing CSV import) | Partial | Offending rows pushed into quaratine.  Not figured out how to address this yet.|
-| Intelligent mapping to "canonical form"  | No |  |
+| Dealing with poor quality raw data (e.g. commas in address column skewing CSV import) | Partial | Offending rows pushed into quaratine.  Not figured out how to address this yet. |
+| Intelligent mapping to "canonical form"  | No | See observation  |
 | Spotting anomalies in the data (e.g. date of birth defaults used "1/1/1971") | No |  |
 | Gender is not Male or Female / Incorrect Gender for members title (see below) | No |  |
 | Missing Invalid or Temporary NI Number | No |  |
@@ -44,12 +44,14 @@ The concept of quarantining data at each stage is adopted to remove data data th
 
 ## Observations so far
 ### 1 - Importing data from file
-Struggling to use auto_read_file.  Also struggling to get the options working for other file reading functions:
+Struggling to use auto_read_file successfully to read in these files : losing the column names.  It would also be good to get guidance on how to get the options working, for example:
 ```
 memberData = dprep.read_csv(folderPath, skip_rows=1, inference_arguments=dprep.InferenceArguments(day_first=False))
 ```
 Unfortunately **skip_rows** leads to the header row being dropped and then the first row being promoted to a header row.
 There is a **skip_mode** attirbute for **read_csv**, but struggling to find documentation for this.
+
+Ended up reading in the file using a basic form of **read_csv** and performing the other steps at a later stage - eg dropping leading row / detecting data types.
 
 ### 2 - Filtering rows
 I'm struggling to find a more elegant method of filtering rows that have values in unanticipated columns - for example, the following does not work as I can't pass in the the `dataFlowColumns` list to the script block.
@@ -61,34 +63,37 @@ def includerow(row, dataFlowColumns):
 """)
 ```
 
+Opted to using a weird mix of techniques to get what I needed:
+- Used **dataFlow.drop_nulls** to filter down to the rows that I wanted to quarantine;
+- Used **dataFlow.assert_value** and then a **dataFlow.filter(col(columnToCheck).is_error())** to filter out these rows.
+
+There is a real risk here that there will be a logical mismatch between these two techniques such that rows are duplicated or missed altogether.  Hence thew following idea...
+
 ## 3 - Branched filtering
 It would be great to send the rows are are filtered to a new data flow to make it more elegant to quarantine rows.
-This would avoid the need to write two sets of statements above to filter the rows with "too many columns" from the first class A dataset and then re-direct the rows with "too many columns" into a quarantined dataflow for future processing.
+This would avoid the need to write two sets of statements : first set to first set to filter out offending rows to create the clean "A" class  dataflow and then a second set of statements to capture the offending rows into a quarantined "B" class dataflow for seperate cleaning / fixing (with the iea of pushing them back through the "A" class process once this has been achived).
 
 ## 4 - Fuzzy grouping not quite doing the job?
-Surprised that fuzzy grouping didn't do a better job with both the MSTA and TITLE columns of data.
+Surprised that fuzzy grouping didn't do a better job with both the MSTA and TITLE columns of data.  Are there other settings I could experiment, or are there ways to train the model over time based on our specific domain?
 
-## 5 - Some kind of branch variation of filter?
-It would be really useful to run a variant of the filter function where some the rows of data thare are filtered out are sent to a new data flow that you could name.  This would allow you to easily "quarantine" rows of data and avoid rows of data being missed?
-
-## 6 - Join - better documentation and perhaps control over how the "join" function is actually working?
+## 5 - Join - better documentation and perhaps control over how the "join" function is actually working?
 Is it performing a inner or outer join?  Can we control this?
-For example, it would have be good to only join records from PEOPLE where there are matching records from MEMBERS?
+For example, it would have be good to only join records from MEMBERS where there are matching records from PEOPLE, given that PEOPLE is the core record, and we have quarantined some of the original PEOPLE records.  So logically, there should be "orphaned" MEMBERS records.
 
-## 7 - Statistics from the join process?
+## 6 - Statistics from the join process?
 It would be good to get some feedback from the join process in terms of what it has been able to achieve in creating a successful join.
 
-## 8 - Canonical mapping
+## 7 - Canonical mapping
 No functionality exists to automate this task.  Could machine learning be used to analyse the target canonical form and suggest how the source could be mapped?  This would be really useful for trying to re-train existing models for example, as well as our specific use case here.
 
-## 9 - Use of assert
+## 8 - Use of assert
 This would be a killer capability if you could:
-- Assert based on matching to a regular expressions (this is supported elsewhere natively such as filtering columns, could it be added here?)
-- Assert based on comparing two columns in the data set (again, this is allowed in other functions such as new , so could it be added here?)
+- Assert based on matching to a regular expressions (this is supported elsewhere natively such as filtering columns, could it be added here?);
+- Assert based on comparing two columns in the data set (again, this is allowed in other functions such as new , so could it be added here?);
 The net result of the above, is that you would not need to add extra data quality columns.  Instead, you could build up layers of meta data and then write some simple filters based on that meta data to filter out the rows that have assert related errors against them.
 
-## 10 - More sophisticated filtering based on assert
-Some kind of more sophisticated report that would generate a series of data flows from a source data flow based on the assert codes on the named columns?
+## 9 - More sophisticated filtering based on assert
+Some kind of more sophisticated report that would generate a series of data flows from a source data flow that has had a series of **assert_value** statements applied to it?
 This would be a great way of building up layers of errors based on applying assertions and then generating some kind of data structures at the end that be:
 - Fed into downstream processing
 - Have more sophisticated logic applied to them in order to clean them up
@@ -136,7 +141,6 @@ Create a recipe that returns members (i.e. `Surname`, `NINO` ) who have a record
 This recipe should be easily adaptable to be used against the `EXITREFUND` and `EXITRETIREMENT` datasets to be used with different `SSTA` values. These `SSTA` values are contained within the `LOOKUPS` dataset but are not easily identifiable by a specific `KeyObjectID` or relevant column header.  Hence we have specified the value 15 for deferreds to make life easier for the recipe above. It would be interesting to see if there is a way to link or define a subset of the `LOOKUPS` table or perform matching via machine learning.
 
 If Date of Birth is after Date Joined Scheme / Missing Invalid or known false Date of Birth:
-
 - New calculated column that flags when `PEOPLE.DOB` is greater than `MEMBERS.DJS` (see dataset join above)
 - Also, calculate number of days between `DOB` and `DJS` (where negative numbers would allow us to spot other potential issues)
 

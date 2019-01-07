@@ -112,7 +112,7 @@ for index, row in dataFiles.iterrows():
     # Quarantine rows which don't have values in the extra columns
     if columnCount != len(dataFlowColumns):
         # NOTE - this logic assumes that all unwanted columns are on the far right, this could be improved!
-        # Fork a new data flow with rows which have more that have data in the un-expected columns
+        # Fork a new data flow with rows that have data in the un-expected columns
         quarantinedDataFlow = dataFlow.drop_nulls(dataFlowColumns[columnCount:])
         print('{0}: created quarantined data with {1} rows'.format(dataName, quarantinedDataFlow.row_count))
         # Finally save the data flow so it can be used later
