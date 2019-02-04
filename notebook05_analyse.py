@@ -58,43 +58,93 @@ canonicalDataFlow = openPackage('JOINED', '3', 'A')
 
 #%% [markdown]
 # ## Date Checks
-
-# ### Check : Date Joined Scheme is after Date Joined Company
 # NOTE - it would be great if you could do this using an `dataflow.assert_value` call but it appears you can can't reference other columns as part of this.
-
 #%%
-canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test1',
+builder = canonicalDataFlow.builders.split_column_by_example(source_column="PEOPLE_DOB")
+builder.add_example(example=('1913-04-03', ['1913', '04', '03']))
+canonicalDataFlow = builder.to_dataflow()
+#%%
+canonicalDataFlow = canonicalDataFlow.rename_columns(column_pairs={
+    "PEOPLE_DOB_1": "PEOPLE_DOB_YEAR",
+    "PEOPLE_DOB_2": "PEOPLE_DOB_MONTH",
+    "PEOPLE_DOB_3": "PEOPLE_DOB_DAY"
+})                    
+#%%
+from azureml.dataprep import ReplacementsValue
+replacements = [
+    ReplacementsValue('Mrs', 'F'),
+    ReplacementsValue('Mr', 'M'),
+    ReplacementsValue('Miss', 'F'),
+    ReplacementsValue('Ms', 'F'),
+    ReplacementsValue('Dr', None),
+    ReplacementsValue('Rev', None),
+    ReplacementsValue('Sister', 'F'),
+    ReplacementsValue('Sir', 'M'),
+    ReplacementsValue('Prof', None),
+    ReplacementsValue('Doct', None),
+    ReplacementsValue('Fr', None),
+    ReplacementsValue('Dame', 'F')
+    ]
+canonicalDataFlow = canonicalDataFlow.map_column(column='PEOPLE_TITLE_grouped', 
+                                new_column_id='PEOPLE_TITLE_SEX',
+                                replacements=replacements)
+#%%
+canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test2_TitleSex',
                            prior_column='MEMBERS_DJS',
-                           expression=canonicalDataFlow['MEMBERS_DJS'] > canonicalDataFlow['PEOPLE_DOB'])
-
-#%%
-canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test2',
-                           prior_column='Test1',
                            expression=canonicalDataFlow['MEMBERS_DJS'] > canonicalDataFlow['MEMBERS_DJC'])
+#%%
+canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test3_DJSgtDJC',
+                           prior_column='Test2_TitleSex',
+                           expression=canonicalDataFlow['PEOPLE_TITLE_SEX'] == canonicalDataFlow['PEOPLE_SEX'])
 
 #%%
-canonicalDataFlow = canonicalDataFlow.new_script_column(new_column_name='Test3', insert_after='Test2', script="""
-def newvalue(row):
-    if row['MEMBERS_DJS'] == None or row['MEMBERS_DJC'] == '':
-        return None
-    elif row['MEMBERS_DJS'] < row['MEMBERS_DJC']:
-        return "DJS gt DJC"
-    else:
-        return "DJC lte DJS"
-""")
+canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test4_DJSgtDOB',
+                           prior_column='Test3_DJSgtDJC',
+                           expression=canonicalDataFlow['MEMBERS_DJS'] > canonicalDataFlow['PEOPLE_DOB'])
+#%%
+canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test5_MissingRetirementDate',
+                           prior_column='Test4_DJSgtDOB',
+                           expression=canonicalDataFlow['PEOPLE_MINRETIREMENTDATE'] != '' )
 
 #%%
-canonicalDataFlow.get_profile().columns['Test1'].value_counts
-
+#canonicalDataFlow = canonicalDataFlow.new_script_column(new_column_name='Test3', insert_after='Test2', script="""
+#def newvalue(row):
+#    if row['MEMBERS_DJS'] == None or row['MEMBERS_DJC'] == '':
+#        return None
+#    elif row['MEMBERS_DJS'] < row['MEMBERS_DJC']:
+#        return "DJS gt DJC"
+#    else:
+#        return "DJC lte DJS"
+#""")
 #%%
-canonicalDataFlow.get_profile().columns['Test2'].value_counts
-
-#%%
-canonicalDataFlow.get_profile().columns['Test3'].value_counts
+profile = canonicalDataFlow.get_profile()
 
 #%% [markdown]
-# Hmmm...
-# Interesting that the numbers don't quite tally between Test2 and Test3?  Needs further investigation.
-
+# ## Reporting on findings
+# ### TEST 1 : check distrbution of Date of Birth for anomalies
 #%%
-canonicalDataFlow.get_profile()
+profile.columns['PEOPLE_DOB_YEAR'].value_counts
+#%%
+profile.columns['PEOPLE_DOB_MONTH'].value_counts
+#%%
+profile.columns['PEOPLE_DOB_DAY'].value_counts
+#%% [markdown]
+# ### TEST 2 : Check that sex is consistent with title
+#%%
+profile.columns['Test2_TitleSex'].value_counts
+#%% [markdown]
+# ### TEST 3 : check Date Joined Scheme (DJS) is greater than Date Joined Company (DHC)
+#%%
+profile.columns['Test3_DJSgtDJC'].value_counts
+#%% [markdown]
+# ### TEST 4 : check Date Joined Scheme (DJS) is greater than Date of Birth (DOB)
+#%%
+profile.columns['Test4_DJSgtDOB'].value_counts
+#%% [markdown]
+# ### TEST 5 : Flag rows with missing retirement dates
+#%%
+profile.columns['Test5_MissingRetirementDate'].value_counts
+#%% [markdown]
+# Looking deeper into the above:
+#%%
+profile.columns['PEOPLE_MINRETIREMENTDATE'].value_counts

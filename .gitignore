@@ -16,3 +16,7 @@ azureml-logs/dataprep
 
 # Local settings for Visual Studio Code
 .vscode/
+
+# Local data prep packages
+pacakges/
+.dprep

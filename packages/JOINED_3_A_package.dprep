@@ -1,13 +1,13 @@
 {
   "schemaVersion": 63,
-  "id": "ddd49e28-97c0-463d-bb74-ec835f117588",
+  "id": "079f7ca4-d73f-4224-aabb-60336fdbb58b",
   "activities": [
     {
-      "id": "a1e0cff4-eee4-459d-9dbd-7873b22b67cb",
+      "id": "ffaad334-7b36-4b32-b8be-220fa04308b7",
       "name": "JOINED",
       "blocks": [
         {
-          "id": "b84bb2f1-6454-440c-b64a-cbd83c255aaf",
+          "id": "75a808d6-008f-4f95-b86d-632828b17729",
           "type": "TwoWayJoin",
           "arguments": {
             "joinKeyPairs": [
@@ -25,7 +25,7 @@
               "referencedStep": null,
               "anonymousSteps": [
                 {
-                  "id": "f8689cb2-75f9-49cf-9b3a-694edb719ea5",
+                  "id": "ca15cbdb-3576-43e4-ad4e-0f57f6cfe45b",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 0,
@@ -34,6 +34,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Expands the path specified by reading globs and files in folders and outputs one record per file found.",
                     "type": "Microsoft.DPrep.GetFilesBlock",
@@ -92,7 +93,7 @@
                                 "type": 1,
                                 "details": {
                                   "enumName": "ArchiveType",
-                                  "enumType": "Microsoft.DPrep.Engine.ArchiveType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                                  "enumType": "Microsoft.DPrep.Engine.ArchiveType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                                   "enumValues": [
                                     0
                                   ]
@@ -207,7 +208,7 @@
                               "type": 1,
                               "details": {
                                 "enumName": "ArchiveType",
-                                "enumType": "Microsoft.DPrep.Engine.ArchiveType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                                "enumType": "Microsoft.DPrep.Engine.ArchiveType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                                 "enumValues": [
                                   0
                                 ]
@@ -265,14 +266,14 @@
                       "target": 0,
                       "resourceDetails": [
                         {
-                          "path": "c:\\Users\\Barry\\Documents\\GitHub\\dataprep\\data\\PEOPLE.csv"
+                          "path": "c:\\Users\\bsmart\\Documents\\Github\\dataprep\\data\\PEOPLE.csv"
                         }
                       ]
                     }
                   }
                 },
                 {
-                  "id": "644932f5-d504-46d1-b3e8-8d33b61eacf0",
+                  "id": "334ff1fa-d80c-4d5a-8296-385d13c7bab9",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 0,
@@ -281,6 +282,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.ParseDelimitedBlock",
@@ -321,7 +323,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "PromoteHeadersMode",
-                            "enumType": "Microsoft.DPrep.Engine.PromoteHeadersMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.PromoteHeadersMode, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -411,7 +413,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FileEncoding",
-                            "enumType": "Microsoft.DPrep.Engine.FileEncoding, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FileEncoding, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -441,7 +443,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "SkipMode",
-                            "enumType": "Microsoft.DPrep.Engine.SkipMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.SkipMode, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -549,7 +551,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "PromoteHeadersMode",
-                          "enumType": "Microsoft.DPrep.Engine.PromoteHeadersMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.PromoteHeadersMode, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -639,7 +641,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FileEncoding",
-                          "enumType": "Microsoft.DPrep.Engine.FileEncoding, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FileEncoding, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -669,7 +671,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "SkipMode",
-                          "enumType": "Microsoft.DPrep.Engine.SkipMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.SkipMode, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -743,7 +745,7 @@
                   }
                 },
                 {
-                  "id": "deba6e54-7df9-4aaf-8929-518b81f8576c",
+                  "id": "ad7bc314-1152-44bc-bc2f-de69dcb5dd14",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 6,
@@ -753,6 +755,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Drops the specified columns.",
                     "type": "Microsoft.DPrep.DropColumnsBlock",
@@ -834,7 +837,7 @@
                   }
                 },
                 {
-                  "id": "e4067fd7-5e26-4efd-b51a-e58cb5ac582f",
+                  "id": "da829fba-1cad-4cf4-8fd6-f5ade717374d",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 3,
@@ -851,6 +854,7 @@
                       5
                     ],
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Replaces values in the specified columns with nulls. You can choose to use the default list, supply your own, or both.",
                     "type": "Microsoft.DPrep.ReplaceNaBlock",
@@ -1091,7 +1095,7 @@
                   }
                 },
                 {
-                  "id": "7d02f487-45dd-4b1b-9a10-b7f8f5f4be8a",
+                  "id": "6ac4c310-d516-411b-914b-2fa70d7333f4",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 5,
@@ -1100,6 +1104,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Skips the specified number of records.",
                     "type": "Microsoft.DPrep.SkipBlock",
@@ -1160,7 +1165,7 @@
                   }
                 },
                 {
-                  "id": "8d6497da-ded1-4ea4-9720-b13ac9b07770",
+                  "id": "51f8d136-1194-4ac2-a667-8447bb45fa07",
                   "description": {
                     "type": "Microsoft.DPrep.AssertValueStepDescription",
                     "propertyDescriptions": [
@@ -1206,7 +1211,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "AssertPolicy",
-                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -1288,7 +1293,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "AssertPolicy",
-                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -1334,7 +1339,7 @@
                   }
                 },
                 {
-                  "id": "c527f98c-553c-44ff-94da-7d062ec11d6f",
+                  "id": "d2aaea8d-2d0c-4e5d-915e-553dce2fd151",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 5,
@@ -1343,6 +1348,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.ExpressionFilterBlock",
@@ -1391,7 +1397,7 @@
                   }
                 },
                 {
-                  "id": "8de65d5a-7b62-4557-9711-4a0d4b23a564",
+                  "id": "5b9b7e64-96df-42f8-8d1e-e0f0f03de32e",
                   "description": {
                     "type": "Microsoft.DPrep.AssertValueStepDescription",
                     "propertyDescriptions": [
@@ -1437,7 +1443,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "AssertPolicy",
-                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -1519,7 +1525,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "AssertPolicy",
-                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -1565,7 +1571,7 @@
                   }
                 },
                 {
-                  "id": "d87154fb-a70c-4162-abf5-5b4c1e555c3c",
+                  "id": "f86695e2-fdaf-4c56-8e71-bcda93ebe7c9",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 5,
@@ -1574,6 +1580,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.ExpressionFilterBlock",
@@ -1622,7 +1629,7 @@
                   }
                 },
                 {
-                  "id": "a4527cd9-1456-4bc6-974b-1be5e48c426c",
+                  "id": "a91ee171-2b40-4226-a3e3-8176ebdc8bd9",
                   "description": {
                     "type": "Microsoft.DPrep.AssertValueStepDescription",
                     "propertyDescriptions": [
@@ -1668,7 +1675,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "AssertPolicy",
-                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -1750,7 +1757,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "AssertPolicy",
-                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -1796,7 +1803,7 @@
                   }
                 },
                 {
-                  "id": "c8a434c6-1bf6-42d1-810e-0839cbc1c3de",
+                  "id": "49f4b403-1f6e-4a7e-9c50-b8d7898ad234",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 5,
@@ -1805,6 +1812,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.ExpressionFilterBlock",
@@ -1853,7 +1861,7 @@
                   }
                 },
                 {
-                  "id": "2db3d1d2-95cb-43e5-8881-e24786b518a2",
+                  "id": "8b503b14-7431-409e-a70e-e7d0e1de45fd",
                   "description": {
                     "type": "Microsoft.DPrep.AssertValueStepDescription",
                     "propertyDescriptions": [
@@ -1899,7 +1907,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "AssertPolicy",
-                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -1981,7 +1989,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "AssertPolicy",
-                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -2027,7 +2035,7 @@
                   }
                 },
                 {
-                  "id": "d905ca92-7a8b-4cd8-8199-8edd0dd44319",
+                  "id": "c3591b1f-22e0-46de-922f-accf335cfbaf",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 5,
@@ -2036,6 +2044,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.ExpressionFilterBlock",
@@ -2084,7 +2093,7 @@
                   }
                 },
                 {
-                  "id": "8453595d-1d6b-4ba9-a700-e5a6e0e07b14",
+                  "id": "8beaef33-331b-4f47-980b-1c4164299b7b",
                   "description": {
                     "type": "Microsoft.DPrep.AssertValueStepDescription",
                     "propertyDescriptions": [
@@ -2130,7 +2139,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "AssertPolicy",
-                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -2212,7 +2221,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "AssertPolicy",
-                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -2258,7 +2267,7 @@
                   }
                 },
                 {
-                  "id": "9fba125f-1228-4f64-9b05-4a51cd7d0c9f",
+                  "id": "41ff23e9-1586-49ff-8dd3-90631dbde0ea",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 5,
@@ -2267,6 +2276,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.ExpressionFilterBlock",
@@ -2315,7 +2325,7 @@
                   }
                 },
                 {
-                  "id": "595336c8-4f8e-4485-934d-eef5b8835b54",
+                  "id": "ff0e16e7-ee8c-4f00-bdbe-a76df819a273",
                   "description": {
                     "type": "Microsoft.DPrep.AssertValueStepDescription",
                     "propertyDescriptions": [
@@ -2361,7 +2371,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "AssertPolicy",
-                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -2443,7 +2453,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "AssertPolicy",
-                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.AssertPolicy, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -2489,7 +2499,7 @@
                   }
                 },
                 {
-                  "id": "c8dd93bd-25c7-4e8c-8486-9802299b51c2",
+                  "id": "8e49bf89-6828-4584-9d33-f1f6a85d3296",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 5,
@@ -2498,6 +2508,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.ExpressionFilterBlock",
@@ -2546,7 +2557,7 @@
                   }
                 },
                 {
-                  "id": "2605de22-8809-4b39-82ec-870a221f2d6e",
+                  "id": "63f5f683-6609-452e-b4c8-3e6ae20a1b59",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 6,
@@ -2556,6 +2567,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Drops the specified columns.",
                     "type": "Microsoft.DPrep.DropColumnsBlock",
@@ -2642,7 +2654,7 @@
                   }
                 },
                 {
-                  "id": "7e611649-e1b3-4174-bcb5-d390d7050a14",
+                  "id": "6f0e569c-494d-40cc-9492-9ae98f5f10ae",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 7,
@@ -2651,6 +2663,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.SetColumnTypesBlock",
@@ -2690,7 +2703,7 @@
                                 "type": 1,
                                 "details": {
                                   "enumName": "FieldType",
-                                  "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                                  "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                                   "enumValues": [
                                     0,
                                     1,
@@ -2801,7 +2814,7 @@
                               "type": 1,
                               "details": {
                                 "enumName": "FieldType",
-                                "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                                "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                                 "enumValues": [
                                   0,
                                   1,
@@ -2877,6 +2890,33 @@
                             "selectedColumn": "AGECERT"
                           }
                         },
+                        "typeProperty": 1
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "GENEMAIL"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "GENPHONE"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "GENPOSTAL"
+                          }
+                        },
                         "typeProperty": 0
                       },
                       {
@@ -2884,6 +2924,47 @@
                           "type": 2,
                           "details": {
                             "selectedColumn": "GENSMS"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "GMPDATE"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "PENSERYEARS"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "POSTCODE"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "ADDRESS"
                           }
                         },
                         "typeProperty": 0
@@ -2901,7 +2982,7 @@
                         "column": {
                           "type": 2,
                           "details": {
-                            "selectedColumn": "MARRCERT"
+                            "selectedColumn": "INITIALS"
                           }
                         },
                         "typeProperty": 0
@@ -2910,10 +2991,151 @@
                         "column": {
                           "type": 2,
                           "details": {
-                            "selectedColumn": "OVERSEAS"
+                            "selectedColumn": "MARRDATE"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "MEMNO"
+                          }
+                        },
+                        "typeProperty": 3
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "MINRETIREMENTDATE"
                           }
                         },
                         "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "MSTA"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "OTHERNO"
+                          }
+                        },
+                        "typeProperty": 1
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "SURNAME"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "TITLE"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "DATEDIED"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "FORENAME"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "NINO"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "REGISTRATION"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "ARI"
+                          }
+                        },
+                        "typeProperty": 3
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "DOB"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "MARRCERT"
+                          }
+                        },
+                        "typeProperty": 1
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "OVERSEAS"
+                          }
+                        },
+                        "typeProperty": 1
                       },
                       {
                         "column": {
@@ -3003,95 +3225,13 @@
                             "selectedColumn": "REGCHECKED"
                           }
                         },
-                        "typeProperty": 0
+                        "typeProperty": 1
                       },
                       {
                         "column": {
                           "type": 2,
                           "details": {
-                            "selectedColumn": "REGISTRATION"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "ARI"
-                          }
-                        },
-                        "typeProperty": 3
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "DATEDIED"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "FORENAME"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "MARRDATE"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "MEMNO"
-                          }
-                        },
-                        "typeProperty": 3
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "MINRETIREMENTDATE"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "MSTA"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "NINO"
+                            "selectedColumn": "SEX"
                           }
                         },
                         "typeProperty": 0
@@ -3109,139 +3249,12 @@
                           ]
                         },
                         "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "SURNAME"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "DOB"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "GENEMAIL"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "GENPHONE"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "GENPOSTAL"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "GMPDATE"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "PENSERYEARS"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "POSTCODE"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "TITLE"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "ADDRESS"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "INITIALS"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "OTHERNO"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "SEX"
-                          }
-                        },
-                        "typeProperty": 0
                       }
                     ]
                   }
                 },
                 {
-                  "id": "9c11c5c0-2a4f-4744-8d2b-1c0b6f218b5c",
+                  "id": "1dbd46fc-f730-4a68-9284-77ebe6bfd17c",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 4,
@@ -3253,6 +3266,7 @@
                       0
                     ],
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": false,
                     "documentation": "Replaces values in a string column that match a search string with the specified value.",
                     "type": "Microsoft.DPrep.StrReplaceBlock",
@@ -3518,7 +3532,7 @@
                   }
                 },
                 {
-                  "id": "29d594d5-97ff-48db-a4b8-9ff907dae4c7",
+                  "id": "7ece85ad-9019-428b-b53c-d0a40a3e4ce2",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 4,
@@ -3528,6 +3542,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": false,
                     "documentation": "Replaces values in a column that match the specified search value.",
                     "type": "Microsoft.DPrep.ReplaceBlock",
@@ -3560,7 +3575,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -3664,7 +3679,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -3699,7 +3714,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -3803,7 +3818,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -3907,7 +3922,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -4011,7 +4026,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -4046,7 +4061,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -4150,7 +4165,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -4220,7 +4235,7 @@
                   }
                 },
                 {
-                  "id": "ea8c8c55-7b11-446d-aed4-b110231b60ee",
+                  "id": "00edcd7f-02b1-489f-872a-6cb02a1aaeb5",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 7,
@@ -4232,6 +4247,7 @@
                       0
                     ],
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Converts the values in the specified columns to DateTimes.",
                     "type": "Microsoft.DPrep.ToDateTimeBlock",
@@ -4382,7 +4398,7 @@
                   }
                 },
                 {
-                  "id": "45ce72a4-2566-42ce-8ce2-43de8e807c8a",
+                  "id": "f294fd63-a14c-4260-a88e-6cd72d187955",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 7,
@@ -4395,6 +4411,7 @@
                       0
                     ],
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Converts the values in the specified columns to 64 bit integers.",
                     "type": "Microsoft.DPrep.ToLongBlock",
@@ -4476,7 +4493,7 @@
                   }
                 },
                 {
-                  "id": "83c40217-32ed-4fbd-b26a-7cd013aaadeb",
+                  "id": "79153263-d1d8-42d6-8dc5-f1e51b935ee7",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 1,
@@ -4487,6 +4504,7 @@
                       0
                     ],
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.ClusterTextBlock",
@@ -4962,7 +4980,7 @@
                   }
                 },
                 {
-                  "id": "a4c193d9-f259-4a67-ad20-1521d539906d",
+                  "id": "d6b98959-d296-457b-b564-e931731f2424",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 4,
@@ -4972,6 +4990,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": false,
                     "documentation": "Replaces values in a column that match the specified search value.",
                     "type": "Microsoft.DPrep.ReplaceBlock",
@@ -5004,7 +5023,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -5108,7 +5127,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -5143,7 +5162,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -5247,7 +5266,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -5351,7 +5370,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -5455,7 +5474,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -5490,7 +5509,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -5594,7 +5613,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -5665,7 +5684,7 @@
                   }
                 },
                 {
-                  "id": "05d1b5bb-8a97-4b4b-a733-b3912ccaec3d",
+                  "id": "5f7d6afa-1d72-4dba-aec6-f9ddc879ab5f",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 4,
@@ -5675,6 +5694,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": false,
                     "documentation": "Replaces values in a column that match the specified search value.",
                     "type": "Microsoft.DPrep.ReplaceBlock",
@@ -5707,7 +5727,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -5811,7 +5831,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -5846,7 +5866,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -5950,7 +5970,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -6054,7 +6074,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -6158,7 +6178,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -6193,7 +6213,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -6297,7 +6317,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -6368,7 +6388,7 @@
                   }
                 },
                 {
-                  "id": "e9c1e201-1114-42cc-9e28-627cbdd2122b",
+                  "id": "c4e432d2-2065-424f-b896-4f8217bf2d29",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 4,
@@ -6378,6 +6398,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": false,
                     "documentation": "Replaces values in a column that match the specified search value.",
                     "type": "Microsoft.DPrep.ReplaceBlock",
@@ -6410,7 +6431,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -6514,7 +6535,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -6549,7 +6570,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -6653,7 +6674,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -6757,7 +6778,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -6861,7 +6882,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -6896,7 +6917,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -7000,7 +7021,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -7070,7 +7091,7 @@
                   }
                 },
                 {
-                  "id": "4cdea38e-e382-4475-bd03-250204631488",
+                  "id": "ced464c2-da9d-4c3e-9552-c53d36aa7122",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 1,
@@ -7081,6 +7102,7 @@
                       0
                     ],
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.ClusterTextBlock",
@@ -7536,7 +7558,7 @@
                   }
                 },
                 {
-                  "id": "e0f92f16-500e-4fd7-8d9a-d26fee0738d9",
+                  "id": "66755430-0df5-45e3-ba0d-9517f8a52597",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 4,
@@ -7546,6 +7568,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": false,
                     "documentation": "Replaces values in a column that match the specified search value.",
                     "type": "Microsoft.DPrep.ReplaceBlock",
@@ -7578,7 +7601,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -7682,7 +7705,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -7717,7 +7740,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -7821,7 +7844,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -7925,7 +7948,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -8029,7 +8052,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -8064,7 +8087,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -8168,7 +8191,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -8238,7 +8261,7 @@
                   }
                 },
                 {
-                  "id": "627817a7-6bc9-4099-94e1-23b0da933079",
+                  "id": "2294890b-8e6f-4a7b-9b30-ec149882fd67",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 4,
@@ -8248,6 +8271,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": false,
                     "documentation": "Replaces values in a column that match the specified search value.",
                     "type": "Microsoft.DPrep.ReplaceBlock",
@@ -8280,7 +8304,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -8384,7 +8408,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -8419,7 +8443,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -8523,7 +8547,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -8627,7 +8651,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -8731,7 +8755,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -8766,7 +8790,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -8870,7 +8894,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -8941,7 +8965,7 @@
                   }
                 },
                 {
-                  "id": "6f739e1d-39b2-4f7f-97a7-d79af90c517d",
+                  "id": "fa1cf64b-39e5-4f03-9388-dd242516ad53",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 4,
@@ -8951,6 +8975,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": false,
                     "documentation": "Replaces values in a column that match the specified search value.",
                     "type": "Microsoft.DPrep.ReplaceBlock",
@@ -8983,7 +9008,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -9087,7 +9112,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -9122,7 +9147,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -9226,7 +9251,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -9330,7 +9355,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -9434,7 +9459,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -9469,7 +9494,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -9573,7 +9598,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -9643,7 +9668,7 @@
                   }
                 },
                 {
-                  "id": "7c452bd4-3aaf-4cb4-b9de-923f03addffe",
+                  "id": "f44f8297-6078-4162-b8cf-13fd084ca372",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 4,
@@ -9653,6 +9678,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": false,
                     "documentation": "Replaces values in a column that match the specified search value.",
                     "type": "Microsoft.DPrep.ReplaceBlock",
@@ -9685,7 +9711,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -9789,7 +9815,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -9824,7 +9850,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -9928,7 +9954,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -10032,7 +10058,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -10136,7 +10162,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -10171,7 +10197,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -10275,7 +10301,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -10346,7 +10372,7 @@
                   }
                 },
                 {
-                  "id": "7bd2f814-75ee-4db0-958f-9363185b8764",
+                  "id": "7b42c183-4acd-41de-9b25-bb0481da503f",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 4,
@@ -10356,6 +10382,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": false,
                     "documentation": "Replaces values in a column that match the specified search value.",
                     "type": "Microsoft.DPrep.ReplaceBlock",
@@ -10388,7 +10415,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -10492,7 +10519,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -10527,7 +10554,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FieldType",
-                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -10631,7 +10658,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "ReplaceBoolValues",
-                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1
@@ -10735,7 +10762,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -10839,7 +10866,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -10874,7 +10901,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FieldType",
-                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -10978,7 +11005,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "ReplaceBoolValues",
-                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1
@@ -11058,7 +11085,7 @@
               "referencedStep": null,
               "anonymousSteps": [
                 {
-                  "id": "8fdec64c-854c-474f-a721-b105a145084a",
+                  "id": "95f2ac9e-9e77-465e-8b58-83e794707b5f",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 0,
@@ -11067,6 +11094,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Expands the path specified by reading globs and files in folders and outputs one record per file found.",
                     "type": "Microsoft.DPrep.GetFilesBlock",
@@ -11125,7 +11153,7 @@
                                 "type": 1,
                                 "details": {
                                   "enumName": "ArchiveType",
-                                  "enumType": "Microsoft.DPrep.Engine.ArchiveType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                                  "enumType": "Microsoft.DPrep.Engine.ArchiveType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                                   "enumValues": [
                                     0
                                   ]
@@ -11240,7 +11268,7 @@
                               "type": 1,
                               "details": {
                                 "enumName": "ArchiveType",
-                                "enumType": "Microsoft.DPrep.Engine.ArchiveType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                                "enumType": "Microsoft.DPrep.Engine.ArchiveType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                                 "enumValues": [
                                   0
                                 ]
@@ -11298,14 +11326,14 @@
                       "target": 0,
                       "resourceDetails": [
                         {
-                          "path": "c:\\Users\\Barry\\Documents\\GitHub\\dataprep\\data\\MEMBERS.csv"
+                          "path": "c:\\Users\\bsmart\\Documents\\Github\\dataprep\\data\\MEMBERS.csv"
                         }
                       ]
                     }
                   }
                 },
                 {
-                  "id": "24af1b0c-88ae-4aca-846b-f68a97a14317",
+                  "id": "9dab9edf-ac55-43cb-9646-a4e2809d6bed",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 0,
@@ -11314,6 +11342,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.ParseDelimitedBlock",
@@ -11354,7 +11383,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "PromoteHeadersMode",
-                            "enumType": "Microsoft.DPrep.Engine.PromoteHeadersMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.PromoteHeadersMode, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -11444,7 +11473,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "FileEncoding",
-                            "enumType": "Microsoft.DPrep.Engine.FileEncoding, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.FileEncoding, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -11474,7 +11503,7 @@
                           "type": 1,
                           "details": {
                             "enumName": "SkipMode",
-                            "enumType": "Microsoft.DPrep.Engine.SkipMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                            "enumType": "Microsoft.DPrep.Engine.SkipMode, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                             "enumValues": [
                               0,
                               1,
@@ -11582,7 +11611,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "PromoteHeadersMode",
-                          "enumType": "Microsoft.DPrep.Engine.PromoteHeadersMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.PromoteHeadersMode, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -11672,7 +11701,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "FileEncoding",
-                          "enumType": "Microsoft.DPrep.Engine.FileEncoding, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.FileEncoding, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -11702,7 +11731,7 @@
                         "type": 1,
                         "details": {
                           "enumName": "SkipMode",
-                          "enumType": "Microsoft.DPrep.Engine.SkipMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                          "enumType": "Microsoft.DPrep.Engine.SkipMode, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                           "enumValues": [
                             0,
                             1,
@@ -11776,7 +11805,7 @@
                   }
                 },
                 {
-                  "id": "478616e0-cc2f-4294-9f09-74420dc35fbf",
+                  "id": "7df2a998-48ed-4a49-8fe5-ada2937c93f5",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 6,
@@ -11786,6 +11815,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Drops the specified columns.",
                     "type": "Microsoft.DPrep.DropColumnsBlock",
@@ -11867,7 +11897,7 @@
                   }
                 },
                 {
-                  "id": "cbc64f0d-a1b5-4d4d-9545-592d30e41b72",
+                  "id": "6765d58f-da0d-4c60-9950-a57863f428a0",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 3,
@@ -11884,6 +11914,7 @@
                       5
                     ],
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Replaces values in the specified columns with nulls. You can choose to use the default list, supply your own, or both.",
                     "type": "Microsoft.DPrep.ReplaceNaBlock",
@@ -12152,7 +12183,7 @@
                   }
                 },
                 {
-                  "id": "3021503b-b9e0-4dde-91c0-490337a75148",
+                  "id": "5b90d5a4-941c-4373-8eb0-69abc226de69",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 5,
@@ -12161,6 +12192,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Skips the specified number of records.",
                     "type": "Microsoft.DPrep.SkipBlock",
@@ -12221,7 +12253,7 @@
                   }
                 },
                 {
-                  "id": "7d2ea541-8411-41df-bef7-702795b5d35f",
+                  "id": "384e63da-5016-4a3a-8b90-dacb940c0515",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 6,
@@ -12231,6 +12263,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Drops the specified columns.",
                     "type": "Microsoft.DPrep.DropColumnsBlock",
@@ -12310,7 +12343,7 @@
                   }
                 },
                 {
-                  "id": "fa5a74bf-8662-499c-8a3f-eff6ffcc11b1",
+                  "id": "5054b575-02a8-49d9-94f4-ac404f3f7ed9",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 7,
@@ -12319,6 +12352,7 @@
                     ],
                     "supportedFieldTypes": null,
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": null,
                     "type": "Microsoft.DPrep.SetColumnTypesBlock",
@@ -12358,7 +12392,7 @@
                                 "type": 1,
                                 "details": {
                                   "enumName": "FieldType",
-                                  "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                                  "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                                   "enumValues": [
                                     0,
                                     1,
@@ -12469,7 +12503,7 @@
                               "type": 1,
                               "details": {
                                 "enumName": "FieldType",
-                                "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29043, Culture=neutral, PublicKeyToken=null",
+                                "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1812.11043, Culture=neutral, PublicKeyToken=null",
                                 "enumValues": [
                                   0,
                                   1,
@@ -12542,19 +12576,24 @@
                         "column": {
                           "type": 2,
                           "details": {
-                            "selectedColumn": "CA"
+                            "selectedColumn": "CCLEFFDATE"
                           }
                         },
-                        "typeProperty": 3
+                        "typeProperty": 0
                       },
                       {
                         "column": {
                           "type": 2,
                           "details": {
-                            "selectedColumn": "COEGIND"
+                            "selectedColumn": "CEPDATE"
                           }
                         },
-                        "typeProperty": 3
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
                       },
                       {
                         "column": {
@@ -12569,34 +12608,21 @@
                         "column": {
                           "type": 2,
                           "details": {
-                            "selectedColumn": "DEPENDANTID"
+                            "selectedColumn": "DJS"
                           }
                         },
-                        "typeProperty": 3
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "DEPT"
-                          }
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
                         },
-                        "typeProperty": 0
+                        "typeProperty": 4
                       },
                       {
                         "column": {
                           "type": 2,
                           "details": {
                             "selectedColumn": "EDINITSKC"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "ELECTEDYEAR"
                           }
                         },
                         "typeProperty": 0
@@ -12635,13 +12661,413 @@
                             "selectedColumn": "PARTIALLEAVER"
                           }
                         },
-                        "typeProperty": 0
+                        "typeProperty": 1
                       },
                       {
                         "column": {
                           "type": 2,
                           "details": {
                             "selectedColumn": "PAYROLL"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "TPDATE"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "TPEFFDATE"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "TPNRMONTH"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "TPTAXYEAR"
+                          }
+                        },
+                        "typeProperty": 3
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "CA"
+                          }
+                        },
+                        "typeProperty": 3
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "CEP"
+                          }
+                        },
+                        "typeProperty": 3
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "COEGIND"
+                          }
+                        },
+                        "typeProperty": 3
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "COMP"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "DEPENDANTID"
+                          }
+                        },
+                        "typeProperty": 3
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "DEPT"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "DOELP"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "PENSIONNO"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "PEOPLEID"
+                          }
+                        },
+                        "typeProperty": 3
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "PERSNO"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "PHIMEM"
+                          }
+                        },
+                        "typeProperty": 1
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "PHISTATUS"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "SPARECHAR1"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "SPARECHAR2"
+                          }
+                        },
+                        "typeProperty": 1
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "SPAREDATE1"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "SPAREDATE2"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "SPAREDATE3"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "SPAREDATE4"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "DCE"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "DCSTA"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "DNOMS"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "DOL"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "ELECTEDYEAR"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "INITSKC"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "IRREGIME"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "IRYEAR"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "LAMULT"
+                          }
+                        },
+                        "typeProperty": 3
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "LATYPE"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "LRP"
+                          }
+                        },
+                        "typeProperty": 3
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "LRPDATE"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "MLI"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "NOMFORM"
+                          }
+                        },
+                        "typeProperty": 1
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "PINNO"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "PRFLAG"
+                          }
+                        },
+                        "typeProperty": 0
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "PSERVST"
+                          }
+                        },
+                        "typeArguments": {
+                          "dateTimeFormats": [
+                            "%d/%m/%Y"
+                          ]
+                        },
+                        "typeProperty": 4
+                      },
+                      {
+                        "column": {
+                          "type": 2,
+                          "details": {
+                            "selectedColumn": "RDIND"
                           }
                         },
                         "typeProperty": 0
@@ -12714,7 +13140,7 @@
                         "column": {
                           "type": 2,
                           "details": {
-                            "selectedColumn": "CCLEFFDATE"
+                            "selectedColumn": "AVMLI"
                           }
                         },
                         "typeProperty": 0
@@ -12723,35 +13149,25 @@
                         "column": {
                           "type": 2,
                           "details": {
-                            "selectedColumn": "CEPDATE"
+                            "selectedColumn": "BCAT"
                           }
                         },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
+                        "typeProperty": 0
                       },
                       {
                         "column": {
                           "type": 2,
                           "details": {
-                            "selectedColumn": "DCE"
+                            "selectedColumn": "DISINVEST"
                           }
                         },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
+                        "typeProperty": 3
                       },
                       {
                         "column": {
                           "type": 2,
                           "details": {
-                            "selectedColumn": "DJS"
+                            "selectedColumn": "DJC"
                           }
                         },
                         "typeArguments": {
@@ -12779,73 +13195,10 @@
                         "column": {
                           "type": 2,
                           "details": {
-                            "selectedColumn": "INITSKC"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "IRREGIME"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "IRYEAR"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "LAMULT"
-                          }
-                        },
-                        "typeProperty": 3
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "LATYPE"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
                             "selectedColumn": "LOC"
                           }
                         },
                         "typeProperty": 3
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "LRP"
-                          }
-                        },
-                        "typeProperty": 3
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "LRPDATE"
-                          }
-                        },
-                        "typeProperty": 0
                       },
                       {
                         "column": {
@@ -12864,15 +13217,6 @@
                           }
                         },
                         "typeProperty": 3
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "MLI"
-                          }
-                        },
-                        "typeProperty": 0
                       },
                       {
                         "column": {
@@ -12950,322 +13294,12 @@
                           }
                         },
                         "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "BCAT"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "DCSTA"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "DNOMS"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "DOL"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "NOMFORM"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "PHISTATUS"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "PINNO"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "PRFLAG"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "PSERVST"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "RDIND"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "AVMLI"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "CEP"
-                          }
-                        },
-                        "typeProperty": 3
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "COMP"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "DISINVEST"
-                          }
-                        },
-                        "typeProperty": 3
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "DJC"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "DOELP"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "PENSIONNO"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "PEOPLEID"
-                          }
-                        },
-                        "typeProperty": 3
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "PERSNO"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "PHIMEM"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "SPARECHAR1"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "SPARECHAR2"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "SPAREDATE1"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "SPAREDATE2"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "SPAREDATE3"
-                          }
-                        },
-                        "typeArguments": {
-                          "dateTimeFormats": [
-                            "%d/%m/%Y"
-                          ]
-                        },
-                        "typeProperty": 4
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "SPAREDATE4"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "TPDATE"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "TPEFFDATE"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "TPNRMONTH"
-                          }
-                        },
-                        "typeProperty": 0
-                      },
-                      {
-                        "column": {
-                          "type": 2,
-                          "details": {
-                            "selectedColumn": "TPTAXYEAR"
-                          }
-                        },
-                        "typeProperty": 3
                       }
                     ]
                   }
                 },
                 {
-                  "id": "7aacba64-43f2-42da-9c48-369ecf0a6410",
+                  "id": "35805a37-677f-4437-8892-4194cd5ada2a",
                   "description": {
                     "localDataProperties": [],
                     "blockGroup": 7,
@@ -13278,6 +13312,7 @@
                       0
                     ],
                     "supportedMessages": [],
+                    "requiresInitialization": false,
                     "allowDefaultAdd": true,
                     "documentation": "Converts the values in the specified columns to 64 bit integers.",
                     "type": "Microsoft.DPrep.ToLongBlock",

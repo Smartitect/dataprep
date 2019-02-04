@@ -1,13 +1,13 @@
 {
   "schemaVersion": 63,
-  "id": "d91a94ea-08f3-4234-a971-ef0e230ed2e0",
+  "id": "3d6f1156-8266-4441-a314-204c8b285577",
   "activities": [
     {
-      "id": "bec35308-8ff6-43ca-9e14-a12ae49827ee",
+      "id": "e9a6c93c-4579-4db6-a9a6-6c75332d8361",
       "name": "MEMBERS",
       "blocks": [
         {
-          "id": "60bbfe45-8d73-4d3e-922d-8e7073ed42fb",
+          "id": "95f2ac9e-9e77-465e-8b58-83e794707b5f",
           "type": "Microsoft.DPrep.GetFilesBlock",
           "arguments": {
             "isArchive": false,
@@ -26,7 +26,7 @@
           "annotation": null
         },
         {
-          "id": "c7194609-0111-4481-94ee-61a5d7bd7a13",
+          "id": "9dab9edf-ac55-43cb-9646-a4e2809d6bed",
           "type": "Microsoft.DPrep.ParseDelimitedBlock",
           "arguments": {
             "columnHeadersMode": 3,
@@ -43,7 +43,7 @@
           "annotation": null
         },
         {
-          "id": "aa4628c2-ef70-4584-b004-4b5f3126d4e8",
+          "id": "7df2a998-48ed-4a49-8fe5-ada2937c93f5",
           "type": "Microsoft.DPrep.DropColumnsBlock",
           "arguments": {
             "columns": {
@@ -61,7 +61,7 @@
           "annotation": null
         },
         {
-          "id": "14c6c88b-0fc8-4e75-a720-21e9ce2540d6",
+          "id": "6765d58f-da0d-4c60-9950-a57863f428a0",
           "type": "Microsoft.DPrep.ReplaceNaBlock",
           "arguments": {
             "columns": {
@@ -154,7 +154,7 @@
           "annotation": null
         },
         {
-          "id": "5c9bb8e1-f760-48c1-a285-a7ecc0e712ed",
+          "id": "5b90d5a4-941c-4373-8eb0-69abc226de69",
           "type": "Microsoft.DPrep.SkipBlock",
           "arguments": {
             "count": 1
@@ -165,7 +165,7 @@
           "annotation": null
         },
         {
-          "id": "0ba0978c-d22c-48f3-ba64-7776c92854c7",
+          "id": "384e63da-5016-4a3a-8b90-dacb940c0515",
           "type": "Microsoft.DPrep.DropColumnsBlock",
           "arguments": {
             "columns": {
@@ -181,19 +181,10 @@
           "annotation": null
         },
         {
-          "id": "f7ad453e-4908-4d01-88e8-a56bfff4f26a",
+          "id": "5054b575-02a8-49d9-94f4-ac404f3f7ed9",
           "type": "Microsoft.DPrep.SetColumnTypesBlock",
           "arguments": {
             "columnConversion": [
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "CA"
-                  }
-                },
-                "typeProperty": 3
-              },
               {
                 "column": {
                   "type": 2,
@@ -202,15 +193,6 @@
                   }
                 },
                 "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "CEP"
-                  }
-                },
-                "typeProperty": 3
               },
               {
                 "column": {
@@ -239,16 +221,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "DISINVEST"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "DJC"
+                    "selectedColumn": "DJS"
                   }
                 },
                 "typeArguments": {
@@ -262,21 +235,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "DOL"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "INITSKC"
+                    "selectedColumn": "EDINITSKC"
                   }
                 },
                 "typeProperty": 0
@@ -285,7 +244,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "IRREGIME"
+                    "selectedColumn": "FINREMUN"
                   }
                 },
                 "typeProperty": 0
@@ -294,7 +253,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "IRYEAR"
+                    "selectedColumn": "FMIND"
                   }
                 },
                 "typeProperty": 0
@@ -303,16 +262,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "LAMULT"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "LATYPE"
+                    "selectedColumn": "HCARE"
                   }
                 },
                 "typeProperty": 0
@@ -321,61 +271,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "LOC"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "LRP"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "LRPDATE"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "LTA"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "MEMNO"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "MLI"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "NOMFORM"
+                    "selectedColumn": "PARTIALLEAVER"
                   }
                 },
                 "typeProperty": 1
@@ -384,16 +280,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "REDUCEDANNUALALLOWANCE"
-                  }
-                },
-                "typeProperty": 1
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "RETBENDATE"
+                    "selectedColumn": "PAYROLL"
                   }
                 },
                 "typeProperty": 0
@@ -402,7 +289,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "RETCASH"
+                    "selectedColumn": "TPDATE"
                   }
                 },
                 "typeProperty": 0
@@ -411,7 +298,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "RETPEN"
+                    "selectedColumn": "TPEFFDATE"
                   }
                 },
                 "typeProperty": 0
@@ -420,7 +307,16 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "SECURITYLEVEL"
+                    "selectedColumn": "TPNRMONTH"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "TPTAXYEAR"
                   }
                 },
                 "typeProperty": 3
@@ -429,28 +325,19 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "SKEM"
+                    "selectedColumn": "CA"
                   }
                 },
-                "typeProperty": 0
+                "typeProperty": 3
               },
               {
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "SPARECHAR1"
+                    "selectedColumn": "CEP"
                   }
                 },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "SPARECHAR2"
-                  }
-                },
-                "typeProperty": 1
+                "typeProperty": 3
               },
               {
                 "column": {
@@ -465,15 +352,10 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "DCE"
+                    "selectedColumn": "COMP"
                   }
                 },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
+                "typeProperty": 0
               },
               {
                 "column": {
@@ -506,24 +388,6 @@
                   ]
                 },
                 "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "PARTIALDATE"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "PARTIALLEAVER"
-                  }
-                },
-                "typeProperty": 1
               },
               {
                 "column": {
@@ -569,6 +433,24 @@
                   }
                 },
                 "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SPARECHAR1"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SPARECHAR2"
+                  }
+                },
+                "typeProperty": 1
               },
               {
                 "column": {
@@ -620,52 +502,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "TPDATE"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "TPEFFDATE"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "TPNRMONTH"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "TPTAXYEAR"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "COMP"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "DJS"
+                    "selectedColumn": "DCE"
                   }
                 },
                 "typeArguments": {
@@ -679,10 +516,43 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "EDINITSKC"
+                    "selectedColumn": "DCSTA"
                   }
                 },
-                "typeProperty": 0
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "DNOMS"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "DOL"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
               },
               {
                 "column": {
@@ -697,7 +567,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "FINREMUN"
+                    "selectedColumn": "INITSKC"
                   }
                 },
                 "typeProperty": 0
@@ -706,7 +576,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "FMIND"
+                    "selectedColumn": "IRREGIME"
                   }
                 },
                 "typeProperty": 0
@@ -715,7 +585,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "HCARE"
+                    "selectedColumn": "IRYEAR"
                   }
                 },
                 "typeProperty": 0
@@ -724,7 +594,93 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "PAYROLL"
+                    "selectedColumn": "LAMULT"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "LATYPE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "LRP"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "LRPDATE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MLI"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "NOMFORM"
+                  }
+                },
+                "typeProperty": 1
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PINNO"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PRFLAG"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PSERVST"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "RDIND"
                   }
                 },
                 "typeProperty": 0
@@ -815,21 +771,16 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "DCSTA"
+                    "selectedColumn": "DISINVEST"
                   }
                 },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
+                "typeProperty": 3
               },
               {
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "DNOMS"
+                    "selectedColumn": "DJC"
                   }
                 },
                 "typeArguments": {
@@ -857,6 +808,33 @@
                 "column": {
                   "type": 2,
                   "details": {
+                    "selectedColumn": "LOC"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "LTA"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MEMNO"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
                     "selectedColumn": "NRD"
                   }
                 },
@@ -871,7 +849,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "PINNO"
+                    "selectedColumn": "PARTIALDATE"
                   }
                 },
                 "typeProperty": 0
@@ -880,7 +858,16 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "PRFLAG"
+                    "selectedColumn": "REDUCEDANNUALALLOWANCE"
+                  }
+                },
+                "typeProperty": 1
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "RETBENDATE"
                   }
                 },
                 "typeProperty": 0
@@ -889,21 +876,34 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "PSERVST"
+                    "selectedColumn": "RETCASH"
                   }
                 },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
+                "typeProperty": 0
               },
               {
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "RDIND"
+                    "selectedColumn": "RETPEN"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SECURITYLEVEL"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SKEM"
                   }
                 },
                 "typeProperty": 0
