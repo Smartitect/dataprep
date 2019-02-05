@@ -14,6 +14,7 @@ import seaborn as sns
 import os as os
 import re as re
 import collections
+import validators
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Package
@@ -107,6 +108,21 @@ canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test5_MissingR
                            expression=canonicalDataFlow['PEOPLE_MINRETIREMENTDATE'] != '' )
 
 #%%
+ninovalidator = validators.NinoValidator
+canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test6_MissingNINO',
+                           prior_column='Test5_MissingRetirementDate',
+                           expression=ninovalidator.isEmpty(canonicalDataFlow['PEOPLE_NINO']))
+
+#%%
+canonicalDataFlow = canonicalDataFlow.new_script_column(new_column_name='Test7_InValidNINO',
+                           insert_after='Test6_MissingNINO',
+                           script="""
+def newvalue(row):
+    if re.match("^(?!BG)(?!GB)(?!NK)(?!KN)(?!TN)(?!NT)(?!ZZ)(?:[A-CEGHJ-PR-TW-Z][A-CEGHJ-NPR-TW-Z])(?:\s*\d\s*){6}([A-D]|\s)$", str(row['PEOPLE_NINO'])):
+        return False
+""")
+
+#%%
 #canonicalDataFlow = canonicalDataFlow.new_script_column(new_column_name='Test3', insert_after='Test2', script="""
 #def newvalue(row):
 #    if row['MEMBERS_DJS'] == None or row['MEMBERS_DJC'] == '':
@@ -148,3 +164,10 @@ profile.columns['Test5_MissingRetirementDate'].value_counts
 # Looking deeper into the above:
 #%%
 profile.columns['PEOPLE_MINRETIREMENTDATE'].value_counts
+#%% [markdown]
+# ### TEST 6 : Missing NI Number
+profile.columns['Test6_MissingNINO'].value_counts
+#%% [markdown]
+# ### TEST 6 : Invalid NI Number
+profile.columns['Test7_InValidNINO'].value_counts
+

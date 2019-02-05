@@ -14,6 +14,7 @@ import seaborn as sns
 import os as os
 import re as re
 import collections
+import validators
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Package
