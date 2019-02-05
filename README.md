@@ -35,7 +35,7 @@ The concept of quarantining data at each stage is adopted to remove data data th
 | TEST 5 : Missing Scheme Retirement Date  | Yes | Used simple add_colum with expression. |
 | TEST 6 Missing NI Number | Yes |  |
 | TEST 7 Invalid NI Number | Yes |  |
-| Temporary NI Number | No |  |
+| TEST 8 Temporary NI Number | Yes |  |
 | Members annual pension should total sum of pension elements | No |  |
 | Members annual pension not divisible by 12 | No |   |
 | Repeating a recipe / looping to apply particular operations | Yes | See the stage 1 notebook, able to cycle through all files to apply common rules and save the "recipe" as a packaged up data flow that can be consumed downstream.|

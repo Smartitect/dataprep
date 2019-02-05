@@ -4,4 +4,5 @@ class NinoValidator:
     def isEmpty(nino):
         return nino == ''
     def isValid(nino):
-        return re.match("^(?!BG)(?!GB)(?!NK)(?!KN)(?!TN)(?!NT)(?!ZZ)(?:[A-CEGHJ-PR-TW-Z][A-CEGHJ-NPR-TW-Z])(?:\s*\d\s*){6}([A-D]|\s)$", str(nino))
+        # http://www.regexlib.com/REDetails.aspx?regexp_id=527
+        return re.match("^[ABCEGHJKLMNOPRSTWXYZabceghjklmnoprstwxyz][ABCEGHJKLMNPRSTWXYZabceghjklmnprstwxyz][0-9]{6}[A-D\sa-d]{0,1}$", str(nino))

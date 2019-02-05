@@ -118,8 +118,17 @@ canonicalDataFlow = canonicalDataFlow.new_script_column(new_column_name='Test7_I
                            insert_after='Test6_MissingNINO',
                            script="""
 def newvalue(row):
-    if re.match("^(?!BG)(?!GB)(?!NK)(?!KN)(?!TN)(?!NT)(?!ZZ)(?:[A-CEGHJ-PR-TW-Z][A-CEGHJ-NPR-TW-Z])(?:\s*\d\s*){6}([A-D]|\s)$", str(row['PEOPLE_NINO'])):
+    if re.match("^[ABCEGHJKLMNOPRSTWXYZabceghjklmnoprstwxyz][ABCEGHJKLMNPRSTWXYZabceghjklmnprstwxyz][0-9]{6}[A-D\sa-d]{0,1}$", str(row['PEOPLE_NINO'])):
         return False
+""")
+
+#%%
+canonicalDataFlow = canonicalDataFlow.new_script_column(new_column_name='Test8_TemporaryValidNINO',
+                           insert_after='Test7_InValidNINO',
+                           script="""
+def newvalue(row):
+    if re.match("^[ABCEGHJKLMNOPRSTWXYZabceghjklmnoprstwxyz][ABCEGHJKLMNPRSTWXYZabceghjklmnprstwxyz][0-9]{6}[A-D\sa-d]{0,1}$", str(row['PEOPLE_NINO'])) and str(row['PEOPLE_NINO']).startswith('TN'):
+        return True
 """)
 
 #%%
@@ -170,4 +179,7 @@ profile.columns['Test6_MissingNINO'].value_counts
 #%% [markdown]
 # ### TEST 6 : Invalid NI Number
 profile.columns['Test7_InValidNINO'].value_counts
+#%% [markdown]
+# ### TEST 7 : Temporary NI Number
+profile.columns['Test8_TemporaryValidNINO'].value_counts
 
