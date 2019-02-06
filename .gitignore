@@ -20,3 +20,5 @@ azureml-logs/dataprep
 # Local data prep packages
 pacakges/
 .dprep
+packages/
+__pycache__/
