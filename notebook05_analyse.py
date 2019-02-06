@@ -68,7 +68,10 @@ canonicalDataFlow = canonicalDataFlow.rename_columns(column_pairs={
     "PEOPLE_DOB_1": "PEOPLE_DOB_YEAR",
     "PEOPLE_DOB_2": "PEOPLE_DOB_MONTH",
     "PEOPLE_DOB_3": "PEOPLE_DOB_DAY"
-})                    
+})   
+
+peopleDataFlow = canonicalDataFlow.to_long(columns=['PEOPLE_DOB_YEAR', 'PEOPLE_DOB_MONTH', 'PEOPLE_DOB_DAY'])
+
 #%%
 from azureml.dataprep import ReplacementsValue
 replacements = [
@@ -91,21 +94,26 @@ canonicalDataFlow = canonicalDataFlow.map_column(column='PEOPLE_TITLE_grouped',
 #%%
 canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test2_TitleSex',
                            prior_column='MEMBERS_DJS',
-                           expression=canonicalDataFlow['MEMBERS_DJS'] > canonicalDataFlow['MEMBERS_DJC'])
+                           expression=(canonicalDataFlow['PEOPLE_TITLE_SEX'] == canonicalDataFlow['PEOPLE_SEX']))
 #%%
 canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test3_DJSgtDJC',
                            prior_column='Test2_TitleSex',
-                           expression=canonicalDataFlow['PEOPLE_TITLE_SEX'] == canonicalDataFlow['PEOPLE_SEX'])
-
+                           expression=(canonicalDataFlow['MEMBERS_DJS'] > canonicalDataFlow['MEMBERS_DJC']))
 #%%
 canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test4_DJSgtDOB',
                            prior_column='Test3_DJSgtDJC',
-                           expression=canonicalDataFlow['MEMBERS_DJS'] > canonicalDataFlow['PEOPLE_DOB'])
+                           expression=(canonicalDataFlow['MEMBERS_DJS'] > canonicalDataFlow['PEOPLE_DOB']))
 #%%
 canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='Test5_MissingRetirementDate',
                            prior_column='Test4_DJSgtDOB',
-                           expression=canonicalDataFlow['PEOPLE_MINRETIREMENTDATE'] != '' )
-
+                           expression=(canonicalDataFlow['PEOPLE_MINRETIREMENTDATE'] != '' ))
+#%%
+canonicalDataFlow = canonicalDataFlow.add_column(new_column_name='TestFinal_RollUpAllTests',
+                           prior_column='Test5_MissingRetirementDate',
+                           expression=(canonicalDataFlow['Test2_TitleSex'] & 
+                           canonicalDataFlow['Test3_DJSgtDJC'] &
+                           canonicalDataFlow['Test4_DJSgtDOB'] &
+                           canonicalDataFlow['Test5_MissingRetirementDate']))
 #%%
 #canonicalDataFlow = canonicalDataFlow.new_script_column(new_column_name='Test3', insert_after='Test2', script="""
 #def newvalue(row):
@@ -148,3 +156,14 @@ profile.columns['Test5_MissingRetirementDate'].value_counts
 # Looking deeper into the above:
 #%%
 profile.columns['PEOPLE_MINRETIREMENTDATE'].value_counts
+#%% [markdown]
+# ### FINAL TEST : Flag rows that fail all tests above:
+#%%
+profile.columns['TestFinal_RollUpAllTests'].value_counts
+#%%
+fullPackagePath = savePackage(canonicalDataFlow, 'ANALYSED', '5', 'A')
+print('Saved package to file {0}'.format(fullPackagePath))
+
+#%%
+dflow_write = canonicalDataFlow.write_to_csv(directory_path=dprep.LocalFileOutput('./output/'))
+dflow_write.run_local()

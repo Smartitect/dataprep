@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 63,
+  "id": "e43a42f7-a6c0-4b84-92ca-29e603e9cf90",
+  "activities": [
+    {
+      "id": "727c7cf7-cf1c-41c7-ab2b-86aff8b3d5f1",
+      "name": "PEOPLE",
+      "blocks": [
+        {
+          "id": "569381d2-1272-4e02-9819-abe22f4644c3",
+          "type": "Microsoft.DPrep.GetFilesBlock",
+          "arguments": {
+            "isArchive": false,
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "../data/PEOPLE.csv"
+                }
+              ]
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "f4215c96-f6d7-4e55-b688-67ff3ecddcd7",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "columnHeadersMode": 3,
+            "fileEncoding": 0,
+            "handleQuotedLineBreaks": false,
+            "preview": false,
+            "separator": ",",
+            "skipRows": 0,
+            "skipRowsMode": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "e996bfd1-2f83-45c3-bc36-467927f08eba",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Path"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "9f0adfe9-4412-43c0-8c2b-426fd0c196a4",
+          "type": "Microsoft.DPrep.ReplaceNaBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "ADDRESS",
+                  "AGECERT",
+                  "ARI",
+                  "DATEDIED",
+                  "DOB",
+                  "FORENAME",
+                  "GENEMAIL",
+                  "GENPHONE",
+                  "GENPOSTAL",
+                  "GENSMS",
+                  "GMPDATE",
+                  "ID",
+                  "INITIALS",
+                  "MARRCERT",
+                  "MARRDATE",
+                  "MEMNO",
+                  "MINRETIREMENTDATE",
+                  "MSTA",
+                  "NINO",
+                  "OTHERNO",
+                  "OVERSEAS",
+                  "PENSERYEARS",
+                  "POSTCODE",
+                  "PROTECTIONAMT",
+                  "PROTECTIONTYPE",
+                  "PROTECTPCENT",
+                  "PSFLAG",
+                  "PSPART",
+                  "QUOEMAIL",
+                  "QUOPHONE",
+                  "QUOPOSTAL",
+                  "QUOSMS",
+                  "REGCHECKED",
+                  "REGISTRATION",
+                  "SEX",
+                  "SPAD",
+                  "SURNAME",
+                  "TITLE",
+                  "Column39",
+                  "Column40",
+                  "Column41",
+                  "Column42",
+                  "Column43",
+                  "Column44"
+                ]
+              }
+            },
+            "customNaList": "<null>",
+            "useDefaultNaList": true,
+            "useEmptyStringAsNa": true,
+            "useNanAsNa": true
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "74a5267c-83b5-4168-aa69-f51f947ee13d",
+          "type": "Microsoft.DPrep.SkipBlock",
+          "arguments": {
+            "count": 1
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        }
+      ],
+      "inspectors": []
+    }
+  ],
+  "runConfigurations": []
+}

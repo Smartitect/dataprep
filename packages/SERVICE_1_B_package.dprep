@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 63,
+  "id": "97d6d4da-187f-4bbd-93b0-1c73a07d54c5",
+  "activities": [
+    {
+      "id": "fe0fb8b8-2109-489a-b15d-7cbd5da73f15",
+      "name": "SERVICE",
+      "blocks": [
+        {
+          "id": "cfb821c7-1006-47a8-b29e-9777cc14d251",
+          "type": "Microsoft.DPrep.GetFilesBlock",
+          "arguments": {
+            "isArchive": false,
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "../data/SERVICE.csv"
+                }
+              ]
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "9b0f6b43-9615-4bbb-b085-ccf8268cd0ff",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "columnHeadersMode": 3,
+            "fileEncoding": 0,
+            "handleQuotedLineBreaks": false,
+            "preview": false,
+            "separator": ",",
+            "skipRows": 0,
+            "skipRowsMode": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "764e7e4c-a58f-44d6-a89d-891d78089ba2",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Path"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "48600cd3-a128-43bd-af6f-0fad72fe48df",
+          "type": "Microsoft.DPrep.ReplaceNaBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "ABADJUSTED",
+                  "ABFUND",
+                  "ABHOURPW",
+                  "ABHRSINWW",
+                  "ABSEND",
+                  "ABSERFLAG",
+                  "ABSERPER",
+                  "ABSERTYPE",
+                  "ABSOURCE",
+                  "ABSSTART",
+                  "ABSTAT",
+                  "ABSTATED",
+                  "ABTYPE",
+                  "AWHOURSYTD",
+                  "AWINDICATOR",
+                  "DERIVEDHOURSYTD",
+                  "MEMNO",
+                  "PENSIONPCENT",
+                  "POST05PENSION",
+                  "POST97PENSION",
+                  "PRE97PENSION",
+                  "REASONTYPE",
+                  "SERVICEID",
+                  "SERVICEPCENT",
+                  "Column25"
+                ]
+              }
+            },
+            "customNaList": "<null>",
+            "useDefaultNaList": true,
+            "useEmptyStringAsNa": true,
+            "useNanAsNa": true
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "376e282b-cacb-4690-834b-be312f46d765",
+          "type": "Microsoft.DPrep.SkipBlock",
+          "arguments": {
+            "count": 1
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        }
+      ],
+      "inspectors": []
+    }
+  ],
+  "runConfigurations": []
+}

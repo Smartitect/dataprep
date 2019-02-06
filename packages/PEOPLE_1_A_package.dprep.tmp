@@ -1,0 +1,883 @@
+{
+  "schemaVersion": 63,
+  "id": "f72ce26b-02b1-4827-9bb2-4a4c3e951844",
+  "activities": [
+    {
+      "id": "987a2db4-0902-4ce0-bb6d-6f3adf0c0c17",
+      "name": "PEOPLE",
+      "blocks": [
+        {
+          "id": "569381d2-1272-4e02-9819-abe22f4644c3",
+          "type": "Microsoft.DPrep.GetFilesBlock",
+          "arguments": {
+            "isArchive": false,
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "../data/PEOPLE.csv"
+                }
+              ]
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "f4215c96-f6d7-4e55-b688-67ff3ecddcd7",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "columnHeadersMode": 3,
+            "fileEncoding": 0,
+            "handleQuotedLineBreaks": false,
+            "preview": false,
+            "separator": ",",
+            "skipRows": 0,
+            "skipRowsMode": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "e996bfd1-2f83-45c3-bc36-467927f08eba",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Path"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "9f0adfe9-4412-43c0-8c2b-426fd0c196a4",
+          "type": "Microsoft.DPrep.ReplaceNaBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "ADDRESS",
+                  "AGECERT",
+                  "ARI",
+                  "DATEDIED",
+                  "DOB",
+                  "FORENAME",
+                  "GENEMAIL",
+                  "GENPHONE",
+                  "GENPOSTAL",
+                  "GENSMS",
+                  "GMPDATE",
+                  "ID",
+                  "INITIALS",
+                  "MARRCERT",
+                  "MARRDATE",
+                  "MEMNO",
+                  "MINRETIREMENTDATE",
+                  "MSTA",
+                  "NINO",
+                  "OTHERNO",
+                  "OVERSEAS",
+                  "PENSERYEARS",
+                  "POSTCODE",
+                  "PROTECTIONAMT",
+                  "PROTECTIONTYPE",
+                  "PROTECTPCENT",
+                  "PSFLAG",
+                  "PSPART",
+                  "QUOEMAIL",
+                  "QUOPHONE",
+                  "QUOPOSTAL",
+                  "QUOSMS",
+                  "REGCHECKED",
+                  "REGISTRATION",
+                  "SEX",
+                  "SPAD",
+                  "SURNAME",
+                  "TITLE",
+                  "Column39",
+                  "Column40",
+                  "Column41",
+                  "Column42",
+                  "Column43",
+                  "Column44"
+                ]
+              }
+            },
+            "customNaList": "<null>",
+            "useDefaultNaList": true,
+            "useEmptyStringAsNa": true,
+            "useNanAsNa": true
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "74a5267c-83b5-4168-aa69-f51f947ee13d",
+          "type": "Microsoft.DPrep.SkipBlock",
+          "arguments": {
+            "count": 1
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "c8610217-59fc-4d30-b278-418338b77769",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column39"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "c7517edc-abc0-4ee0-8c7d-2883f7f2828c",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column39"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "d098f207-2eea-423d-aed3-6ef9bfffdaba",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column40"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "e2432b3c-929e-4d77-a536-a0414dce1b3b",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column40"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "3838132c-4c95-409c-8aa6-dd794ab2f8a2",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column41"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "50c5d477-ea10-45e3-b915-2b8a1a10d3bd",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column41"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "a74f8fc6-38f1-4ad8-8ef0-b3ddd8fb0a2e",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column42"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "c324cf21-13f0-4e38-8522-7cdd6c4063b7",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column42"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "fa55b142-0839-4b84-afaf-7071eec34f78",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column43"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "1ed3123f-adca-443c-a247-998d8ce97993",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column43"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "f8224b4e-bbf5-4b24-8ece-7c13fb6c092c",
+          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+          "arguments": {
+            "assertPolicy": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column44"
+                ]
+              }
+            },
+            "errorCode": "ShouldBeNone",
+            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "23a418b4-cfbf-4efa-a806-cdbdf1144fc8",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column44"]]}]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "b47c701a-17af-49ad-bc97-c835bb0fa377",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Column39",
+                  "Column40",
+                  "Column41",
+                  "Column42",
+                  "Column43",
+                  "Column44"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "f557bbd7-fedd-4395-8ac5-63ad40a4376b",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "AGECERT"
+                  }
+                },
+                "typeProperty": 1
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "GMPDATE"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "OTHERNO"
+                  }
+                },
+                "typeProperty": 1
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SURNAME"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "ADDRESS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "NINO"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "REGISTRATION"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "ARI"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "DOB"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "GENEMAIL"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "GENPHONE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "GENPOSTAL"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "GENSMS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "ID"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "INITIALS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MARRDATE"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MEMNO"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MINRETIREMENTDATE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MSTA"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PENSERYEARS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "POSTCODE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "TITLE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "DATEDIED"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "FORENAME"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "MARRCERT"
+                  }
+                },
+                "typeProperty": 1
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "OVERSEAS"
+                  }
+                },
+                "typeProperty": 1
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PROTECTIONAMT"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PROTECTIONTYPE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PROTECTPCENT"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PSFLAG"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PSPART"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "QUOEMAIL"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "QUOPHONE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "QUOPOSTAL"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "QUOSMS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "REGCHECKED"
+                  }
+                },
+                "typeProperty": 1
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SEX"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SPAD"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              }
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "0897515e-ac4c-473d-b2ea-b840b26ee598",
+          "type": "Microsoft.DPrep.DeriveColumnByExample",
+          "arguments": {
+            "anchorColumnId": "DOB",
+            "columnId": "Column",
+            "dsl": "PABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAHcAaQB0AGMAaAAiACAAcgB1AGwAZQA9ACIAUwBpAG4AZwBsAGUAQgByAGEAbgBjAGgAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcwB0ACIAIAByAHUAbABlAD0AIgBUAHIAYQBuAHMAZgBvAHIAbQBhAHQAaQBvAG4AIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAZQAiACAAcgB1AGwAZQA9ACIAQQB0AG8AbQAiAD4APABMAGUAdABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGYAIgAgAGkAZAA9ACIATABlAHQAQwBvAGwAdQBtAG4ATgBhAG0AZQAiAD4APABWAGEAcgBpAGEAYgBsAGUAIABzAHkAbQBiAG8AbAA9ACIAYwBvAGwAdQBtAG4ATgBhAG0AZQAiAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAaQBkAHgAIgA+ADwAIQBbAEMARABBAFQAQQBbACIARABPAEIAIgBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APAAvAFYAYQByAGkAYQBiAGwAZQA+ADwATABlAHQATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBsAGUAdABPAHAAdABpAG8AbgBzACIAIABpAGQAPQAiAEwAZQB0AFgAIgA+ADwAVgBhAHIAaQBhAGIAbABlACAAcwB5AG0AYgBvAGwAPQAiAHgAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAdgAiACAAcgB1AGwAZQA9ACIAQwBoAG8AbwBzAGUASQBuAHAAdQB0ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAcwAiACAALwA+ADwAVgBhAHIAaQBhAGIAbABlAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAYwBvAGwAdQBtAG4ATgBhAG0AZQAiACAALwA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwALwBWAGEAcgBpAGEAYgBsAGUAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGMAbwBuAHYAIgAgAHIAdQBsAGUAPQAiAEYAbwByAG0AYQB0AFAAYQByAHQAaQBhAGwARABhAHQAZQBUAGkAbQBlACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAYQB0AGUAdABpAG0AZQAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AZABhAHQAZQB0AGkAbQBlAF8AaQBuAHAAdQB0AEQAYQB0AGUAVABpAG0AZQAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAG4AcAB1AHQARABhAHQAZQBUAGkAbQBlACIAIAByAHUAbABlAD0AIgB+AGMAbwBuAHYAZQByAHQAXwBpAG4AcAB1AHQARABhAHQAZQBUAGkAbQBlAF8AcABhAHIAcwBlAGQARABhAHQAZQBUAGkAbQBlACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHAAYQByAHMAZQBkAEQAYQB0AGUAVABpAG0AZQAiACAAcgB1AGwAZQA9ACIAUABhAHIAcwBlAFAAYQByAHQAaQBhAGwARABhAHQAZQBUAGkAbQBlACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAFMAUwAiACAAcgB1AGwAZQA9ACIAVwBoAG8AbABlAEMAbwBsAHUAbQBuACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHgAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAG4AcAB1AHQARAB0AEYAbwByAG0AYQB0AHMAIgA+ADwAQQByAHIAYQB5ACAAcwBpAHoAZQA9ACIAMQAiAD4APABJAHQAZQBtACAAaQA9ACIAMAAiAD4APABEAGEAdABlAFQAaQBtAGUARgBvAHIAbQBhAHQAIABmAG8AcgBtAGEAdAA9ACIAeQB5AHkAeQBcAC0ATQBNAFwALQBkAGQAXAAgAEgASABcADoAbQBtAFwAOgBzAHMAIgA+ADwATgB1AG0AZQByAGkAYwBGAG8AcgBtAGEAdABQAGEAcgB0ACAAQgBhAHMAZQBGAG8AcgBtAGEAdABTAHQAcgBpAG4AZwA9ACIAeQB5AHkAeQAiACAARgB1AGwAbABGAG8AcgBtAGEAdABTAHQAcgBpAG4AZwA9ACIAeQB5AHkAeQAiACAARABhAHQAZQBUAGkAbQBlAFAAYQByAHQAPQAiAFkAZQBhAHIAIgAgAC8APgA8AEMAbwBuAHMAdABhAG4AdABGAG8AcgBtAGEAdABQAGEAcgB0AD4APAAhAFsAQwBEAEEAVABBAFsALQBdAF0APgA8AC8AQwBvAG4AcwB0AGEAbgB0AEYAbwByAG0AYQB0AFAAYQByAHQAPgA8AE4AdQBtAGUAcgBpAGMARgBvAHIAbQBhAHQAUABhAHIAdAAgAEIAYQBzAGUARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAE0ATQAiACAARgB1AGwAbABGAG8AcgBtAGEAdABTAHQAcgBpAG4AZwA9ACIATQBNACIAIABEAGEAdABlAFQAaQBtAGUAUABhAHIAdAA9ACIATQBvAG4AdABoACIAIAAvAD4APABDAG8AbgBzAHQAYQBuAHQARgBvAHIAbQBhAHQAUABhAHIAdAA+ADwAIQBbAEMARABBAFQAQQBbAC0AXQBdAD4APAAvAEMAbwBuAHMAdABhAG4AdABGAG8AcgBtAGEAdABQAGEAcgB0AD4APABOAHUAbQBlAHIAaQBjAEYAbwByAG0AYQB0AFAAYQByAHQAIABCAGEAcwBlAEYAbwByAG0AYQB0AFMAdAByAGkAbgBnAD0AIgBkAGQAIgAgAEYAdQBsAGwARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAGQAZAAiACAARABhAHQAZQBUAGkAbQBlAFAAYQByAHQAPQAiAEQAYQB5ACIAIAAvAD4APABDAG8AbgBzAHQAYQBuAHQARgBvAHIAbQBhAHQAUABhAHIAdAA+ADwAIQBbAEMARABBAFQAQQBbACAAXQBdAD4APAAvAEMAbwBuAHMAdABhAG4AdABGAG8AcgBtAGEAdABQAGEAcgB0AD4APABOAHUAbQBlAHIAaQBjAEYAbwByAG0AYQB0AFAAYQByAHQAIABCAGEAcwBlAEYAbwByAG0AYQB0AFMAdAByAGkAbgBnAD0AIgBIAEgAIgAgAEYAdQBsAGwARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAEgASAAiACAARABhAHQAZQBUAGkAbQBlAFAAYQByAHQAPQAiAEgAbwB1AHIAIgAgAC8APgA8AEMAbwBuAHMAdABhAG4AdABGAG8AcgBtAGEAdABQAGEAcgB0AD4APAAhAFsAQwBEAEEAVABBAFsAOgBdAF0APgA8AC8AQwBvAG4AcwB0AGEAbgB0AEYAbwByAG0AYQB0AFAAYQByAHQAPgA8AE4AdQBtAGUAcgBpAGMARgBvAHIAbQBhAHQAUABhAHIAdAAgAEIAYQBzAGUARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAG0AbQAiACAARgB1AGwAbABGAG8AcgBtAGEAdABTAHQAcgBpAG4AZwA9ACIAbQBtACIAIABEAGEAdABlAFQAaQBtAGUAUABhAHIAdAA9ACIATQBpAG4AdQB0AGUAIgAgAC8APgA8AEMAbwBuAHMAdABhAG4AdABGAG8AcgBtAGEAdABQAGEAcgB0AD4APAAhAFsAQwBEAEEAVABBAFsAOgBdAF0APgA8AC8AQwBvAG4AcwB0AGEAbgB0AEYAbwByAG0AYQB0AFAAYQByAHQAPgA8AE4AdQBtAGUAcgBpAGMARgBvAHIAbQBhAHQAUABhAHIAdAAgAEIAYQBzAGUARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAHMAcwAiACAARgB1AGwAbABGAG8AcgBtAGEAdABTAHQAcgBpAG4AZwA9ACIAcwBzACIAIABEAGEAdABlAFQAaQBtAGUAUABhAHIAdAA9ACIAUwBlAGMAbwBuAGQAIgAgAC8APgA8AC8ARABhAHQAZQBUAGkAbQBlAEYAbwByAG0AYQB0AD4APAAvAEkAdABlAG0APgA8AC8AQQByAHIAYQB5AD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAG8AdQB0AHAAdQB0AEQAdABGAG8AcgBtAGEAdAAiAD4APABEAGEAdABlAFQAaQBtAGUARgBvAHIAbQBhAHQAIABmAG8AcgBtAGEAdAA9ACIAZABkACIAPgA8AE4AdQBtAGUAcgBpAGMARgBvAHIAbQBhAHQAUABhAHIAdAAgAEIAYQBzAGUARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAGQAZAAiACAARgB1AGwAbABGAG8AcgBtAGEAdABTAHQAcgBpAG4AZwA9ACIAZABkACIAIABEAGEAdABlAFQAaQBtAGUAUABhAHIAdAA9ACIARABhAHkAIgAgAC8APgA8AC8ARABhAHQAZQBUAGkAbQBlAEYAbwByAG0AYQB0AD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwALwBMAGUAdABOAG8AZABlAD4APAAvAEwAZQB0AE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA=",
+            "examples": "{\"0\":{\"row\":0,\"sourceData\":{\"DOB\":\"1913-04-03 00:00:00\"},\"example\":\"03\"}}",
+            "outputType": 2,
+            "priorColumnIds": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "DOB"
+                ]
+              }
+            },
+            "sourceColumnIds": [
+              "DOB"
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "7f3c261d-2785-4b47-beb8-f6dbf17f7808",
+          "type": "Microsoft.DPrep.RenameColumnsBlock",
+          "arguments": {
+            "columnPairs": [
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Column"
+                  }
+                },
+                "newColumnId": "DOB_MONTH"
+              }
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "de5ce0dc-82c7-47a1-b703-0649c71ba71c",
+          "type": "Microsoft.DPrep.ClusterTextBlock",
+          "arguments": {
+            "addSimilarityScoreColumn": false,
+            "canonicalValueColumnName": "Canonical_Value",
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "TITLE"
+              }
+            },
+            "groups": [
+              {
+                "canonicalValue": "Mr",
+                "duplicates": [
+                  {
+                    "duplicateValue": "Mr",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  },
+                  {
+                    "duplicateValue": "Miss",
+                    "similarityScore": 0.81978607177734375,
+                    "useForReplacement": false
+                  },
+                  {
+                    "duplicateValue": "Ms",
+                    "similarityScore": 0.87076854705810547,
+                    "useForReplacement": false
+                  },
+                  {
+                    "duplicateValue": "M",
+                    "similarityScore": 0.87076854705810547,
+                    "useForReplacement": false
+                  }
+                ]
+              },
+              {
+                "canonicalValue": "Mrs",
+                "duplicates": [
+                  {
+                    "duplicateValue": "Mrs",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  },
+                  {
+                    "duplicateValue": "mrs",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  },
+                  {
+                    "duplicateValue": "Mrs.",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  }
+                ]
+              },
+              {
+                "canonicalValue": "Rev",
+                "duplicates": [
+                  {
+                    "duplicateValue": "Rev",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  },
+                  {
+                    "duplicateValue": "REV",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  }
+                ]
+              },
+              {
+                "canonicalValue": "Sis",
+                "duplicates": [
+                  {
+                    "duplicateValue": "Sis",
+                    "similarityScore": 1.0,
+                    "useForReplacement": true
+                  },
+                  {
+                    "duplicateValue": "Sist",
+                    "similarityScore": 0.8888888955116272,
+                    "useForReplacement": true
+                  }
+                ]
+              }
+            ],
+            "hasUserOverrides": true,
+            "similarityScoreColumnName": "Similarity_Score",
+            "similarityThreshold": 0.8
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        }
+      ],
+      "inspectors": []
+    }
+  ],
+  "runConfigurations": []
+}

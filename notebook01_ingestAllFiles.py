@@ -142,8 +142,6 @@ for index, row in dataFiles.iterrows():
     fullPackagePath = savePackage(dataFlow, dataName, '1', 'A')
     print('{0}: saved package to {1}'.format(dataName, fullPackagePath))
 
-#%%
-dataFlow.get_profile()
 
 
 
