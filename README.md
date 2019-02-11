@@ -29,11 +29,13 @@ The concept of quarantining data at each stage is adopted to remove data data th
 | Intelligent mapping to "canonical form"  | No | See observation  |
 | TEST 1 : Spotting anomalies in the data (e.g. date of birth defaults used "1/1/1971") | Yes | Used split_column_by_example. |
 | TEST 2 : Gender is not Male or Female / Incorrect Gender for members title (see below) | Yes | Used map_column. |
-| Missing Invalid or Temporary NI Number | No |  |
 | Missing Addresses / Check for commas in members address / Missing postcodes | Partial | Cleaned up addresses.|
 | TEST 3 : Date Joined Company is after Date Joined Scheme | Yes | Used simple add_colum with expression. |
 | TEST 4 : Date of Birth is after Date Joined Scheme / Missing Invalid or known false Date of Birth | Yes | Used simple add_colum with expression. |
 | TEST 5 : Missing Scheme Retirement Date  | Yes | Used simple add_colum with expression. |
+| TEST 6 Missing NI Number | Yes |  |
+| TEST 7 Invalid NI Number | Yes |  |
+| TEST 8 Temporary NI Number | Yes |  |
 | Members annual pension should total sum of pension elements | No |  |
 | Members annual pension not divisible by 12 | No |   |
 | Repeating a recipe / looping to apply particular operations | Yes | See the stage 1 notebook, able to cycle through all files to apply common rules and save the "recipe" as a packaged up data flow that can be consumed downstream.|
