@@ -9,9 +9,13 @@ Download [Python runtime](https://www.python.org/downloads/windows/) - prefer th
 Via VSCode Terminal:
 
 Install Jupyter: `python -m pip install jupyter`
+
 Install Pandas: `python -m pip install pandas`
+
 Install DataPrep SDK `python -m pip install azureml.dataprep`
+
 Install certifi `python -m pip install certifi`
+
 
 # Meta Process
 
