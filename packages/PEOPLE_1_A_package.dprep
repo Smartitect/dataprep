@@ -1,13 +1,13 @@
 {
   "schemaVersion": 63,
-  "id": "f72ce26b-02b1-4827-9bb2-4a4c3e951844",
+  "id": "60bd7673-c911-45dc-aeb7-e9eaff53aaab",
   "activities": [
     {
-      "id": "987a2db4-0902-4ce0-bb6d-6f3adf0c0c17",
+      "id": "143d1d90-1a77-4549-b009-296be40240fb",
       "name": "PEOPLE",
       "blocks": [
         {
-          "id": "569381d2-1272-4e02-9819-abe22f4644c3",
+          "id": "05e03943-ca55-4b82-86c5-c31156ab7e4e",
           "type": "Microsoft.DPrep.GetFilesBlock",
           "arguments": {
             "isArchive": false,
@@ -26,7 +26,7 @@
           "annotation": null
         },
         {
-          "id": "f4215c96-f6d7-4e55-b688-67ff3ecddcd7",
+          "id": "6290769e-922c-4fb2-9987-6574b8ea6940",
           "type": "Microsoft.DPrep.ParseDelimitedBlock",
           "arguments": {
             "columnHeadersMode": 3,
@@ -43,7 +43,7 @@
           "annotation": null
         },
         {
-          "id": "e996bfd1-2f83-45c3-bc36-467927f08eba",
+          "id": "ccfa4832-c0fd-4a11-92aa-17cb56d9f88b",
           "type": "Microsoft.DPrep.DropColumnsBlock",
           "arguments": {
             "columns": {
@@ -61,7 +61,7 @@
           "annotation": null
         },
         {
-          "id": "9f0adfe9-4412-43c0-8c2b-426fd0c196a4",
+          "id": "ddd4d63c-eb3c-4003-8d16-6b6b021b385d",
           "type": "Microsoft.DPrep.ReplaceNaBlock",
           "arguments": {
             "columns": {
@@ -126,7 +126,7 @@
           "annotation": null
         },
         {
-          "id": "74a5267c-83b5-4168-aa69-f51f947ee13d",
+          "id": "71970a2e-91cb-4c17-9025-da1d04cca8c8",
           "type": "Microsoft.DPrep.SkipBlock",
           "arguments": {
             "count": 1
@@ -137,222 +137,7 @@
           "annotation": null
         },
         {
-          "id": "c8610217-59fc-4d30-b278-418338b77769",
-          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
-          "arguments": {
-            "assertPolicy": 1,
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "Column39"
-                ]
-              }
-            },
-            "errorCode": "ShouldBeNone",
-            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "c7517edc-abc0-4ee0-8c7d-2883f7f2828c",
-          "type": "Microsoft.DPrep.ExpressionFilterBlock",
-          "arguments": {
-            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column39"]]}]]]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "d098f207-2eea-423d-aed3-6ef9bfffdaba",
-          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
-          "arguments": {
-            "assertPolicy": 1,
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "Column40"
-                ]
-              }
-            },
-            "errorCode": "ShouldBeNone",
-            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "e2432b3c-929e-4d77-a536-a0414dce1b3b",
-          "type": "Microsoft.DPrep.ExpressionFilterBlock",
-          "arguments": {
-            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column40"]]}]]]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "3838132c-4c95-409c-8aa6-dd794ab2f8a2",
-          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
-          "arguments": {
-            "assertPolicy": 1,
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "Column41"
-                ]
-              }
-            },
-            "errorCode": "ShouldBeNone",
-            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "50c5d477-ea10-45e3-b915-2b8a1a10d3bd",
-          "type": "Microsoft.DPrep.ExpressionFilterBlock",
-          "arguments": {
-            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column41"]]}]]]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "a74f8fc6-38f1-4ad8-8ef0-b3ddd8fb0a2e",
-          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
-          "arguments": {
-            "assertPolicy": 1,
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "Column42"
-                ]
-              }
-            },
-            "errorCode": "ShouldBeNone",
-            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "c324cf21-13f0-4e38-8522-7cdd6c4063b7",
-          "type": "Microsoft.DPrep.ExpressionFilterBlock",
-          "arguments": {
-            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column42"]]}]]]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "fa55b142-0839-4b84-afaf-7071eec34f78",
-          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
-          "arguments": {
-            "assertPolicy": 1,
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "Column43"
-                ]
-              }
-            },
-            "errorCode": "ShouldBeNone",
-            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "1ed3123f-adca-443c-a247-998d8ce97993",
-          "type": "Microsoft.DPrep.ExpressionFilterBlock",
-          "arguments": {
-            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column43"]]}]]]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "f8224b4e-bbf5-4b24-8ece-7c13fb6c092c",
-          "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
-          "arguments": {
-            "assertPolicy": 1,
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "Column44"
-                ]
-              }
-            },
-            "errorCode": "ShouldBeNone",
-            "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "23a418b4-cfbf-4efa-a806-cdbdf1144fc8",
-          "type": "Microsoft.DPrep.ExpressionFilterBlock",
-          "arguments": {
-            "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column44"]]}]]]}
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "b47c701a-17af-49ad-bc97-c835bb0fa377",
-          "type": "Microsoft.DPrep.DropColumnsBlock",
-          "arguments": {
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "Column39",
-                  "Column40",
-                  "Column41",
-                  "Column42",
-                  "Column43",
-                  "Column44"
-                ]
-              }
-            }
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "f557bbd7-fedd-4395-8ac5-63ad40a4376b",
+          "id": "6c033035-b6a6-4e0e-9c90-b0587ab9a162",
           "type": "Microsoft.DPrep.SetColumnTypesBlock",
           "arguments": {
             "columnConversion": [
@@ -360,10 +145,64 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "AGECERT"
+                    "selectedColumn": "ADDRESS"
                   }
                 },
-                "typeProperty": 1
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "ID"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "INITIALS"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "NINO"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "TITLE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "ARI"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "DOB"
+                  }
+                },
+                "typeProperty": 0
               },
               {
                 "column": {
@@ -383,7 +222,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "OTHERNO"
+                    "selectedColumn": "PENSERYEARS"
                   }
                 },
                 "typeProperty": 1
@@ -392,7 +231,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "SURNAME"
+                    "selectedColumn": "POSTCODE"
                   }
                 },
                 "typeProperty": 0
@@ -401,7 +240,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "ADDRESS"
+                    "selectedColumn": "Column43"
                   }
                 },
                 "typeProperty": 0
@@ -410,7 +249,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "NINO"
+                    "selectedColumn": "DATEDIED"
                   }
                 },
                 "typeProperty": 0
@@ -419,33 +258,10 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "REGISTRATION"
+                    "selectedColumn": "FORENAME"
                   }
                 },
                 "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ARI"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "DOB"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
               },
               {
                 "column": {
@@ -487,16 +303,97 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "ID"
+                    "selectedColumn": "MARRCERT"
                   }
                 },
-                "typeProperty": 3
+                "typeProperty": 0
               },
               {
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "INITIALS"
+                    "selectedColumn": "OTHERNO"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "QUOPHONE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "QUOPOSTAL"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "REGISTRATION"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SEX"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Column39"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Column40"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Column41"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Column42"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "AGECERT"
                   }
                 },
                 "typeProperty": 0
@@ -508,12 +405,7 @@
                     "selectedColumn": "MARRDATE"
                   }
                 },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
+                "typeProperty": 0
               },
               {
                 "column": {
@@ -522,7 +414,7 @@
                     "selectedColumn": "MEMNO"
                   }
                 },
-                "typeProperty": 3
+                "typeProperty": 0
               },
               {
                 "column": {
@@ -531,7 +423,7 @@
                     "selectedColumn": "MINRETIREMENTDATE"
                   }
                 },
-                "typeProperty": 0
+                "typeProperty": 1
               },
               {
                 "column": {
@@ -546,69 +438,10 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "PENSERYEARS"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "POSTCODE"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "TITLE"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "DATEDIED"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "FORENAME"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "MARRCERT"
-                  }
-                },
-                "typeProperty": 1
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
                     "selectedColumn": "OVERSEAS"
                   }
                 },
-                "typeProperty": 1
+                "typeProperty": 0
               },
               {
                 "column": {
@@ -668,24 +501,6 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "QUOPHONE"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "QUOPOSTAL"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
                     "selectedColumn": "QUOSMS"
                   }
                 },
@@ -704,15 +519,6 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "SEX"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
                     "selectedColumn": "SPAD"
                   }
                 },
@@ -722,6 +528,15 @@
                   ]
                 },
                 "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SURNAME"
+                  }
+                },
+                "typeProperty": 0
               }
             ]
           },

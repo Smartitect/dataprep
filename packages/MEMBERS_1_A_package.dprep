@@ -1,13 +1,13 @@
 {
   "schemaVersion": 63,
-  "id": "14fa4b71-e4ac-47e0-a648-1807e8c17245",
+  "id": "37434ad6-45ca-4d57-9c3a-06495a043626",
   "activities": [
     {
-      "id": "09513661-c46d-44c8-b497-5902339aff4e",
+      "id": "b5979cec-eed5-4067-b9df-70f4b3d64f46",
       "name": "MEMBERS",
       "blocks": [
         {
-          "id": "a6671ed0-7e1b-4484-a69a-006b0743bc10",
+          "id": "5d997960-ee69-4b9f-b7cd-9877899f6de2",
           "type": "Microsoft.DPrep.GetFilesBlock",
           "arguments": {
             "isArchive": false,
@@ -26,7 +26,7 @@
           "annotation": null
         },
         {
-          "id": "91d3bea0-89e4-4996-8782-fbe6570a7393",
+          "id": "6ec81e9c-82a3-4aa5-8757-960bb9187bf7",
           "type": "Microsoft.DPrep.ParseDelimitedBlock",
           "arguments": {
             "columnHeadersMode": 3,
@@ -43,7 +43,7 @@
           "annotation": null
         },
         {
-          "id": "39b3c6cf-d745-4c6f-8007-3ac04c00af53",
+          "id": "3170b7ff-391e-4baf-a9ab-c9c91002366c",
           "type": "Microsoft.DPrep.DropColumnsBlock",
           "arguments": {
             "columns": {
@@ -61,7 +61,7 @@
           "annotation": null
         },
         {
-          "id": "f19eb2fe-bf2c-47e4-8be2-b5cd28d6e585",
+          "id": "15479b44-bd5f-4c62-8270-0d5f8f8839f8",
           "type": "Microsoft.DPrep.ReplaceNaBlock",
           "arguments": {
             "columns": {
@@ -154,7 +154,7 @@
           "annotation": null
         },
         {
-          "id": "0ad706ff-7dbd-4f6b-aa05-77dde0cbf844",
+          "id": "3a187c37-559d-45b5-9cb8-df751d48dffb",
           "type": "Microsoft.DPrep.SkipBlock",
           "arguments": {
             "count": 1
@@ -165,23 +165,7 @@
           "annotation": null
         },
         {
-          "id": "6b153eb7-c11e-47f0-a90a-6eee1ddd9976",
-          "type": "Microsoft.DPrep.DropColumnsBlock",
-          "arguments": {
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": []
-              }
-            }
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "b053f772-eda3-4931-befb-98d991ef7177",
+          "id": "f5905325-1982-4ea9-b2bf-45da845d1351",
           "type": "Microsoft.DPrep.SetColumnTypesBlock",
           "arguments": {
             "columnConversion": [
@@ -211,6 +195,220 @@
                   }
                 },
                 "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "COEGIND"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "COMP"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "DCSTA"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "DNOMS"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "EDINITSKC"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "ELECTEDYEAR"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "FINREMUN"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "FMIND"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "HCARE"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PAYROLL"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PENSIONNO"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SPARECHAR1"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SPARECHAR2"
+                  }
+                },
+                "typeProperty": 1
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SPAREDATE1"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SPAREDATE2"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SPARENUM1"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SPARENUM2"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SPARENUM3"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SSTA"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "STATED"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "TARGDAT"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
               },
               {
                 "column": {
@@ -253,7 +451,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "DOELL"
+                    "selectedColumn": "DOL"
                   }
                 },
                 "typeArguments": {
@@ -267,7 +465,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "PAYROLL"
+                    "selectedColumn": "MLI"
                   }
                 },
                 "typeProperty": 0
@@ -276,7 +474,16 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "RETCASH"
+                    "selectedColumn": "NOMFORM"
+                  }
+                },
+                "typeProperty": 1
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PINNO"
                   }
                 },
                 "typeProperty": 0
@@ -285,7 +492,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "RETPEN"
+                    "selectedColumn": "PRFLAG"
                   }
                 },
                 "typeProperty": 0
@@ -294,7 +501,44 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "SECURITYLEVEL"
+                    "selectedColumn": "PSERVST"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "RDIND"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "DCE"
+                  }
+                },
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "DISINVEST"
                   }
                 },
                 "typeProperty": 3
@@ -303,52 +547,21 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "SKEM"
+                    "selectedColumn": "DJC"
                   }
                 },
-                "typeProperty": 0
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
+                },
+                "typeProperty": 4
               },
               {
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "COEGIND"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "COMP"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "DEPENDANTID"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "DEPT"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "DOL"
+                    "selectedColumn": "DOELL"
                   }
                 },
                 "typeArguments": {
@@ -452,120 +665,6 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "MLI"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "NOMFORM"
-                  }
-                },
-                "typeProperty": 1
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "NRD"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "DCE"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "DISINVEST"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "DJC"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "EDINITSKC"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ELECTEDYEAR"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "FINREMUN"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "FMIND"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "HCARE"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
                     "selectedColumn": "PARTIALDATE"
                   }
                 },
@@ -584,7 +683,16 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "PINNO"
+                    "selectedColumn": "PEOPLEID"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "PERSNO"
                   }
                 },
                 "typeProperty": 0
@@ -593,48 +701,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "PRFLAG"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "PSERVST"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "RDIND"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "SPARECHAR1"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "SPARECHAR2"
+                    "selectedColumn": "PHIMEM"
                   }
                 },
                 "typeProperty": 1
@@ -643,21 +710,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "SPAREDATE1"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "SPAREDATE2"
+                    "selectedColumn": "PHISTATUS"
                   }
                 },
                 "typeProperty": 0
@@ -743,29 +796,19 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "DCSTA"
+                    "selectedColumn": "DEPENDANTID"
                   }
                 },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
+                "typeProperty": 3
               },
               {
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "DNOMS"
+                    "selectedColumn": "DEPT"
                   }
                 },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
+                "typeProperty": 0
               },
               {
                 "column": {
@@ -785,46 +828,15 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "PENSIONNO"
+                    "selectedColumn": "NRD"
                   }
                 },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "PEOPLEID"
-                  }
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%d/%m/%Y"
+                  ]
                 },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "PERSNO"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "PHIMEM"
-                  }
-                },
-                "typeProperty": 1
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "PHISTATUS"
-                  }
-                },
-                "typeProperty": 0
+                "typeProperty": 4
               },
               {
                 "column": {
@@ -848,7 +860,25 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "SPARENUM1"
+                    "selectedColumn": "RETCASH"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "RETPEN"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "SECURITYLEVEL"
                   }
                 },
                 "typeProperty": 3
@@ -857,56 +887,10 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "SPARENUM2"
+                    "selectedColumn": "SKEM"
                   }
                 },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "SPARENUM3"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "SSTA"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "STATED"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "TARGDAT"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
+                "typeProperty": 0
               }
             ]
           },
