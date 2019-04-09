@@ -17,9 +17,7 @@ import re as re
 import collections
 from azureml.dataprep import value
 from azureml.dataprep import col
-from azureml.dataprep import Package
-
-# Let's also set up global variables and common functions...
+from commonCode import savePackage, openPackage, createFullPackagePath
 
 # Path to the source data
 dataPath = "./data"
@@ -29,26 +27,6 @@ packagePath = "./packages"
 
 # Name of package file
 packageFileSuffix = "_package.dprep"
-
-# A helper function to create full package path
-def createFullPackagePath(packageName, stage, qualityFlag):
-    return packagePath + '/' + packageName + '_' + stage + '_' + qualityFlag + packageFileSuffix
-
-# A save package helper function
-def savePackage(dataFlowToPackage, packageName, stage, qualityFlag):
-    dataFlowToPackage = dataFlowToPackage.set_name(packageName)
-    packageToSave = dprep.Package(dataFlowToPackage)
-    fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
-    packageToSave = packageToSave.save(fullPackagePath)
-    return fullPackagePath
-
-# An open package helper function
-def openPackage(packageName, stage, qualityFlag):
-    fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
-    packageToOpen = Package.open(fullPackagePath)
-    dataFlow = packageToOpen[packageName]
-    return dataFlow
-
 #%% [markdown]
 # Load the A class PEOPLE data from stage 1 and inspect the top 100 rows:
 

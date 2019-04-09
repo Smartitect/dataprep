@@ -7,7 +7,7 @@ import re as re
 import collections
 from azureml.dataprep import value
 from azureml.dataprep import col
-from azureml.dataprep import Package
+from azureml.dataprep import Dataflow
 
 # Let's also set up global variables and common functions...
 # NOTE - still to figure out how to do this from a single file and import it successfully.
@@ -27,14 +27,12 @@ def createFullPackagePath(packageName, stage, qualityFlag):
 
 # A save package helper function
 def savePackage(dataFlowToPackage, packageName, stage, qualityFlag):
-    dataFlowToPackage = dataFlowToPackage.set_name(packageName)
-    packageToSave = dprep.Package(dataFlowToPackage)
     fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
-    packageToSave = packageToSave.save(fullPackagePath)
+    packageToSave = dataFlowToPackage.save(fullPackagePath)
+    return fullPackagePath
 
 # An open package helper function
-def openPackage(dataFlowToPackage, packageName, stage, qualityFlag):
+def openPackage(packageName, stage, qualityFlag):
     fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
-    packageToOpen = Package.open(fullPackagePath)
-    dataFlow = packageToOpen[packageName]
+    dataFlow = Dataflow.open(fullPackagePath)
     return dataFlow
