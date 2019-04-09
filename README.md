@@ -2,6 +2,17 @@
 
 Proof of concept to assess how dataprep could be leveraged to support general data wrangling of pension scheme data.
 
+# Installation
+
+Download [Python runtime](https://www.python.org/downloads/windows/) - prefer the 64bit version & add to Path.
+
+Via VSCode Terminal:
+
+Install Jupyter: `python -m pip install jupyter`
+Install Pandas: `python -m pip install pandas`
+Install DataPrep SDK `python -m pip install azureml.dataprep`
+Install certifi `python -m pip install certifi`
+
 # Meta Process
 
 Plan is to adopt a structured approach using the notebook:
