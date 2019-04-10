@@ -1,7 +1,7 @@
 {
   "blocks": [
     {
-      "id": "898629f4-786a-42c4-a69d-74683fa69f2c",
+      "id": "5142b487-6412-4ee0-a551-b36d9d8144c5",
       "type": "Microsoft.DPrep.GetFilesBlock",
       "arguments": {
         "isArchive": false,
@@ -20,7 +20,7 @@
       "annotation": null
     },
     {
-      "id": "f8dd2140-3a93-43a1-b0b9-fcaef2a4eb19",
+      "id": "ef651383-deec-4962-8850-431f0c942962",
       "type": "Microsoft.DPrep.ParseDelimitedBlock",
       "arguments": {
         "columnHeadersMode": 3,
@@ -37,7 +37,7 @@
       "annotation": null
     },
     {
-      "id": "5505ceb8-730e-471a-921b-b035fee39128",
+      "id": "58df8e56-23da-4891-8214-e54aa7074fb5",
       "type": "Microsoft.DPrep.DropColumnsBlock",
       "arguments": {
         "columns": {
@@ -55,7 +55,7 @@
       "annotation": null
     },
     {
-      "id": "c0c73166-0952-4566-a1bc-f6d3b4cf79d3",
+      "id": "ab9667cc-c918-431e-829e-f842cdf64bc5",
       "type": "Microsoft.DPrep.SetColumnTypesBlock",
       "arguments": {
         "columnConversion": [
@@ -63,7 +63,7 @@
             "column": {
               "type": 2,
               "details": {
-                "selectedColumn": "AGECERT"
+                "selectedColumn": "ARI"
               }
             },
             "typeProperty": 0
@@ -72,7 +72,25 @@
             "column": {
               "type": 2,
               "details": {
-                "selectedColumn": "GENPHONE"
+                "selectedColumn": "DATEDIED"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "DOB"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "GENPOSTAL"
               }
             },
             "typeProperty": 0
@@ -99,7 +117,7 @@
             "column": {
               "type": 2,
               "details": {
-                "selectedColumn": "OTHERNO"
+                "selectedColumn": "PENSERYEARS"
               }
             },
             "typeProperty": 0
@@ -108,7 +126,7 @@
             "column": {
               "type": 2,
               "details": {
-                "selectedColumn": "OVERSEAS"
+                "selectedColumn": "PROTECTPCENT"
               }
             },
             "typeProperty": 0
@@ -117,7 +135,7 @@
             "column": {
               "type": 2,
               "details": {
-                "selectedColumn": "POSTCODE"
+                "selectedColumn": "PSFLAG"
               }
             },
             "typeProperty": 0
@@ -126,7 +144,7 @@
             "column": {
               "type": 2,
               "details": {
-                "selectedColumn": "QUOSMS"
+                "selectedColumn": "PSPART"
               }
             },
             "typeProperty": 0
@@ -180,106 +198,7 @@
             "column": {
               "type": 2,
               "details": {
-                "selectedColumn": "ARI"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "DATEDIED"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "DOB"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "GENSMS"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "MSTA"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "PROTECTPCENT"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "PSFLAG"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "QUOEMAIL"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "SEX"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "SPAD"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
                 "selectedColumn": "GENEMAIL"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "GMPDATE"
               }
             },
             "typeProperty": 0
@@ -306,97 +225,7 @@
             "column": {
               "type": 2,
               "details": {
-                "selectedColumn": "MARRDATE"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "NINO"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "PSPART"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "QUOPOSTAL"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "SURNAME"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "TITLE"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "ADDRESS"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "FORENAME"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "GENPOSTAL"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
                 "selectedColumn": "MARRCERT"
-              }
-            },
-            "typeProperty": 0
-          },
-          {
-            "column": {
-              "type": 2,
-              "details": {
-                "selectedColumn": "PENSERYEARS"
               }
             },
             "typeProperty": 0
@@ -423,7 +252,7 @@
             "column": {
               "type": 2,
               "details": {
-                "selectedColumn": "QUOPHONE"
+                "selectedColumn": "QUOPOSTAL"
               }
             },
             "typeProperty": 0
@@ -442,6 +271,177 @@
               "type": 2,
               "details": {
                 "selectedColumn": "REGISTRATION"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "SEX"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "GENPHONE"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "GMPDATE"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "MARRDATE"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "OTHERNO"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "OVERSEAS"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "POSTCODE"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "QUOPHONE"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "QUOSMS"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ADDRESS"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "AGECERT"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "FORENAME"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "GENSMS"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "MSTA"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "NINO"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "QUOEMAIL"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "SPAD"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "SURNAME"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "TITLE"
               }
             },
             "typeProperty": 0

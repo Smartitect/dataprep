@@ -54,6 +54,8 @@ for index, row in dataFiles.iterrows():
     regexPattern = re.compile(',\w')
     patternCount = len(re.findall(regexPattern,firstRow))
     headerCount.append(patternCount + 1)
+    print(firstRow)
+    print(patternCount)
 headerCountCol = pd.DataFrame({'HeaderCount':headerCount})
 dataFiles = pd.concat([dataFiles, headerCountCol], axis=1)
 
@@ -79,7 +81,9 @@ for index, row in dataFiles.iterrows():
 
     # Get a list of the columns and count them...
     dataFlowColumns = list(dataFlow.get_profile().columns.keys())
-    columnCount = len(dataFlowColumns) + 1
+    for i in dataFlowColumns:
+        print(i)
+    columnCount = len(dataFlowColumns)
     columnCountList.append(columnCount)
 
     # Capture number of columns found...
