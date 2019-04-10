@@ -16,7 +16,7 @@ import collections
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
-from commonCode import savePackage, openPackage, createFullPackagePath
+from commonCode import savePackage, openPackage, createFullPackagePath, getTableStats
 
 # Let's also set up global variables and common functions...
 
@@ -48,6 +48,7 @@ dataFiles
 
 #%%
 # First a quick pass through each file to grab the number of headers and count columns
+# NOTE - this loop could be consolidated into main loop
 headerCount = []
 for index, row in dataFiles.iterrows():
     firstRow = open(row["FullFilePath"]).readline().strip()
@@ -64,6 +65,7 @@ dataFiles = pd.concat([dataFiles, headerCountCol], axis=1)
 columnCountList = []
 rowCountList = []
 packageNameList = []
+dataInventoryAllTables = pd.DataFrame()
 for index, row in dataFiles.iterrows():
 
     dataName = row["DataName"]
@@ -98,14 +100,9 @@ for index, row in dataFiles.iterrows():
     # Profile the table
     dataProfile = dataFlow.get_profile()
 
-    # Write out the high level parameters that will enable us to assess data quality
-    # For each column we are interested in:
-    # - row count
-    # - number of valid cells
-    # - number of empty cells
-    # - number of error cells
-    # - max vlaue
-    # - min value
+    dataInventory = getTableStats(dataProfile, dataName, '02')
+
+    dataInventoryAllTables = dataInventoryAllTables.append(dataInventory)
     
     # Finally save the data flow so it can be used later
     fullPackagePath = savePackage(dataFlow, dataName, '2', 'A')
@@ -137,48 +134,7 @@ dataFiles
 dataFiles.to_csv('dataFileInventory_02_Out.csv', index = None)
 
 #%%
-dataProfile = dataFlow.get_profile()
-
-#%%
-# NOTE - there's got to be a more elegant way of doing this!
-dataInventory = pd.DataFrame()
-
-columnNameList = [c.column_name for c in dataProfile.columns.values() if c.column_name]
-columnNameCol = pd.DataFrame({'Name':columnNameList})
-dataInventory = pd.concat([dataInventory, columnNameCol], axis=1)
-
-columnTypeList = [c.type for c in dataProfile.columns.values() if c.type]
-columnTypeCol = pd.DataFrame({'Type':columnTypeList})
-dataInventory = pd.concat([dataInventory, columnTypeCol], axis=1)
-
-columnMinList = [c.min for c in dataProfile.columns.values() if c.min]
-columnMinCol = pd.DataFrame({'Min':columnMinList})
-dataInventory = pd.concat([dataInventory, columnMinCol], axis=1)
-
-columnMaxList = [c.max for c in dataProfile.columns.values() if c.max]
-columnMaxCol = pd.DataFrame({'Max':columnTypeList})
-dataInventory = pd.concat([dataInventory, columnMaxCol], axis=1)
-
-columnRowCountList = [c.count for c in dataProfile.columns.values() if c.count]
-columnRowCountCol = pd.DataFrame({'RowCount':columnTypeList})
-dataInventory = pd.concat([dataInventory, columnRowCountCol], axis=1)
-
-columnMissingCountList = [c.missing_count for c in dataProfile.columns.values() if c.missing_count]
-columnMissingCountCol = pd.DataFrame({'MissingCount':columnMissingCountList})
-dataInventory = pd.concat([dataInventory, columnMissingCountCol], axis=1)
-
-columnErrorCountList = [c.error_count for c in dataProfile.columns.values() if c.error_count]
-columnErrorCountCol = pd.DataFrame({'ErrorCount':columnErrorCountList})
-dataInventory = pd.concat([dataInventory, columnErrorCountCol], axis=1)
-
-columnEmptyCountList = [c.empty_count for c in dataProfile.columns.values() if c.empty_count]
-columnEmptyCountCol = pd.DataFrame({'EmptyCount':columnEmptyCountList})
-dataInventory = pd.concat([dataInventory, columnEmptyCountCol], axis=1)
-
-dataInventory.insert(0, 'DataName', dataName)
-
-#%%
-dataInventory
+dataInventoryAllFiles
 
 
 
