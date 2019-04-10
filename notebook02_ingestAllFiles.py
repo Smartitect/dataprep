@@ -91,15 +91,8 @@ for index, row in dataFiles.iterrows():
     # Capture number of columns found...
     print('{0}: found {1} columns, expected {2}'.format(dataName, columnCount, headerCount))
     
-    # Detect and apply column types
-    builder = dataFlow.builders.set_column_types()
-    builder.learn()
-    builder.ambiguous_date_conversions_keep_month_day()
-    dataFlow = builder.to_dataflow()
-
     # Profile the table
     dataProfile = dataFlow.get_profile()
-
     dataInventory = getTableStats(dataProfile, dataName, '02')
 
     dataInventoryAllTables = dataInventoryAllTables.append(dataInventory)
