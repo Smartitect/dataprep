@@ -1,7 +1,7 @@
 {
   "blocks": [
     {
-      "id": "2088f36c-0b79-41fe-8264-15ae6221561f",
+      "id": "72543d5a-f615-43db-9e74-abf1a0af0b7a",
       "type": "Microsoft.DPrep.GetFilesBlock",
       "arguments": {
         "isArchive": false,
@@ -20,7 +20,7 @@
       "annotation": null
     },
     {
-      "id": "cae55a11-9481-4bfe-ada5-435e568b0d1c",
+      "id": "d3823ee9-f387-497e-be54-ee8214b7b3ee",
       "type": "Microsoft.DPrep.ParseDelimitedBlock",
       "arguments": {
         "columnHeadersMode": 3,
@@ -37,7 +37,7 @@
       "annotation": null
     },
     {
-      "id": "2343aa24-0726-4814-baf5-b6ce55739449",
+      "id": "12649ceb-5ef2-47d2-9e65-99a74d38c552",
       "type": "Microsoft.DPrep.DropColumnsBlock",
       "arguments": {
         "columns": {

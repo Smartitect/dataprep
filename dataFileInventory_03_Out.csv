@@ -1,16 +1,16 @@
-FileName,FullFilePath,FileSize,Modified,DataName,HeaderCount,ColumnCountStage02,RowCountStartStage02,PackageNameStage02,RemoveFirstRow,ParseNullString,ColumnCount,RowCountStart,RowCountEnd,QuarantinedRows,PackageNameStage3
-BENEFIT.csv,./data/BENEFIT.csv,254982,Thu Nov 22 13:02:43 2018,BENEFIT,24,24,1283,./packages/BENEFIT_2_A_package.dprep,Yes,Yes,25,1283,1282,0,./packages/BENEFIT_3_A_package.dprep
-DEFELEMENTS.csv,./data/DEFELEMENTS.csv,18805,Fri Jul 13 14:56:16 2018,DEFELEMENTS,13,14,222,./packages/DEFELEMENTS_2_A_package.dprep,Yes,Yes,15,222,221,0,./packages/DEFELEMENTS_3_A_package.dprep
-DEFERREDITEMS.csv,./data/DEFERREDITEMS.csv,1403783,Fri Jul 13 14:32:03 2018,DEFERREDITEMS,8,9,29290,./packages/DEFERREDITEMS_2_A_package.dprep,Yes,Yes,10,29290,29289,0,./packages/DEFERREDITEMS_3_A_package.dprep
-ELEMENTS.csv,./data/ELEMENTS.csv,1683746,Fri Jul 13 14:57:23 2018,ELEMENTS,12,13,20708,./packages/ELEMENTS_2_A_package.dprep,Yes,Yes,14,20708,20707,0,./packages/ELEMENTS_3_A_package.dprep
-EXITDEATHS.csv,./data/EXITDEATHS.csv,327353,Thu Nov 22 13:32:43 2018,EXITDEATHS,38,38,1582,./packages/EXITDEATHS_2_A_package.dprep,Yes,Yes,39,1582,1581,0,./packages/EXITDEATHS_3_A_package.dprep
-EXITDEFERREDS.csv,./data/EXITDEFERREDS.csv,3020549,Fri Jul 13 14:32:19 2018,EXITDEFERREDS,46,47,11209,./packages/EXITDEFERREDS_2_A_package.dprep,Yes,Yes,48,11209,11208,0,./packages/EXITDEFERREDS_3_A_package.dprep
-EXITREFUNDS.csv,./data/EXITREFUNDS.csv,911609,Fri Jul 13 14:32:23 2018,EXITREFUNDS,23,24,6101,./packages/EXITREFUNDS_2_A_package.dprep,Yes,Yes,25,6101,6100,0,./packages/EXITREFUNDS_3_A_package.dprep
-EXITRETIREMENT.csv,./data/EXITRETIREMENT.csv,1876562,Fri Jul 13 14:32:31 2018,EXITRETIREMENT,55,56,6117,./packages/EXITRETIREMENT_2_A_package.dprep,Yes,Yes,57,6117,6116,0,./packages/EXITRETIREMENT_3_A_package.dprep
-LOOKUPS.csv,./data/LOOKUPS.csv,826504,Thu Nov 22 13:15:45 2018,LOOKUPS,18,20,6860,./packages/LOOKUPS_2_A_package.dprep,Yes,Yes,21,6860,6857,2,./packages/LOOKUPS_3_A_package.dprep
-MEMBERS.csv,./data/MEMBERS.csv,9644142,Thu Nov 22 13:19:09 2018,MEMBERS,72,72,19539,./packages/MEMBERS_2_A_package.dprep,Yes,Yes,73,19539,19538,0,./packages/MEMBERS_3_A_package.dprep
-PENINCREASES.csv,./data/PENINCREASES.csv,9261464,Fri Jul 13 14:35:53 2018,PENINCREASES,12,13,124832,./packages/PENINCREASES_2_A_package.dprep,Yes,Yes,14,124832,124831,0,./packages/PENINCREASES_3_A_package.dprep
-PEOPLE.csv,./data/PEOPLE.csv,5616005,Thu Nov 22 13:27:20 2018,PEOPLE,38,44,19539,./packages/PEOPLE_2_A_package.dprep,Yes,Yes,45,19539,19147,391,./packages/PEOPLE_3_A_package.dprep
-SERVICE.csv,./data/SERVICE.csv,4153205,Fri Jul 13 14:55:30 2018,SERVICE,24,25,22656,./packages/SERVICE_2_A_package.dprep,Yes,Yes,26,22656,22655,0,./packages/SERVICE_3_A_package.dprep
-STATHIS.csv,./data/STATHIS.csv,3046825,Fri Jul 13 14:30:58 2018,STATHIS,7,8,49326,./packages/STATHIS_2_A_package.dprep,Yes,Yes,9,49326,49325,0,./packages/STATHIS_3_A_package.dprep
-USERDATA.csv,./data/USERDATA.csv,4390774,Thu Nov 22 13:34:32 2018,USERDATA,39,39,17204,./packages/USERDATA_2_A_package.dprep,Yes,Yes,40,17204,17203,0,./packages/USERDATA_3_A_package.dprep
+FileName,FullFilePath,FileSize,Modified,DataName,HeaderCount,ColumnCountStage02,RowCountStartStage02,PackageNameStage02,RemoveFirstRow,ParseNullString,RowCountStartStage03,RowCountEndStage03,QuarantinedRowsStage03,ColumnCountEndStage03,PackageNameStage03
+BENEFIT.csv,./data/BENEFIT.csv,254982,Thu Nov 22 13:02:43 2018,BENEFIT,24,24,1283,./packages/BENEFIT_2_A_package.dprep,Yes,Yes,1283,1282,0,25,./packages/BENEFIT_3_A_package.dprep
+DEFELEMENTS.csv,./data/DEFELEMENTS.csv,18805,Fri Jul 13 14:56:16 2018,DEFELEMENTS,13,14,222,./packages/DEFELEMENTS_2_A_package.dprep,Yes,Yes,222,221,0,15,./packages/DEFELEMENTS_3_A_package.dprep
+DEFERREDITEMS.csv,./data/DEFERREDITEMS.csv,1403783,Fri Jul 13 14:32:03 2018,DEFERREDITEMS,8,9,29290,./packages/DEFERREDITEMS_2_A_package.dprep,Yes,Yes,29290,29289,0,1,./packages/DEFERREDITEMS_3_A_package.dprep
+ELEMENTS.csv,./data/ELEMENTS.csv,1683746,Fri Jul 13 14:57:23 2018,ELEMENTS,12,13,20708,./packages/ELEMENTS_2_A_package.dprep,Yes,Yes,20708,20707,0,14,./packages/ELEMENTS_3_A_package.dprep
+EXITDEATHS.csv,./data/EXITDEATHS.csv,327353,Thu Nov 22 13:32:43 2018,EXITDEATHS,38,38,1582,./packages/EXITDEATHS_2_A_package.dprep,Yes,Yes,1582,1581,0,39,./packages/EXITDEATHS_3_A_package.dprep
+EXITDEFERREDS.csv,./data/EXITDEFERREDS.csv,3020549,Fri Jul 13 14:32:19 2018,EXITDEFERREDS,46,47,11209,./packages/EXITDEFERREDS_2_A_package.dprep,Yes,Yes,11209,11208,0,48,./packages/EXITDEFERREDS_3_A_package.dprep
+EXITREFUNDS.csv,./data/EXITREFUNDS.csv,911609,Fri Jul 13 14:32:23 2018,EXITREFUNDS,23,24,6101,./packages/EXITREFUNDS_2_A_package.dprep,Yes,Yes,6101,6100,0,1,./packages/EXITREFUNDS_3_A_package.dprep
+EXITRETIREMENT.csv,./data/EXITRETIREMENT.csv,1876562,Fri Jul 13 14:32:31 2018,EXITRETIREMENT,55,56,6117,./packages/EXITRETIREMENT_2_A_package.dprep,Yes,Yes,6117,6116,0,57,./packages/EXITRETIREMENT_3_A_package.dprep
+LOOKUPS.csv,./data/LOOKUPS.csv,826504,Thu Nov 22 13:15:45 2018,LOOKUPS,18,20,6860,./packages/LOOKUPS_2_A_package.dprep,Yes,Yes,6860,6857,2,1,./packages/LOOKUPS_3_A_package.dprep
+MEMBERS.csv,./data/MEMBERS.csv,9644142,Thu Nov 22 13:19:09 2018,MEMBERS,72,72,19539,./packages/MEMBERS_2_A_package.dprep,Yes,Yes,19539,19538,0,73,./packages/MEMBERS_3_A_package.dprep
+PENINCREASES.csv,./data/PENINCREASES.csv,9261464,Fri Jul 13 14:35:53 2018,PENINCREASES,12,13,124832,./packages/PENINCREASES_2_A_package.dprep,Yes,Yes,124832,124831,0,1,./packages/PENINCREASES_3_A_package.dprep
+PEOPLE.csv,./data/PEOPLE.csv,5616005,Thu Nov 22 13:27:20 2018,PEOPLE,38,44,19539,./packages/PEOPLE_2_A_package.dprep,Yes,Yes,19539,19147,391,45,./packages/PEOPLE_3_A_package.dprep
+SERVICE.csv,./data/SERVICE.csv,4153205,Fri Jul 13 14:55:30 2018,SERVICE,24,25,22656,./packages/SERVICE_2_A_package.dprep,Yes,Yes,22656,22655,0,26,./packages/SERVICE_3_A_package.dprep
+STATHIS.csv,./data/STATHIS.csv,3046825,Fri Jul 13 14:30:58 2018,STATHIS,7,8,49326,./packages/STATHIS_2_A_package.dprep,Yes,Yes,49326,49325,0,1,./packages/STATHIS_3_A_package.dprep
+USERDATA.csv,./data/USERDATA.csv,4390774,Thu Nov 22 13:34:32 2018,USERDATA,39,39,17204,./packages/USERDATA_2_A_package.dprep,Yes,Yes,17204,17203,0,40,./packages/USERDATA_3_A_package.dprep
