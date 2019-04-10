@@ -125,6 +125,10 @@ packageNameCol = pd.DataFrame({'PackageNameStage02':packageNameList})
 dataFiles = pd.concat([dataFiles, packageNameCol], axis=1)
 
 #%%
+dataFiles.insert(len(dataFiles.columns), 'RemoveFirstRow', 'Yes')
+dataFiles.insert(len(dataFiles.columns), 'ParseNullString', 'Yes')
+
+#%%
 # A summary of what we've managed to achieve at the end og this stage
 dataFiles
 
