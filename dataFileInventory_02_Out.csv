@@ -1,0 +1,16 @@
+FileName,FullFilePath,FileSize,Modified,DataName,HeaderCount,ColumnCountStage02,RowCountStartStage02,PackageNameStage02,ColumnCountStage02,RowCountStartStage02,PackageNameStage02
+BENEFIT.csv,./data/BENEFIT.csv,254982,Thu Nov 22 13:02:43 2018,BENEFIT,24,25,1283,./packages/BENEFIT_2_A_package.dprep,25,1283,./packages/BENEFIT_2_A_package.dprep
+DEFELEMENTS.csv,./data/DEFELEMENTS.csv,18805,Fri Jul 13 14:56:16 2018,DEFELEMENTS,13,15,222,./packages/DEFELEMENTS_2_A_package.dprep,15,222,./packages/DEFELEMENTS_2_A_package.dprep
+DEFERREDITEMS.csv,./data/DEFERREDITEMS.csv,1403783,Fri Jul 13 14:32:03 2018,DEFERREDITEMS,8,10,29290,./packages/DEFERREDITEMS_2_A_package.dprep,10,29290,./packages/DEFERREDITEMS_2_A_package.dprep
+ELEMENTS.csv,./data/ELEMENTS.csv,1683746,Fri Jul 13 14:57:23 2018,ELEMENTS,12,14,20708,./packages/ELEMENTS_2_A_package.dprep,14,20708,./packages/ELEMENTS_2_A_package.dprep
+EXITDEATHS.csv,./data/EXITDEATHS.csv,327353,Thu Nov 22 13:32:43 2018,EXITDEATHS,38,39,1582,./packages/EXITDEATHS_2_A_package.dprep,39,1582,./packages/EXITDEATHS_2_A_package.dprep
+EXITDEFERREDS.csv,./data/EXITDEFERREDS.csv,3020549,Fri Jul 13 14:32:19 2018,EXITDEFERREDS,46,48,11209,./packages/EXITDEFERREDS_2_A_package.dprep,48,11209,./packages/EXITDEFERREDS_2_A_package.dprep
+EXITREFUNDS.csv,./data/EXITREFUNDS.csv,911609,Fri Jul 13 14:32:23 2018,EXITREFUNDS,23,25,6101,./packages/EXITREFUNDS_2_A_package.dprep,25,6101,./packages/EXITREFUNDS_2_A_package.dprep
+EXITRETIREMENT.csv,./data/EXITRETIREMENT.csv,1876562,Fri Jul 13 14:32:31 2018,EXITRETIREMENT,55,57,6117,./packages/EXITRETIREMENT_2_A_package.dprep,57,6117,./packages/EXITRETIREMENT_2_A_package.dprep
+LOOKUPS.csv,./data/LOOKUPS.csv,826504,Thu Nov 22 13:15:45 2018,LOOKUPS,18,21,6860,./packages/LOOKUPS_2_A_package.dprep,21,6860,./packages/LOOKUPS_2_A_package.dprep
+MEMBERS.csv,./data/MEMBERS.csv,9644142,Thu Nov 22 13:19:09 2018,MEMBERS,72,73,19539,./packages/MEMBERS_2_A_package.dprep,73,19539,./packages/MEMBERS_2_A_package.dprep
+PENINCREASES.csv,./data/PENINCREASES.csv,9261464,Fri Jul 13 14:35:53 2018,PENINCREASES,12,14,124832,./packages/PENINCREASES_2_A_package.dprep,14,124832,./packages/PENINCREASES_2_A_package.dprep
+PEOPLE.csv,./data/PEOPLE.csv,5616005,Thu Nov 22 13:27:20 2018,PEOPLE,38,45,19539,./packages/PEOPLE_2_A_package.dprep,45,19539,./packages/PEOPLE_2_A_package.dprep
+SERVICE.csv,./data/SERVICE.csv,4153205,Fri Jul 13 14:55:30 2018,SERVICE,24,26,22656,./packages/SERVICE_2_A_package.dprep,26,22656,./packages/SERVICE_2_A_package.dprep
+STATHIS.csv,./data/STATHIS.csv,3046825,Fri Jul 13 14:30:58 2018,STATHIS,7,9,49326,./packages/STATHIS_2_A_package.dprep,9,49326,./packages/STATHIS_2_A_package.dprep
+USERDATA.csv,./data/USERDATA.csv,4390774,Thu Nov 22 13:34:32 2018,USERDATA,39,40,17204,./packages/USERDATA_2_A_package.dprep,40,17204,./packages/USERDATA_2_A_package.dprep

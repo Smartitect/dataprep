@@ -1,3 +1,10 @@
+#%% [markdown]
+# # Stage 1 - Inventory Files
+# The purpose of this stage of the process is to create an inventory of all of the source files
+# Some future improvements to process:
+# - Connect to Azure storage
+# - Work with agreed taxonomy for sotrage so that it is more parameter driven: client/scheme name, data cut version or date etc.
+
 #%%
 # Import all of the libraries we need to use...
 import pandas as pd
@@ -18,16 +25,8 @@ from commonCode import savePackage, openPackage, createFullPackagePath
 # NOTE - ultimately this could point to other storage sources such as blob on Azure
 dataPath = "./data"
 
-# Path to the location where the dataprep packags that are created
-packagePath = "./packages"
-
-# Name of package file
-packageFileSuffix = "_package.dprep"
-
-#%% [markdown]
-# ## List all of the files in the data directory...
-
 #%%
+# List all of the files in the data directory...
 fileList = os.listdir(dataPath)
 dataFiles = pd.DataFrame({'FileName':fileList})
 
@@ -51,4 +50,5 @@ dataFiles = pd.concat([dataFiles, modifiedTimeCol], axis=1)
 dataFiles
 
 #%%
-dataFiles.to_csv('dataFiles01.csv')
+# Write inventory away as input for next stage in the process
+dataFiles.to_csv('dataFileInventory_01_Out.csv', index = None)
