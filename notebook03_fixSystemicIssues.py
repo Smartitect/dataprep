@@ -1,7 +1,7 @@
 
 #%% [markdown]
-# # Stage : Ingest 2
-# Purpose of this stage is to load all data successfully into data frames
+# # Stage : Fix Systemic Issues
+# Purpose of this stage is to fix any common issues found across all files in the set
 
 #%%
 # Import all of the libraries we need to use...
@@ -13,7 +13,7 @@ import collections
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
-from commonCode import savePackage, openPackage, createFullPackagePath
+from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath
 
 # Let's also set up global variables and common functions...
 
@@ -25,17 +25,7 @@ packageFileSuffix = "_package.dprep"
 
 #%%
 # Load in file names to be processed from the config.csv file
-dataFiles = dprep.read_csv('dataFileInventory_02_In.csv').to_pandas_dataframe()
-
-# now grab the number of headers in the first row of each file
-headerCount = []
-for index, row in dataFiles.iterrows():
-    firstRow = open(row["FullFilePath"]).readline().strip()
-    regexPattern = re.compile(',\w')
-    patternCount = len(re.findall(regexPattern,firstRow))
-    headerCount.append(patternCount + 1)
-headerCountCol = pd.DataFrame({'HeaderCount':headerCount})
-dataFiles = pd.concat([dataFiles, headerCountCol], axis=1)
+dataFiles = dprep.read_csv('dataFileInventory_03_In.csv').to_pandas_dataframe()
 
 #%%
 # Output the inventory at this stage...
@@ -45,7 +35,6 @@ dataFiles
 #---
 ## Load and perform common processing on each data file
 # Step through each file in the config.csv file to extract and do a basic clean up:
-# - Load the CSV data;
 # - Replace the custom string `<null>` representing a null and any other empty cells to a real `null`;
 # - Remove the first row;
 # - Quarantine rows (extract them and put them into a parallel data flow so that they can be fixed at a later stage) which have values in columns that are not listed in the header record;
@@ -62,14 +51,14 @@ packageNameList = []
 for index, row in dataFiles.iterrows():
 
     dataName = row["DataName"]
-    fullFilePath = row["FullFilePath"]
-    headerCount = row["HeaderCount"]
+    packageNameStage02 = row["PackageNameStage02"]
+    headerCount = int(row["HeaderCount"])
     removeFirstRow = row["RemoveFirstRow"]
     parseNullString = row["ParseNullString"]
 
     # Load each file
-    print('{0}: loading data from file path {1}'.format(dataName, fullFilePath))
-    dataFlow = dprep.read_csv(fullFilePath)
+    print('{0}: loading data from file path {1}'.format(dataName, packageNameStage02))
+    dataFlow = openPackageFromFullPath(packageNameStage02)
 
     # Count the rows...
     rowCountStart = dataFlow.row_count
@@ -88,7 +77,7 @@ for index, row in dataFiles.iterrows():
         # Replace any occurences of the <null> string with proper empty cells...
         dataFlow = dataFlow.replace_na(dataFlowColumns, custom_na_list='<null>')
     
-    if parseNullString == 'Yes':
+    if removeFirstRow == 'Yes':
         # Remove the first row...
         # NOTE : future modofication - it would be good to add check to this to make sure it is the blank row we anticipate that begins `SCHEME=AR` 
         dataFlow = dataFlow.skip(1)
@@ -99,12 +88,19 @@ for index, row in dataFiles.iterrows():
         # NOTE - this logic assumes that all unwanted columns are on the far right, this could be improved!
         # Fork a new data flow with rows that have data in the un-expected columns
         quarantinedDataFlow = dataFlow.drop_nulls(dataFlowColumns[headerCount:])
-        quarantinedRowCount = dataFlow.row_count
+        if quarantinedDataFlow.row_count is None:
+            quarantinedRowCount = 0 
+        else:
+            quarantinedRowCount = quarantinedDataFlow.row_count
+            
+        
         print('{0}: created quarantined data with {1} rows'.format(dataName, quarantinedRowCount))
         quarantinedRowsList.append(quarantinedRowCount)
         # Finally save the data flow so it can be used later
         fullPackagePath = savePackage(dataFlow, dataName, '1', 'B')
         print('{0}: saved quarantined data to {1}'.format(dataName, fullPackagePath))
+    else:
+        quarantinedRowsList.append(0)
 
     # Filter out the quarantined rows from the main data set
     # NOTE : can't figure out a better way of doign this for now - see note below...
@@ -130,10 +126,9 @@ for index, row in dataFiles.iterrows():
     dataFlow = builder.to_dataflow()
     
     # Finally save the data flow so it can be used later
-    fullPackagePath = savePackage(dataFlow, dataName, '9', 'Z')
+    fullPackagePath = savePackage(dataFlow, dataName, '3', 'A')
     print('{0}: saved package to {1}'.format(dataName, fullPackagePath))
     packageNameList.append(fullPackagePath)
-
 
 #%%
 # Capture the stats
@@ -146,11 +141,15 @@ dataFiles = pd.concat([dataFiles, rowCountStartCol], axis=1)
 rowCountEndCol = pd.DataFrame({'RowCountEnd':rowCountEndList})
 dataFiles = pd.concat([dataFiles, rowCountEndCol], axis=1)
 
-quarantinedRowsCol = pd.DataFrame({'QuanantinedRows':quarantinedRowsList})
+quarantinedRowsCol = pd.DataFrame({'QuarantinedRows':quarantinedRowsList})
 dataFiles = pd.concat([dataFiles, quarantinedRowsCol], axis=1)
 
-packageNameCol = pd.DataFrame({'PackageNameA':packageNameList})
+packageNameCol = pd.DataFrame({'PackageNameStage3':packageNameList})
 dataFiles = pd.concat([dataFiles, packageNameCol], axis=1)
 
 #%%
 dataFiles
+
+#%%
+dataFiles.to_csv('dataFileInventory_03_Out.csv', index = None)
+    

@@ -28,7 +28,7 @@ def createFullPackagePath(packageName, stage, qualityFlag):
 # A save package helper function
 def savePackage(dataFlowToPackage, packageName, stage, qualityFlag):
     fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
-    packageToSave = dataFlowToPackage.save(fullPackagePath)
+    dataFlowToPackage.save(fullPackagePath)
     return fullPackagePath
 
 # An open package helper function
@@ -68,4 +68,10 @@ def getTableStats(dataProfile, dataName, stage):
     dataInventory.insert(0, 'DataName', dataName)
     dataInventory.insert(1, 'Stage', stage)
     dataInventory.insert(2, 'DateTime', datetime.datetime.now())
+
     return dataInventory
+
+# An open package helper function with full path as parameter
+def openPackageFromFullPath(fullPath):
+    dataFlow = Dataflow.open(fullPath)
+    return dataFlow
