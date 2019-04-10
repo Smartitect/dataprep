@@ -1,7 +1,7 @@
 # In this spike I wanted to prove that we could make the selection of
 # columns in a CSV a data driven process.
 # We select the columns we want to process from \config\members.csv
-# which contains 3 fields
+# which contains 3 fields.
 # We read the CSV into an array and use this to filter the columns
 # we want to load into the data frame.
 # we then serialize out the new data frame into pickle format so it
