@@ -1,125 +1,116 @@
 {
-  "schemaVersion": 63,
-  "id": "271e21dc-2fdb-4ae3-9f54-bae77e6c0d7d",
-  "activities": [
+  "blocks": [
     {
-      "id": "9412fa61-1369-401d-a51f-83c2597c37dc",
-      "name": "SERVICE",
-      "blocks": [
-        {
-          "id": "86b12fd8-579a-44f2-b489-ac6d260e50a3",
-          "type": "Microsoft.DPrep.GetFilesBlock",
-          "arguments": {
-            "isArchive": false,
-            "path": {
-              "target": 0,
-              "resourceDetails": [
-                {
-                  "path": "../data/SERVICE.csv"
-                }
-              ]
+      "id": "5450868e-7bbd-4284-a0da-0774c7f413ac",
+      "type": "Microsoft.DPrep.GetFilesBlock",
+      "arguments": {
+        "isArchive": false,
+        "path": {
+          "target": 0,
+          "resourceDetails": [
+            {
+              "path": "c:\\Users\\bsmart\\Documents\\Github\\dataprep\\data\\SERVICE.csv"
             }
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "c42ef0c7-7f79-4ce4-95bb-3ced3301aa27",
-          "type": "Microsoft.DPrep.ParseDelimitedBlock",
-          "arguments": {
-            "columnHeadersMode": 3,
-            "fileEncoding": 0,
-            "handleQuotedLineBreaks": false,
-            "preview": false,
-            "separator": ",",
-            "skipRows": 0,
-            "skipRowsMode": 0
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "2fda511c-53ed-44e1-aee1-d87781aaf116",
-          "type": "Microsoft.DPrep.DropColumnsBlock",
-          "arguments": {
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "Path"
-                ]
-              }
-            }
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "1fa21764-662c-4f87-b318-032954635887",
-          "type": "Microsoft.DPrep.ReplaceNaBlock",
-          "arguments": {
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "ABADJUSTED",
-                  "ABFUND",
-                  "ABHOURPW",
-                  "ABHRSINWW",
-                  "ABSEND",
-                  "ABSERFLAG",
-                  "ABSERPER",
-                  "ABSERTYPE",
-                  "ABSOURCE",
-                  "ABSSTART",
-                  "ABSTAT",
-                  "ABSTATED",
-                  "ABTYPE",
-                  "AWHOURSYTD",
-                  "AWINDICATOR",
-                  "DERIVEDHOURSYTD",
-                  "MEMNO",
-                  "PENSIONPCENT",
-                  "POST05PENSION",
-                  "POST97PENSION",
-                  "PRE97PENSION",
-                  "REASONTYPE",
-                  "SERVICEID",
-                  "SERVICEPCENT",
-                  "Column25"
-                ]
-              }
-            },
-            "customNaList": "<null>",
-            "useDefaultNaList": true,
-            "useEmptyStringAsNa": true,
-            "useNanAsNa": true
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "1aa86df1-7b98-4be9-9dfd-8a429e778cf8",
-          "type": "Microsoft.DPrep.SkipBlock",
-          "arguments": {
-            "count": 1
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
+          ]
         }
-      ],
-      "inspectors": []
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "0bf98956-b063-430f-bdc0-ad56ce52ea51",
+      "type": "Microsoft.DPrep.ParseDelimitedBlock",
+      "arguments": {
+        "columnHeadersMode": 3,
+        "fileEncoding": 0,
+        "handleQuotedLineBreaks": false,
+        "preview": false,
+        "separator": ",",
+        "skipRows": 0,
+        "skipRowsMode": 0
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "57096d04-adb4-4517-a452-10646f1d9227",
+      "type": "Microsoft.DPrep.DropColumnsBlock",
+      "arguments": {
+        "columns": {
+          "type": 0,
+          "details": {
+            "selectedColumns": [
+              "Path"
+            ]
+          }
+        }
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "e95ad696-aaf7-4188-adab-75a2e0576e27",
+      "type": "Microsoft.DPrep.ReplaceNaBlock",
+      "arguments": {
+        "columns": {
+          "type": 0,
+          "details": {
+            "selectedColumns": [
+              "ABADJUSTED",
+              "ABFUND",
+              "ABHOURPW",
+              "ABHRSINWW",
+              "ABSEND",
+              "ABSERFLAG",
+              "ABSERPER",
+              "ABSERTYPE",
+              "ABSOURCE",
+              "ABSSTART",
+              "ABSTAT",
+              "ABSTATED",
+              "ABTYPE",
+              "AWHOURSYTD",
+              "AWINDICATOR",
+              "DERIVEDHOURSYTD",
+              "MEMNO",
+              "PENSIONPCENT",
+              "POST05PENSION",
+              "POST97PENSION",
+              "PRE97PENSION",
+              "REASONTYPE",
+              "SERVICEID",
+              "SERVICEPCENT",
+              "Column25"
+            ]
+          }
+        },
+        "customNaList": "<null>",
+        "useDefaultNaList": true,
+        "useEmptyStringAsNa": true,
+        "useNanAsNa": true
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "d376c852-fcff-47aa-907b-dada1c0e9270",
+      "type": "Microsoft.DPrep.SkipBlock",
+      "arguments": {
+        "count": 1
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
     }
   ],
-  "runConfigurations": []
+  "inspectors": []
 }

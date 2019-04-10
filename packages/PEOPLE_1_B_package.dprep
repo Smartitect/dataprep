@@ -1,144 +1,135 @@
 {
-  "schemaVersion": 63,
-  "id": "fe737466-ea4a-4b41-9d79-d49ab7493199",
-  "activities": [
+  "blocks": [
     {
-      "id": "150d827d-2baa-4aa1-8c88-4787ae7ade30",
-      "name": "PEOPLE",
-      "blocks": [
-        {
-          "id": "c9a3bf50-d78a-46cc-9370-e9ca21ff2b1e",
-          "type": "Microsoft.DPrep.GetFilesBlock",
-          "arguments": {
-            "isArchive": false,
-            "path": {
-              "target": 0,
-              "resourceDetails": [
-                {
-                  "path": "../data/PEOPLE.csv"
-                }
-              ]
+      "id": "909661f2-4220-4ae8-a763-27af523a496c",
+      "type": "Microsoft.DPrep.GetFilesBlock",
+      "arguments": {
+        "isArchive": false,
+        "path": {
+          "target": 0,
+          "resourceDetails": [
+            {
+              "path": "c:\\Users\\bsmart\\Documents\\Github\\dataprep\\data\\PEOPLE.csv"
             }
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "7e3ef74f-785f-42f8-8a4f-f260b07e0d1b",
-          "type": "Microsoft.DPrep.ParseDelimitedBlock",
-          "arguments": {
-            "columnHeadersMode": 3,
-            "fileEncoding": 0,
-            "handleQuotedLineBreaks": false,
-            "preview": false,
-            "separator": ",",
-            "skipRows": 0,
-            "skipRowsMode": 0
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "d8f90d40-3eb7-44a1-b4b1-dae444d7160a",
-          "type": "Microsoft.DPrep.DropColumnsBlock",
-          "arguments": {
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "Path"
-                ]
-              }
-            }
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "9fd5de66-d2fa-4a97-9cae-81e4d6fe53af",
-          "type": "Microsoft.DPrep.ReplaceNaBlock",
-          "arguments": {
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "ADDRESS",
-                  "AGECERT",
-                  "ARI",
-                  "DATEDIED",
-                  "DOB",
-                  "FORENAME",
-                  "GENEMAIL",
-                  "GENPHONE",
-                  "GENPOSTAL",
-                  "GENSMS",
-                  "GMPDATE",
-                  "ID",
-                  "INITIALS",
-                  "MARRCERT",
-                  "MARRDATE",
-                  "MEMNO",
-                  "MINRETIREMENTDATE",
-                  "MSTA",
-                  "NINO",
-                  "OTHERNO",
-                  "OVERSEAS",
-                  "PENSERYEARS",
-                  "POSTCODE",
-                  "PROTECTIONAMT",
-                  "PROTECTIONTYPE",
-                  "PROTECTPCENT",
-                  "PSFLAG",
-                  "PSPART",
-                  "QUOEMAIL",
-                  "QUOPHONE",
-                  "QUOPOSTAL",
-                  "QUOSMS",
-                  "REGCHECKED",
-                  "REGISTRATION",
-                  "SEX",
-                  "SPAD",
-                  "SURNAME",
-                  "TITLE",
-                  "Column39",
-                  "Column40",
-                  "Column41",
-                  "Column42",
-                  "Column43",
-                  "Column44"
-                ]
-              }
-            },
-            "customNaList": "<null>",
-            "useDefaultNaList": true,
-            "useEmptyStringAsNa": true,
-            "useNanAsNa": true
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "93827cb3-f3a4-41be-a642-5bf64eba75be",
-          "type": "Microsoft.DPrep.SkipBlock",
-          "arguments": {
-            "count": 1
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
+          ]
         }
-      ],
-      "inspectors": []
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "7746ab93-ef9b-4e54-b3cd-f8430c5e001d",
+      "type": "Microsoft.DPrep.ParseDelimitedBlock",
+      "arguments": {
+        "columnHeadersMode": 3,
+        "fileEncoding": 0,
+        "handleQuotedLineBreaks": false,
+        "preview": false,
+        "separator": ",",
+        "skipRows": 0,
+        "skipRowsMode": 0
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "d86f5116-04ad-4236-92d5-e76092c5d096",
+      "type": "Microsoft.DPrep.DropColumnsBlock",
+      "arguments": {
+        "columns": {
+          "type": 0,
+          "details": {
+            "selectedColumns": [
+              "Path"
+            ]
+          }
+        }
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "d2f560d0-cc22-4f08-91fe-a2ae1294e7cf",
+      "type": "Microsoft.DPrep.ReplaceNaBlock",
+      "arguments": {
+        "columns": {
+          "type": 0,
+          "details": {
+            "selectedColumns": [
+              "ADDRESS",
+              "AGECERT",
+              "ARI",
+              "DATEDIED",
+              "DOB",
+              "FORENAME",
+              "GENEMAIL",
+              "GENPHONE",
+              "GENPOSTAL",
+              "GENSMS",
+              "GMPDATE",
+              "ID",
+              "INITIALS",
+              "MARRCERT",
+              "MARRDATE",
+              "MEMNO",
+              "MINRETIREMENTDATE",
+              "MSTA",
+              "NINO",
+              "OTHERNO",
+              "OVERSEAS",
+              "PENSERYEARS",
+              "POSTCODE",
+              "PROTECTIONAMT",
+              "PROTECTIONTYPE",
+              "PROTECTPCENT",
+              "PSFLAG",
+              "PSPART",
+              "QUOEMAIL",
+              "QUOPHONE",
+              "QUOPOSTAL",
+              "QUOSMS",
+              "REGCHECKED",
+              "REGISTRATION",
+              "SEX",
+              "SPAD",
+              "SURNAME",
+              "TITLE",
+              "Column39",
+              "Column40",
+              "Column41",
+              "Column42",
+              "Column43",
+              "Column44"
+            ]
+          }
+        },
+        "customNaList": "<null>",
+        "useDefaultNaList": true,
+        "useEmptyStringAsNa": true,
+        "useNanAsNa": true
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "02bea96e-bbe6-4723-a7d5-e59d9ad8650e",
+      "type": "Microsoft.DPrep.SkipBlock",
+      "arguments": {
+        "count": 1
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
     }
   ],
-  "runConfigurations": []
+  "inspectors": []
 }

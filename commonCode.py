@@ -1,7 +1,6 @@
 # Import all of the libraries we need to use
 import pandas as pd
 import azureml.dataprep as dprep
-import seaborn as sns
 import os as os
 import re as re
 import collections

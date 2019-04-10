@@ -1,377 +1,409 @@
 {
-  "schemaVersion": 63,
-  "id": "4bbb7931-f799-4dd9-a25b-11016b2422c4",
-  "activities": [
+  "blocks": [
     {
-      "id": "ec5f0360-a374-45e3-ba6e-4d995cd9e579",
-      "name": "SERVICE",
-      "blocks": [
-        {
-          "id": "859bbe15-cd9c-44ec-b33b-23af21448151",
-          "type": "Microsoft.DPrep.GetFilesBlock",
-          "arguments": {
-            "isArchive": false,
-            "path": {
-              "target": 0,
-              "resourceDetails": [
-                {
-                  "path": "../data/SERVICE.csv"
-                }
-              ]
+      "id": "5450868e-7bbd-4284-a0da-0774c7f413ac",
+      "type": "Microsoft.DPrep.GetFilesBlock",
+      "arguments": {
+        "isArchive": false,
+        "path": {
+          "target": 0,
+          "resourceDetails": [
+            {
+              "path": "c:\\Users\\bsmart\\Documents\\Github\\dataprep\\data\\SERVICE.csv"
             }
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
+          ]
+        }
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "0bf98956-b063-430f-bdc0-ad56ce52ea51",
+      "type": "Microsoft.DPrep.ParseDelimitedBlock",
+      "arguments": {
+        "columnHeadersMode": 3,
+        "fileEncoding": 0,
+        "handleQuotedLineBreaks": false,
+        "preview": false,
+        "separator": ",",
+        "skipRows": 0,
+        "skipRowsMode": 0
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "57096d04-adb4-4517-a452-10646f1d9227",
+      "type": "Microsoft.DPrep.DropColumnsBlock",
+      "arguments": {
+        "columns": {
+          "type": 0,
+          "details": {
+            "selectedColumns": [
+              "Path"
+            ]
+          }
+        }
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "e95ad696-aaf7-4188-adab-75a2e0576e27",
+      "type": "Microsoft.DPrep.ReplaceNaBlock",
+      "arguments": {
+        "columns": {
+          "type": 0,
+          "details": {
+            "selectedColumns": [
+              "ABADJUSTED",
+              "ABFUND",
+              "ABHOURPW",
+              "ABHRSINWW",
+              "ABSEND",
+              "ABSERFLAG",
+              "ABSERPER",
+              "ABSERTYPE",
+              "ABSOURCE",
+              "ABSSTART",
+              "ABSTAT",
+              "ABSTATED",
+              "ABTYPE",
+              "AWHOURSYTD",
+              "AWINDICATOR",
+              "DERIVEDHOURSYTD",
+              "MEMNO",
+              "PENSIONPCENT",
+              "POST05PENSION",
+              "POST97PENSION",
+              "PRE97PENSION",
+              "REASONTYPE",
+              "SERVICEID",
+              "SERVICEPCENT",
+              "Column25"
+            ]
+          }
         },
-        {
-          "id": "9d4646c8-7cc1-4630-92ef-aefcc105e259",
-          "type": "Microsoft.DPrep.ParseDelimitedBlock",
-          "arguments": {
-            "columnHeadersMode": 3,
-            "fileEncoding": 0,
-            "handleQuotedLineBreaks": false,
-            "preview": false,
-            "separator": ",",
-            "skipRows": 0,
-            "skipRowsMode": 0
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
+        "customNaList": "<null>",
+        "useDefaultNaList": true,
+        "useEmptyStringAsNa": true,
+        "useNanAsNa": true
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "d376c852-fcff-47aa-907b-dada1c0e9270",
+      "type": "Microsoft.DPrep.SkipBlock",
+      "arguments": {
+        "count": 1
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "aa8ecbd8-10fb-4715-997c-dcd27368d4ef",
+      "type": "Microsoft.DPrep.ExpressionAssertValueBlock",
+      "arguments": {
+        "assertPolicy": 1,
+        "columns": {
+          "type": 0,
+          "details": {
+            "selectedColumns": [
+              "Column25"
+            ]
+          }
         },
-        {
-          "id": "0f0705eb-bda1-4a0d-af0d-7dd717f5501e",
-          "type": "Microsoft.DPrep.DropColumnsBlock",
-          "arguments": {
-            "columns": {
-              "type": 0,
+        "errorCode": "ShouldBeNone",
+        "expression": {"r":["Not",{"r":["Invoke",[{"r":["Identifier","Value_Equals"]},[{"r":["Identifier","value"]},""]]]}]}
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "3c91be14-dc09-4056-a8ce-47488ac30f27",
+      "type": "Microsoft.DPrep.ExpressionFilterBlock",
+      "arguments": {
+        "expression": {"r":["Invoke",[{"r":["Identifier","Value_IsError"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"Column25"]]}]]]}
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "206a4b63-d35f-4163-940c-14fab59db1dd",
+      "type": "Microsoft.DPrep.DropColumnsBlock",
+      "arguments": {
+        "columns": {
+          "type": 0,
+          "details": {
+            "selectedColumns": [
+              "Column25"
+            ]
+          }
+        }
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "07a2646c-4135-4449-9757-4ba74d4473e0",
+      "type": "Microsoft.DPrep.SetColumnTypesBlock",
+      "arguments": {
+        "columnConversion": [
+          {
+            "column": {
+              "type": 2,
               "details": {
-                "selectedColumns": [
-                  "Path"
-                ]
-              }
-            }
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "230cd30b-86f5-49e0-8027-d38e9f1eaa8b",
-          "type": "Microsoft.DPrep.ReplaceNaBlock",
-          "arguments": {
-            "columns": {
-              "type": 0,
-              "details": {
-                "selectedColumns": [
-                  "ABADJUSTED",
-                  "ABFUND",
-                  "ABHOURPW",
-                  "ABHRSINWW",
-                  "ABSEND",
-                  "ABSERFLAG",
-                  "ABSERPER",
-                  "ABSERTYPE",
-                  "ABSOURCE",
-                  "ABSSTART",
-                  "ABSTAT",
-                  "ABSTATED",
-                  "ABTYPE",
-                  "AWHOURSYTD",
-                  "AWINDICATOR",
-                  "DERIVEDHOURSYTD",
-                  "MEMNO",
-                  "PENSIONPCENT",
-                  "POST05PENSION",
-                  "POST97PENSION",
-                  "PRE97PENSION",
-                  "REASONTYPE",
-                  "SERVICEID",
-                  "SERVICEPCENT",
-                  "Column25"
-                ]
+                "selectedColumn": "ABHOURPW"
               }
             },
-            "customNaList": "<null>",
-            "useDefaultNaList": true,
-            "useEmptyStringAsNa": true,
-            "useNanAsNa": true
+            "typeProperty": 3
           },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "2aacb7e0-2a21-4a12-97c8-19170b0ae7d1",
-          "type": "Microsoft.DPrep.SkipBlock",
-          "arguments": {
-            "count": 1
-          },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        },
-        {
-          "id": "cca86e14-489f-43aa-9b04-b51421f37f5d",
-          "type": "Microsoft.DPrep.SetColumnTypesBlock",
-          "arguments": {
-            "columnConversion": [
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABHOURPW"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABHRSINWW"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABSEND"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABSTATED"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABSERFLAG"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABSERPER"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABSERTYPE"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABSOURCE"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABSSTART"
-                  }
-                },
-                "typeArguments": {
-                  "dateTimeFormats": [
-                    "%d/%m/%Y"
-                  ]
-                },
-                "typeProperty": 4
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "AWHOURSYTD"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "AWINDICATOR"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "DERIVEDHOURSYTD"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "MEMNO"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "PENSIONPCENT"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "POST05PENSION"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "POST97PENSION"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "PRE97PENSION"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "REASONTYPE"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABSTAT"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "SERVICEID"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "SERVICEPCENT"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "Column25"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABADJUSTED"
-                  }
-                },
-                "typeProperty": 3
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABFUND"
-                  }
-                },
-                "typeProperty": 0
-              },
-              {
-                "column": {
-                  "type": 2,
-                  "details": {
-                    "selectedColumn": "ABTYPE"
-                  }
-                },
-                "typeProperty": 0
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABSERPER"
               }
-            ]
+            },
+            "typeProperty": 0
           },
-          "localData": {},
-          "isEnabled": true,
-          "name": null,
-          "annotation": null
-        }
-      ],
-      "inspectors": []
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABSOURCE"
+              }
+            },
+            "typeProperty": 2
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABSTAT"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "SERVICEPCENT"
+              }
+            },
+            "typeProperty": 3
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABHRSINWW"
+              }
+            },
+            "typeProperty": 2
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABSERFLAG"
+              }
+            },
+            "typeProperty": 2
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABSERTYPE"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABSSTART"
+              }
+            },
+            "typeArguments": {
+              "dateTimeFormats": [
+                "%d/%m/%Y"
+              ]
+            },
+            "typeProperty": 4
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "AWHOURSYTD"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "AWINDICATOR"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "DERIVEDHOURSYTD"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "MEMNO"
+              }
+            },
+            "typeProperty": 2
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "PENSIONPCENT"
+              }
+            },
+            "typeProperty": 3
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "POST05PENSION"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "POST97PENSION"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "PRE97PENSION"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "REASONTYPE"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "SERVICEID"
+              }
+            },
+            "typeProperty": 2
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABSEND"
+              }
+            },
+            "typeArguments": {
+              "dateTimeFormats": [
+                "%d/%m/%Y"
+              ]
+            },
+            "typeProperty": 4
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABSTATED"
+              }
+            },
+            "typeArguments": {
+              "dateTimeFormats": [
+                "%d/%m/%Y"
+              ]
+            },
+            "typeProperty": 4
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABADJUSTED"
+              }
+            },
+            "typeProperty": 3
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABFUND"
+              }
+            },
+            "typeProperty": 0
+          },
+          {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "ABTYPE"
+              }
+            },
+            "typeProperty": 0
+          }
+        ]
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
     }
   ],
-  "runConfigurations": []
+  "inspectors": []
 }
