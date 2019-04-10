@@ -136,5 +136,9 @@ dataFiles.to_csv('dataFileInventory_02_Out.csv', index = None)
 #%%
 dataInventoryAllTables
 
+#%%
+dataInventoryAllTables.to_csv('columnInventory_02_Out.csv', index = None)
+
+
 
 
