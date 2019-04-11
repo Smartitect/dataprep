@@ -14,6 +14,7 @@ from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
 from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath, getTableStats, saveColumnInventoryForTable
+from mappingCode import createConfigFromDataFlow, createDummyConfigFromDataFlow
 
 # Let's also set up global variables and common functions...
 stageNumber = '3'
@@ -44,6 +45,7 @@ rowCountStartList = []
 rowCountEndList = []
 quarantinedRowsList = []
 packageNameList = []
+configFileList = []
 dataInventoryAllTables = pd.DataFrame()
 for index, row in dataFiles.iterrows():
 
@@ -126,6 +128,10 @@ for index, row in dataFiles.iterrows():
     # Capture number of columns found...
     print('{0}: at end there are now {1} columns, expected {2}'.format(dataName, columnCountEnd, headerCount))
 
+    # Create config file for table
+    configPath = createDummyConfigFromDataFlow(dataFlow, dataName)
+    configFileList.append(configPath)
+
     # Profile the table
     dataProfile = dataFlow.get_profile()
     dataInventory = getTableStats(dataProfile, dataName, stageNumber)
@@ -156,11 +162,17 @@ dataFiles = pd.concat([dataFiles, columnCountCol], axis=1)
 packageNameCol = pd.DataFrame({'PackageNameStage'  + stageNumber:packageNameList})
 dataFiles = pd.concat([dataFiles, packageNameCol], axis=1)
 
+configFilesCol = pd.DataFrame({'Config':configFileList})
+dataFiles = pd.concat([dataFiles, configFilesCol], axis=1)
+
 #%%
 dataFiles
 
 #%%
 dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
+
+nextStageNumber = str(int(stageNumber) + 1)
+dataFiles.to_csv('dataFileInventory_' + nextStageNumber + '_In.csv', index = None)
 
 #%%
 dataInventoryAllTables
