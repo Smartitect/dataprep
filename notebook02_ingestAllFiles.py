@@ -16,7 +16,7 @@ import collections
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
-from commonCode import savePackage, openPackage, createFullPackagePath, getTableStats
+from commonCode import savePackage, openPackage, createFullPackagePath, getTableStats, saveColumnInventoryForTable
 
 # Let's also set up global variables and common functions...
 
@@ -94,6 +94,8 @@ for index, row in dataFiles.iterrows():
     # Profile the table
     dataProfile = dataFlow.get_profile()
     dataInventory = getTableStats(dataProfile, dataName, '02')
+
+    saveColumnInventoryForTable(dataInventory, dataName, '2')
 
     dataInventoryAllTables = dataInventoryAllTables.append(dataInventory)
     

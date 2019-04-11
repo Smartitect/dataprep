@@ -36,6 +36,14 @@ def savePackage(dataFlowToPackage, packageName, stage, qualityFlag):
     dataFlowToPackage.save(fullPackagePath)
     return fullPackagePath
 
+def saveColumnInventoryForTable(columnInventory, packageName, stage):
+    thisStagePath = packagePath + '/' + packageName + '/' + stage
+    
+    if not os.path.isdir(thisStagePath):
+        os.mkdir(thisStagePath)
+
+    columnInventory.to_csv(thisStagePath + '/' + 'columnInventory_02_Out.csv', index = None)
+
 # An open package helper function
 def openPackage(packageName, stage, qualityFlag):
     fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
