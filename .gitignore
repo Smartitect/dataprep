@@ -6,6 +6,9 @@
 # Data files results
 data/
 
+# Temp output files
+output/
+
 # Log files
 azureml-logs/
 azureml-logs/dataprep
@@ -22,3 +25,4 @@ pacakges/
 .dprep
 packages/
 __pycache__/
+
