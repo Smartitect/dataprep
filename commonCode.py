@@ -68,7 +68,7 @@ def getTableStats(dataProfile, dataName, stage):
     dataInventory.insert(0, 'DataName', dataName)
     dataInventory.insert(1, 'Stage', stage)
     dataInventory.insert(2, 'DateTime', datetime.datetime.now())
-
+    print('{0}: column_name {1} type {2} min {3} max {4} count {5} missing_count {6} error_count {7} empty_count {8}'.format(dataName, len(columnNameList), len(columnTypeList), len(columnMinList), len(columnMaxList), len(columnRowCountList), len(columnMissingCountList), len(columnErrorCountList), len(columnEmptyCountList)))
     return dataInventory
 
 # An open package helper function with full path as parameter
