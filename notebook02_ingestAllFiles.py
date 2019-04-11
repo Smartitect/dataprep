@@ -125,6 +125,7 @@ dataFiles
 #%%
 # Write the inventory out for the next stage in the process to pick up
 dataFiles.to_csv('dataFileInventory_02_Out.csv', index = None)
+dataFiles.to_csv('dataFileInventory_03_In.csv', index = None)
 
 #%%
 dataInventoryAllTables

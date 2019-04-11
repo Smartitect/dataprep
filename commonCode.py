@@ -23,7 +23,12 @@ packageFileSuffix = "_package.dprep"
 
 # A helper function to create full package path
 def createFullPackagePath(packageName, stage, qualityFlag):
-    return packagePath + '/' + packageName + '_' + stage + '_' + qualityFlag + packageFileSuffix
+    thisStagePath = packagePath + '/' + packageName + '/' + stage
+
+    if not os.path.isdir(thisStagePath):
+        os.mkdir(thisStagePath)
+
+    return thisStagePath + '/' + packageName + '_' + qualityFlag + packageFileSuffix
 
 # A save package helper function
 def savePackage(dataFlowToPackage, packageName, stage, qualityFlag):
