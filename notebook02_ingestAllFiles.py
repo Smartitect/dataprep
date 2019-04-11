@@ -9,6 +9,7 @@
 #%%
 # Import all of the libraries we need to use...
 import pandas as pd
+import pandas_profiling as pp
 import azureml.dataprep as dprep
 import os as os
 import re as re
@@ -18,18 +19,13 @@ from azureml.dataprep import col
 from azureml.dataprep import Dataflow
 from commonCode import savePackage, openPackage, createFullPackagePath, getTableStats, saveColumnInventoryForTable
 
-# Let's also set up global variables and common functions...
-
-# Path to the location where the dataprep packags that are created
-packagePath = "./packages"
-
-# Name of package file
-packageFileSuffix = "_package.dprep"
+# Let's also set up global variables...
+stageNumber = '2'
 
 #%%
 # Load in file names to be processed from the config.csv file
 # NOTE - need to think about a taxonomy for the inventory and data files...
-dataFiles = dprep.read_csv('dataFileInventory_02_In.csv').to_pandas_dataframe()
+dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber + '_In.csv').to_pandas_dataframe()
 
 #%%
 # The inventory of files that we are going to process...
@@ -85,6 +81,7 @@ for index, row in dataFiles.iterrows():
     dataFlowColumns = list(dataFlow.get_profile().columns.keys())
     for i in dataFlowColumns:
         print(i)
+
     columnCount = len(dataFlowColumns)
     columnCountList.append(columnCount)
 
@@ -93,27 +90,27 @@ for index, row in dataFiles.iterrows():
     
     # Profile the table
     dataProfile = dataFlow.get_profile()
-    dataInventory = getTableStats(dataProfile, dataName, '02')
+    dataInventory = getTableStats(dataProfile, dataName, stageNumber)
 
-    saveColumnInventoryForTable(dataInventory, dataName, '2')
+    saveColumnInventoryForTable(dataInventory, dataName, stageNumber)
 
     dataInventoryAllTables = dataInventoryAllTables.append(dataInventory)
     
     # Finally save the data flow so it can be used later
-    fullPackagePath = savePackage(dataFlow, dataName, '2', 'A')
+    fullPackagePath = savePackage(dataFlow, dataName, stageNumber, 'A')
     print('{0}: saved package to {1}'.format(dataName, fullPackagePath))
     packageNameList.append(fullPackagePath)
 
 
 #%%
 # Capture the stats
-columnCountCol = pd.DataFrame({'ColumnCountStage02':columnCountList})
+columnCountCol = pd.DataFrame({'ColumnCountStage' + stageNumber:columnCountList})
 dataFiles = pd.concat([dataFiles, columnCountCol], axis=1)
 
-rowCountCol = pd.DataFrame({'RowCountStartStage02':rowCountList})
+rowCountCol = pd.DataFrame({'RowCountStartStage' + stageNumber:rowCountList})
 dataFiles = pd.concat([dataFiles, rowCountCol], axis=1)
 
-packageNameCol = pd.DataFrame({'PackageNameStage02':packageNameList})
+packageNameCol = pd.DataFrame({'PackageNameStage' + stageNumber:packageNameList})
 dataFiles = pd.concat([dataFiles, packageNameCol], axis=1)
 
 #%%
@@ -126,14 +123,16 @@ dataFiles
 
 #%%
 # Write the inventory out for the next stage in the process to pick up
-dataFiles.to_csv('dataFileInventory_02_Out.csv', index = None)
-dataFiles.to_csv('dataFileInventory_03_In.csv', index = None)
+dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
+
+nextStageNumber = str(int(stageNumber) + 1)
+dataFiles.to_csv('dataFileInventory_' + nextStageNumber + '_In.csv', index = None)
 
 #%%
 dataInventoryAllTables
 
 #%%
-dataInventoryAllTables.to_csv('columnInventory_02_Out.csv', index = None)
+dataInventoryAllTables.to_csv('columnInventory_' + stageNumber + '_Out.csv', index = None)
 
 
 
