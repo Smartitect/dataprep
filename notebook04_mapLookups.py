@@ -55,6 +55,7 @@ for index, row in dataFiles.iterrows():
 
         destination_column = get_destination_column_name(key, transforms)
         dataFlow = dataFlow.map_column(key, destination_column, replacements)
+        print(dataName + ': Transformed lookups for column - ' + key + '. Added new column ' + destination_column)
 
     fullPackagePath = savePackage(dataFlow, dataName, stageNumber, 'A')
     print('{0}: saved package to {1}'.format(dataName, fullPackagePath))
