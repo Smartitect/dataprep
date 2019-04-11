@@ -13,7 +13,7 @@ import collections
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
-from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath
+from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath, getTableStats
 
 # Let's also set up global variables and common functions...
 
@@ -152,7 +152,7 @@ dataFiles = pd.concat([dataFiles, rowCountEndCol], axis=1)
 quarantinedRowsCol = pd.DataFrame({'QuarantinedRowsStage03':quarantinedRowsList})
 dataFiles = pd.concat([dataFiles, quarantinedRowsCol], axis=1)
 
-columnCountCol = pd.DataFrame({'ColumnCountEndStage03':columnCountList})
+columnCountCol = pd.DataFrame({'ColumnCountEndStage03':columnCountEndList})
 dataFiles = pd.concat([dataFiles, columnCountCol], axis=1)
 
 packageNameCol = pd.DataFrame({'PackageNameStage03':packageNameList})

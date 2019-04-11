@@ -23,13 +23,26 @@ packageFileSuffix = "_package.dprep"
 
 # A helper function to create full package path
 def createFullPackagePath(packageName, stage, qualityFlag):
-    return packagePath + '/' + packageName + '_' + stage + '_' + qualityFlag + packageFileSuffix
+    thisStagePath = packagePath + '/' + packageName + '/' + stage
+
+    if not os.path.isdir(thisStagePath):
+        os.mkdir(thisStagePath)
+
+    return thisStagePath + '/' + packageName + '_' + qualityFlag + packageFileSuffix
 
 # A save package helper function
 def savePackage(dataFlowToPackage, packageName, stage, qualityFlag):
     fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
     dataFlowToPackage.save(fullPackagePath)
     return fullPackagePath
+
+def saveColumnInventoryForTable(columnInventory, packageName, stage):
+    thisStagePath = packagePath + '/' + packageName + '/' + stage
+    
+    if not os.path.isdir(thisStagePath):
+        os.mkdir(thisStagePath)
+
+    columnInventory.to_csv(thisStagePath + '/' + 'columnInventory_02_Out.csv', index = None)
 
 # An open package helper function
 def openPackage(packageName, stage, qualityFlag):

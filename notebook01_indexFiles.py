@@ -13,6 +13,7 @@ import os as os
 import re as re
 import collections
 import time
+import shutil
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
@@ -38,13 +39,18 @@ dataFiles = pd.concat([dataFiles, fullFilePaths], axis=1)
 #%%
 fileSize = []
 modifiedTime = []
+dataNames = []
 for index, row in dataFiles.iterrows():
     fileSize.append(os.path.getsize(row.FullFilePath))
     modifiedTime.append(time.ctime(os.path.getmtime(row.FullFilePath)))
+    dataNames.append(row.FileName.split('.')[0])
+
 fileSizeCol = pd.DataFrame({'FileSize':fileSize})
 modifiedTimeCol = pd.DataFrame({'Modified':modifiedTime})
+dataFilesCol = pd.DataFrame({'DataFiles':dataNames})
 dataFiles = pd.concat([dataFiles, fileSizeCol], axis=1)
 dataFiles = pd.concat([dataFiles, modifiedTimeCol], axis=1)
+dataFiles = pd.concat([dataFiles, dataFilesCol], axis=1)
 
 #%%
 dataFiles
@@ -52,3 +58,11 @@ dataFiles
 #%%
 # Write inventory away as input for next stage in the process
 dataFiles.to_csv('dataFileInventory_01_Out.csv', index = None)
+
+#%%
+# Create folders to use as workspaces for each of the files
+for index, row in dataFiles.iterrows():
+    if os.path.isdir('./packages/' + row.DataFiles):
+        shutil.rmtree('./packages/' + row.DataFiles)
+
+    os.mkdir('./packages/' + row.DataFiles)
