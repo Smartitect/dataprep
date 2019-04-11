@@ -13,19 +13,15 @@ import collections
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
-from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath
+from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath, getTableStats, saveColumnInventoryForTable
 
 # Let's also set up global variables and common functions...
-
-# Path to the location where the dataprep packags that are created
-packagePath = "./packages"
-
-# Name of package file
-packageFileSuffix = "_package.dprep"
+stageNumber = '3'
+previousStageNumber = str(int(stageNumber) - 1)
 
 #%%
 # Load in file names to be processed from the config.csv file
-dataFiles = dprep.read_csv('dataFileInventory_03_In.csv').to_pandas_dataframe()
+dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber + '_In.csv').to_pandas_dataframe()
 
 #%%
 # Output the inventory at this stage...
@@ -43,20 +39,21 @@ dataFiles
 # - Save the data flow that has been created for each file away so that it can be referenced and used later on
 
 #%%
-columnCountList = []
+columnCountEndList = []
 rowCountStartList = []
 rowCountEndList = []
 quarantinedRowsList = []
 packageNameList = []
+dataInventoryAllTables = pd.DataFrame()
 for index, row in dataFiles.iterrows():
 
     dataName = row["DataName"]
-    packageNameStage02 = row["PackageNameStage02"]
+    packageNameStage02 = row["PackageNameStage" + previousStageNumber]
     headerCount = int(row["HeaderCount"])
     removeFirstRow = row["RemoveFirstRow"]
     parseNullString = row["ParseNullString"]
 
-    # Load each file
+    # Open each data flow as saved by the previous stage
     print('{0}: loading data from file path {1}'.format(dataName, packageNameStage02))
     dataFlow = openPackageFromFullPath(packageNameStage02)
 
@@ -64,15 +61,11 @@ for index, row in dataFiles.iterrows():
     rowCountStart = dataFlow.row_count
     print('{0}: loaded {1} rows'.format(dataName, rowCountStart))
     rowCountStartList.append(rowCountStart)
-
+  
     # Get a list of the columns and count them...
     dataFlowColumns = list(dataFlow.get_profile().columns.keys())
-    columnCount = len(dataFlowColumns) + 1
-    columnCountList.append(columnCount)
+    print('{0}: found {1} columns, expected {2}'.format(dataName, len(dataFlowColumns), headerCount))
 
-    # Capture number of columns found...
-    print('{0}: found {1} columns, expected {2}'.format(dataName, columnCount, headerCount))
-    
     if parseNullString == 'Yes':
         # Replace any occurences of the <null> string with proper empty cells...
         dataFlow = dataFlow.replace_na(dataFlowColumns, custom_na_list='<null>')
@@ -97,7 +90,7 @@ for index, row in dataFiles.iterrows():
         print('{0}: created quarantined data with {1} rows'.format(dataName, quarantinedRowCount))
         quarantinedRowsList.append(quarantinedRowCount)
         # Finally save the data flow so it can be used later
-        fullPackagePath = savePackage(dataFlow, dataName, '1', 'B')
+        fullPackagePath = savePackage(dataFlow, dataName, stageNumber, 'B')
         print('{0}: saved quarantined data to {1}'.format(dataName, fullPackagePath))
     else:
         quarantinedRowsList.append(0)
@@ -124,32 +117,53 @@ for index, row in dataFiles.iterrows():
     builder.learn()
     builder.ambiguous_date_conversions_keep_month_day()
     dataFlow = builder.to_dataflow()
+
+    # Get a list of the columns and count them...
+    dataFlowColumnsEnd = list(dataFlow.get_profile().columns.keys())
+    columnCountEnd = len(dataFlowColumnsEnd)
+    columnCountEndList.append(columnCountEnd)
+
+    # Capture number of columns found...
+    print('{0}: at end there are now {1} columns, expected {2}'.format(dataName, columnCountEnd, headerCount))
+
+    # Profile the table
+    dataProfile = dataFlow.get_profile()
+    dataInventory = getTableStats(dataProfile, dataName, stageNumber)
+    # NOTE - should put extra statements in here to export dataInventory to Lian's new folder structure
+    saveColumnInventoryForTable(dataInventory, dataName, stageNumber)
     
+    dataInventoryAllTables = dataInventoryAllTables.append(dataInventory)
+
     # Finally save the data flow so it can be used later
-    fullPackagePath = savePackage(dataFlow, dataName, '3', 'A')
+    fullPackagePath = savePackage(dataFlow, dataName, stageNumber, 'A')
     print('{0}: saved package to {1}'.format(dataName, fullPackagePath))
     packageNameList.append(fullPackagePath)
 
 #%%
 # Capture the stats
-columnCountCol = pd.DataFrame({'ColumnCount':columnCountList})
-dataFiles = pd.concat([dataFiles, columnCountCol], axis=1)
-
-rowCountStartCol = pd.DataFrame({'RowCountStart':rowCountStartList})
+rowCountStartCol = pd.DataFrame({'RowCountStartStage' + stageNumber:rowCountStartList})
 dataFiles = pd.concat([dataFiles, rowCountStartCol], axis=1)
 
-rowCountEndCol = pd.DataFrame({'RowCountEnd':rowCountEndList})
+rowCountEndCol = pd.DataFrame({'RowCountEndStage' + stageNumber:rowCountEndList})
 dataFiles = pd.concat([dataFiles, rowCountEndCol], axis=1)
 
-quarantinedRowsCol = pd.DataFrame({'QuarantinedRows':quarantinedRowsList})
+quarantinedRowsCol = pd.DataFrame({'QuarantinedRowsStage' + stageNumber:quarantinedRowsList})
 dataFiles = pd.concat([dataFiles, quarantinedRowsCol], axis=1)
 
-packageNameCol = pd.DataFrame({'PackageNameStage3':packageNameList})
+columnCountCol = pd.DataFrame({'ColumnCountEndStage'  + stageNumber:columnCountEndList})
+dataFiles = pd.concat([dataFiles, columnCountCol], axis=1)
+
+packageNameCol = pd.DataFrame({'PackageNameStage'  + stageNumber:packageNameList})
 dataFiles = pd.concat([dataFiles, packageNameCol], axis=1)
 
 #%%
 dataFiles
 
 #%%
-dataFiles.to_csv('dataFileInventory_03_Out.csv', index = None)
-    
+dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
+
+#%%
+dataInventoryAllTables
+
+#%%
+dataInventoryAllTables.to_csv('columnInventory_' + stageNumber + '_Out.csv', index = None)

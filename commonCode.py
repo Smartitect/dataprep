@@ -23,13 +23,26 @@ packageFileSuffix = "_package.dprep"
 
 # A helper function to create full package path
 def createFullPackagePath(packageName, stage, qualityFlag):
-    return packagePath + '/' + packageName + '_' + stage + '_' + qualityFlag + packageFileSuffix
+    thisStagePath = packagePath + '/' + packageName + '/' + stage
+
+    if not os.path.isdir(thisStagePath):
+        os.mkdir(thisStagePath)
+
+    return thisStagePath + '/' + packageName + '_' + qualityFlag + packageFileSuffix
 
 # A save package helper function
 def savePackage(dataFlowToPackage, packageName, stage, qualityFlag):
     fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
     dataFlowToPackage.save(fullPackagePath)
     return fullPackagePath
+
+def saveColumnInventoryForTable(columnInventory, packageName, stage):
+    thisStagePath = packagePath + '/' + packageName + '/' + stage
+
+    if not os.path.isdir(thisStagePath):
+        os.mkdir(thisStagePath)
+
+    columnInventory.to_csv(thisStagePath + '/' + 'columnInventory_' + stage + '_Out.csv', index = None)
 
 # An open package helper function
 def openPackage(packageName, stage, qualityFlag):
@@ -68,7 +81,7 @@ def getTableStats(dataProfile, dataName, stage):
     dataInventory.insert(0, 'DataName', dataName)
     dataInventory.insert(1, 'Stage', stage)
     dataInventory.insert(2, 'DateTime', datetime.datetime.now())
-
+    print('{0}: column_name {1} type {2} min {3} max {4} count {5} missing_count {6} error_count {7} empty_count {8}'.format(dataName, len(columnNameList), len(columnTypeList), len(columnMinList), len(columnMaxList), len(columnRowCountList), len(columnMissingCountList), len(columnErrorCountList), len(columnEmptyCountList)))
     return dataInventory
 
 # An open package helper function with full path as parameter
