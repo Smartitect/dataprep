@@ -13,17 +13,37 @@ from azureml.dataprep import Dataflow
 from commonCode import savePackage, openPackage, createFullPackagePath
 
 #%%
-dataFlow = Dataflow.open('./packages/PEOPLE_3_A_package.dprep')
-
-#%%
-df = dataFlow.to_pandas_dataframe()
+dataFlow = Dataflow.open('./packages/MEMBERS/2/MEMBERS_A_package.dprep')
 
 #%%
 dataProfile = dataFlow.get_profile()
 
 #%%
+# Profile the table
+dataProfile = dataFlow.get_profile()
+dataInventory = getTableStats(dataProfile, dataName, stageNumber)
+
+#%%
 dataProfile
 
+#%%
+dataColumns = dataProfile.columns.keys()
+
+#%%
+dataProfileValues = dataProfile.columns.values()
+
+
+#%%
+columnStats = pd.DataFrame(columns = ['DataName', 'Stage', 'DateTIme', 'ColumnName', 'Type', 'Min', 'Max', 'RowCount', 'MissingCount', 'NotMissingCount', 'ErrorCount', 'EmptyCount', 'Mean'])
+
+for item in dataProfileValues:
+    print (item.column_name)
+    columnStats = columnStats.append({'DataName' : 'X', 'Stage' : 'Y', 'DateTIme' : 'Z', 'ColumnName' : item.column_name, 'Type' : item.type, 'Min' : item.min, 'Max' : item.max, 'RowCount' : item.count, 'MissingCount' : item.missing_count, 'NotMissingCount' : item.not_missing_count, 'ErrorCount' : item.error_count, 'EmptyCount' : item.empty_count, 'Mean' : item.mean}, ignore_index = True)
+
+
+
+#%%
+df = dataFlow.to_pandas_dataframe()
 #%%
 dateOfBirth = df[['ID','DOB']]
 
