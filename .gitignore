@@ -26,3 +26,5 @@ pacakges/
 packages/
 __pycache__/
 
+# CSV files
+.CSV
