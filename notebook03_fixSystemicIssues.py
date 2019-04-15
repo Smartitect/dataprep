@@ -24,7 +24,7 @@ from commonCode import savePackage, openPackage, createFullPackagePath, openPack
 from mappingCode import createConfigFromDataFlow, createDummyConfigFromDataFlow
 
 # Let's also set up global variables and common functions...
-stageNumber = '3'
+stageNumber = '2'
 previousStageNumber = str(int(stageNumber) - 1)
 
 #%%
@@ -46,14 +46,14 @@ dataInventoryAllTables = pd.DataFrame()
 for index, row in dataFiles.iterrows():
 
     dataName = row["DataName"]
-    packageNameStage02 = row["PackageNameStage" + previousStageNumber]
+    packageNameStage01 = row["PackageNameStage" + previousStageNumber]
     headerCount = int(row["HeaderCount"])
     removeFirstRow = row["RemoveFirstRow"]
     parseNullString = row["ParseNullString"]
 
     # Open each data flow as saved by the previous stage
-    print('{0}: loading data from file path {1}'.format(dataName, packageNameStage02))
-    dataFlow = openPackageFromFullPath(packageNameStage02)
+    print('{0}: loading data from file path {1}'.format(dataName, packageNameStage01))
+    dataFlow = openPackageFromFullPath(packageNameStage01)
 
     # Count the rows...
     rowCountStart = dataFlow.row_count
