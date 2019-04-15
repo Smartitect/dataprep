@@ -52,10 +52,44 @@ def openPackage(packageName, stage, qualityFlag):
 
 # A data profiling helper function to capture column metrics in a standard way
 def getTableStats(dataProfile, dataName, stage):
-    columnStats = pd.DataFrame(columns = ['DataName', 'Stage', 'DateTime', 'ColumnName', 'Type', 'Min', 'Max', 'RowCount', 'MissingCount', 'NotMissingCount', 'ErrorCount', 'EmptyCount', 'Mean'])
-    dateTime = datetime.datetime.now()
+    columnStats = pd.DataFrame(columns = [ \
+        'DataName', \
+        'Stage', \
+        'ColumnName', \
+        'Type', \
+        'Min', \
+        'Max', \
+        'RowCount', \
+        'MissingCount', \
+        'NotMissingCount', \
+        'ErrorCount', \
+        'EmptyCount', \
+        'Mean', \
+        'ValueCount'])
+    columnStats = pd.DataFrame.to_string(columns=['Min', 'Max'])
     for item in dataProfile.columns.values():
-        columnStats = columnStats.append({'DataName' : dataName, 'Stage' : stage, 'DateTime' : dateTime, 'ColumnName' : item.column_name, 'Type' : item.type, 'Min' : item.min, 'Max' : item.max, 'RowCount' : item.count, 'MissingCount' : item.missing_count, 'NotMissingCount' : item.not_missing_count, 'ErrorCount' : item.error_count, 'EmptyCount' : item.empty_count, 'Mean' : item.mean}, ignore_index = True)
+        
+        if item.value_counts == None:
+            valueCount = None
+        else:
+            valueCount = len(item.value_counts)
+
+        columnStats = columnStats.append({'DataName' : dataName, \
+        'Stage' : stage, \
+        'ColumnName' : item.column_name, \
+        'Type' : item.type, \
+        'Min' : item.min, \
+        'Max' : item.max, \
+        'RowCount' : item.count, \
+        'MissingCount' : item.missing_count, \
+        'NotMissingCount' : item.not_missing_count, \
+        'ErrorCount' : item.error_count, \
+        'EmptyCount' : item.empty_count, \
+        'Mean' : item.mean, \
+        'ValueCount' : valueCount}, ignore_index = True)
+    
+    columnStats.insert(2, 'DateTime', datetime.datetime.now())
+    
     return columnStats
 
 # An open package helper function with full path as parameter
