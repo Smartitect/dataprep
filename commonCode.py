@@ -78,8 +78,8 @@ def getTableStats(dataProfile, dataName, stage):
         'Stage' : stage, \
         'ColumnName' : item.column_name, \
         'Type' : item.type, \
-        'Min' : item.min, \
-        'Max' : item.max, \
+        'Min' : str(item.min), \
+        'Max' : str(item.max), \
         'RowCount' : item.count, \
         'MissingCount' : item.missing_count, \
         'NotMissingCount' : item.not_missing_count, \
