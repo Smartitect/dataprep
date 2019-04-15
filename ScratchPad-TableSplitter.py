@@ -14,16 +14,16 @@ from azureml.dataprep import col
 from azureml.dataprep import Dataflow
 from commonCode import savePackage, openPackage, createFullPackagePath, getTableStats, saveColumnInventoryForTable
 
-
+#%%
 sourceFileName = 'USERDATA'
-stageNumber = '2'
+lookupFileName = 'LOOKUPS'
+previousStageNumber = '2'
+stageNumber = '3'
 
 #%%
 dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber + '_In.csv').to_pandas_dataframe()
-
-#%%
-dataFlow = Dataflow.open('./packages/USERDATA/' + stageNumber + '/' + sourceFileName +'_A_package.dprep')
-lookupsDataFlow = Dataflow.open('./packages/LOOKUPS/' + stageNumber + '/LOOKUPS_A_package.dprep')
+dataFlow = Dataflow.open('./packages/' + sourceFileName + '/' + previousStageNumber + '/' + sourceFileName +'_A_package.dprep')
+lookupsDataFlow = Dataflow.open('./packages/' + lookupFileName + '/' + previousStageNumber + '/' + lookupFileName + '_A_package.dprep')
 
 #%%
 dataFlow = dataFlow.map_column('FORM', 'FORM2', {ReplacementsValue('EXITDEFERRED', 'EXITDEFERREDS'), ReplacementsValue('EXITRETIRED', 'EXITRETIREMENT'), ReplacementsValue('EXITDEFERRED', 'EXITDEFERREDS')})
@@ -34,6 +34,7 @@ dataFlow = dataFlow.rename_columns({'FORM2': 'FORM'})
 dataProfile = dataFlow.get_profile()
 rowCount = dataFlow.row_count
 
+newRowCounts = []
 #%%
 for col in dataProfile.columns['FORM'].value_counts:
     newDataFlow = dataFlow.filter(dataFlow['FORM'] == col.value)
@@ -79,6 +80,8 @@ for col in dataProfile.columns['FORM'].value_counts:
 
         # Profile the table
         newDataProfile = newDataFlow.get_profile()
+        newRowCounts.append(newDataFlow.row_count)
+
         dataInventory = getTableStats(newDataProfile, packageName, stageNumber)
         saveColumnInventoryForTable(dataInventory, packageName, stageNumber)
     
