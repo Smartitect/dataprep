@@ -17,7 +17,7 @@ from commonCode import savePackage, openPackage, createFullPackagePath, openPack
 from mappingCode import *
 
 # Let's also set up global variables and common functions...
-stageNumber = '4'
+stageNumber = '3'
 previousStageNumber = str(int(stageNumber) - 1)
 
 #%%

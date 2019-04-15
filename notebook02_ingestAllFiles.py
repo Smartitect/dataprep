@@ -20,7 +20,7 @@ from azureml.dataprep import Dataflow
 from commonCode import savePackage, openPackage, createFullPackagePath, getTableStats, saveColumnInventoryForTable
 
 # Let's also set up global variables...
-stageNumber = '2'
+stageNumber = '1'
 
 #%%
 # Load in file names to be processed from the config.csv file

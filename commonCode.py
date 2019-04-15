@@ -66,7 +66,7 @@ def getTableStats(dataProfile, dataName, stage):
         'EmptyCount', \
         'Mean', \
         'ValueCount'])
-    columnStats = pd.DataFrame.to_string(columns=['Min', 'Max'])
+        
     for item in dataProfile.columns.values():
         
         if item.value_counts == None:

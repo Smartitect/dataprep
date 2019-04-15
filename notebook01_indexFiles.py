@@ -20,7 +20,7 @@ from azureml.dataprep import Dataflow
 
 # Let's also set up global variables...
 # NOTE - is there any way to set these up centrally?
-stageNumber = '1'
+stageNumber = '0'
 
 # Path to the source data
 # NOTE - ultimately this could point to other storage sources such as blob on Azure
