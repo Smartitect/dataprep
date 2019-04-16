@@ -12,17 +12,30 @@ import os as os
 import re as re
 import collections
 import pyodbc
+import urllib
+import sqlalchemy
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
 from commonCode import savePackage, openPackage, createFullPackagePath
 
+
+#%%
+sourceFileName = 'PEOPLE'
+previousStageNumber = '2'
+stageNumber = '3'
+
+#%%
+dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber + '_In.csv').to_pandas_dataframe()
+dataFlow = Dataflow.open('./packages/' + sourceFileName + '/' + previousStageNumber + '/' + sourceFileName +'_A_package.dprep')
+
 #%%
 # Set SQL connection string and SQL command string...
 server = 'glatesttpasql01'
-database = 'HRTEST'
-driver = 'DRIVER={SQL Server Native Client 11.0};SERVER='+ server +';DATABASE='+ database +';Trusted_Connection=yes;'
+database = 'HRDev_POC'
+driver = 'DRIVER={SQL Server Native Client 11.0};SERVER='+ server +';DATABASE='+ database +';Trusted_Connection=yes;Connection Timeout=120'
 conn = pyodbc.connect(driver)
+cursor = conn.cursor()
 
 #%%
 # Get target schema
@@ -34,6 +47,10 @@ TargetSchema = pd.read_sql(strSQL, conn)
 TableName = 'UPMPERSON'
 strSQL = 'SELECT TOP 0 * FROM ' + TableName + ';'
 TargetTable = pd.read_sql(strSQL, conn)
+
+#%%
+# NOTE Temp cell to force deletion of UPMPERSON primary key column 
+TargetTable = TargetTable.drop('PERSONID',axis=1)
 
 #%%
 # NOTE Move out to a config table
@@ -58,16 +75,30 @@ TargetSchema['Unique_ID'] = TargetSchema[['table_name', 'column_name']].apply(la
 #%%
 # Get dtypes of TargetSchema and change TargetTable dtypes 
 for column in TargetTable.columns[:]:
-    print(column)
-    print(TargetTable[column].dtype) 
+    #print(column)
+    #print(TargetTable[column].dtype) 
     lookup_value = TableName + "_" + TargetTable[column].name
     lookup_index = TargetSchema.index[TargetSchema['Unique_ID'] == lookup_value].tolist()
     lookup_df = TargetSchema.loc[lookup_index, 'pd_datatype']
     targ_dtype = lookup_df.iloc[0][:]
-    print(targ_dtype)
+    #print(targ_dtype)
     TargetTable[column].astype(targ_dtype)
 
 
+#%%
+dataFlow = dataFlow.drop_columns(dprep.ColumnSelector('NINO|DOB|FORENAME', True, True, invert=True))
+dataFlow = dataFlow.rename_columns({'FORENAME':'FORENAMES'})
 
+dataFlow.head(5)
 
+#%%
+dataFrame = dataFlow.to_pandas_dataframe()
+TargetTable = TargetTable.append(dataFrame)
+
+#%%
+#cursor.execute('ALTER TABLE UPMPERSON DISABLE TRIGGER ALL')
+params = urllib.parse.quote_plus(driver)
+engine = sqlalchemy.create_engine("mssql+pyodbc:///?odbc_connect=%s" % params)
+TargetTable.to_sql('UPMPERSON',engine,'dbo','append',False)
+#cursor.execute('ALTER TABLE UPMPERSON ENABLE TRIGGER ALL')
 
