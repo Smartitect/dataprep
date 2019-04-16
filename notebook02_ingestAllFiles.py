@@ -116,11 +116,11 @@ dataFiles.insert(len(dataFiles.columns), 'ParseNullString', 'Yes')
 
 #%%
 # Write the inventory out for the next stage in the process to pick up
-dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber +'_Out.csv').to_pandas_dataframe()
+dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
 
 nextStageNumber = str(int(stageNumber) + 1)
 
-dataFiles = dprep.read_csv('dataFileInventory_' + previousStageNumber +'_Out.csv').to_pandas_dataframe()
+dataFiles.to_csv('dataFileInventory_' + nextStageNumber + '_In.csv', index = None)
 
 
 #%%
