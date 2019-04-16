@@ -29,7 +29,7 @@ previousStageNumber = str(int(stageNumber) - 1)
 
 #%%
 # Load in file names to be processed from the config.csv file
-dataFiles = dprep.read_csv('dataFileInventory.csv').to_pandas_dataframe()
+dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber +'_In.csv').to_pandas_dataframe()
 
 #%%
 # Output the inventory at this stage...
@@ -162,13 +162,13 @@ configFilesCol = pd.DataFrame({'Config':configFileList})
 dataFiles = pd.concat([dataFiles, configFilesCol], axis=1)
 
 #%%
-dataFiles
+# Write the inventory out for the next stage in the process to pick up
+dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
 
-#%%
-dataFiles.to_csv('dataFileInventory.csv', index = None)
+nextStageNumber = str(int(stageNumber) + 1)
 
-#%%
-dataInventoryAllTables
+dataFiles.to_csv('dataFileInventory_' + nextStageNumber + '_In.csv', index = None)
+
 
 #%%
 dataInventoryAllTables.to_csv('columnInventory_' + stageNumber + '_Out.csv', index = None)

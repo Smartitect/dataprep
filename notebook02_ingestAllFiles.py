@@ -21,15 +21,12 @@ from commonCode import savePackage, openPackage, createFullPackagePath, getTable
 
 # Let's also set up global variables...
 stageNumber = '1'
+previousStageNumber = str(int(stageNumber) - 1)
 
 #%%
 # Load in file names to be processed from the config.csv file
 # NOTE - need to think about a taxonomy for the inventory and data files...
-dataFiles = dprep.read_csv('dataFileInventory.csv').to_pandas_dataframe()
-
-#%%
-# The inventory of files that we are going to process...
-dataFiles
+dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber +'_In.csv').to_pandas_dataframe()
 
 #%% [markdown]
 #---
@@ -118,19 +115,13 @@ dataFiles.insert(len(dataFiles.columns), 'RemoveFirstRow', 'Yes')
 dataFiles.insert(len(dataFiles.columns), 'ParseNullString', 'Yes')
 
 #%%
-# A summary of what we've managed to achieve at the end og this stage
-dataFiles
-
-#%%
 # Write the inventory out for the next stage in the process to pick up
-dataFiles.to_csv('dataFileInventory.csv', index = None)
+dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber +'_Out.csv').to_pandas_dataframe()
 
-#%%
-dataInventoryAllTables
+nextStageNumber = str(int(stageNumber) + 1)
+
+dataFiles = dprep.read_csv('dataFileInventory_' + previousStageNumber +'_Out.csv').to_pandas_dataframe()
+
 
 #%%
 dataInventoryAllTables.to_csv('columnInventory_' + stageNumber + '_Out.csv', index = None)
-
-
-
-

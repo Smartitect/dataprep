@@ -22,7 +22,7 @@ previousStageNumber = str(int(stageNumber) - 1)
 packagePath = './packages/'
 
 #%%
-dataFiles = dprep.read_csv('dataFileInventory.csv').to_pandas_dataframe()
+dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber +'_In.csv').to_pandas_dataframe()
 dataFlow = Dataflow.open(packagePath + sourceFileName + '/' + previousStageNumber + '/' + sourceFileName +'_A_package.dprep')
 lookupsDataFlow = Dataflow.open(packagePath + lookupFileName + '/' + previousStageNumber + '/' + lookupFileName + '_A_package.dprep')
 columnInventoryAllTables = dprep.read_csv('columnInventory_' + previousStageNumber + '_Out.csv').to_pandas_dataframe()
@@ -72,7 +72,7 @@ for col in dataProfile.columns['FORM'].value_counts:
 
         os.mkdir(packagePath + packageName)
 
-        savePackage(newDataFlow, packageName, stageNumber, 'A')
+        packagePath = savePackage(newDataFlow, packageName, stageNumber, 'A')
 
         # Profile the table
         newDataProfile = newDataFlow.get_profile()
@@ -81,9 +81,17 @@ for col in dataProfile.columns['FORM'].value_counts:
         columnInventory = getTableStats(newDataProfile, packageName, stageNumber)
         saveColumnInventoryForTable(columnInventory, packageName, stageNumber)
         columnInventoryAllTables = columnInventoryAllTables.append(columnInventory)
+
+        #dataFiles = dataFiles.append(['','','','',packageName,False,'','','','','','','','','','','',''])
     
 #%%
-dataFiles.to_csv('dataFileInventory.csv', index = None)
+# Write the inventory out for the next stage in the process to pick up
+dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
+
+nextStageNumber = str(int(stageNumber) + 1)
+
+dataFiles.to_csv('dataFileInventory_' + nextStageNumber + '_In.csv', index = None)
+
 
 columnInventoryAllTables.to_csv('columnInventory_' + stageNumber + '_Out.csv', index = None)
 

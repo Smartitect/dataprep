@@ -73,7 +73,8 @@ for index, row in dataFiles.iterrows():
 
 #%%
 # Write inventory away as input for next stage in the process
-dataFiles.to_csv('dataFileInventory.csv', index = None)
-
+dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
 
 nextStageNumber = str(int(stageNumber) + 1)
+
+dataFiles.to_csv('dataFileInventory_' + nextStageNumber + '_In.csv', index = None)
