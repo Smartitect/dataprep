@@ -24,7 +24,8 @@ stageNumber = '0'
 
 # Path to the source data
 # NOTE - ultimately this could point to other storage sources such as blob on Azure
-dataPath = "./data"
+dataPath = './data'
+packagePath = './packages/'
 
 #%%
 # List all of the files in the data directory...
@@ -40,17 +41,21 @@ dataFiles = pd.concat([dataFiles, fullFilePaths], axis=1)
 fileSize = []
 modifiedTime = []
 dataNames = []
+archived = []
 for index, row in dataFiles.iterrows():
     fileSize.append(os.path.getsize(row.FullFilePath))
     modifiedTime.append(time.ctime(os.path.getmtime(row.FullFilePath)))
     dataNames.append(row.FileName.split('.')[0])
+    archived.append(False)
 
 fileSizeCol = pd.DataFrame({'FileSize':fileSize})
 modifiedTimeCol = pd.DataFrame({'Modified':modifiedTime})
 dataNamesCol = pd.DataFrame({'DataName':dataNames})
+archivedCol = pd.DataFrame({'Archived': archived})
 dataFiles = pd.concat([dataFiles, fileSizeCol], axis=1)
 dataFiles = pd.concat([dataFiles, modifiedTimeCol], axis=1)
 dataFiles = pd.concat([dataFiles, dataNamesCol], axis=1)
+dataFiles = pd.concat([dataFiles, archivedCol], axis=1)
 
 #%%
 dataFiles
@@ -58,15 +63,17 @@ dataFiles
 #%%
 # Create folders to use as workspaces for each of the files
 for index, row in dataFiles.iterrows():
-    if os.path.isdir('./packages/' + row.DataName):
-        shutil.rmtree('./packages/' + row.DataName)
+    if not os.path.isdir(packagePath):
+        os.mkdir(packagePath)
 
-    os.mkdir('./packages/' + row.DataName)
+    if os.path.isdir(packagePath + row.DataName):
+        shutil.rmtree(packagePath + row.DataName)
+
+    os.mkdir(packagePath + row.DataName)
 
 #%%
 # Write inventory away as input for next stage in the process
-dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
+dataFiles.to_csv('dataFileInventory.csv', index = None)
 
 
 nextStageNumber = str(int(stageNumber) + 1)
-dataFiles.to_csv('dataFileInventory_' + nextStageNumber + '_In.csv', index = None)

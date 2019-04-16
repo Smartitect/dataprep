@@ -25,6 +25,9 @@ packageFileSuffix = "_package.dprep"
 def createFullPackagePath(packageName, stage, qualityFlag):
     thisStagePath = packagePath + '/' + packageName + '/' + stage
 
+    if not os.path.isdir(packagePath):
+        os.mkdir(packagePath)
+
     if not os.path.isdir(thisStagePath):
         os.mkdir(thisStagePath)
 

@@ -17,12 +17,12 @@ from commonCode import savePackage, openPackage, createFullPackagePath, openPack
 from mappingCode import *
 
 # Let's also set up global variables and common functions...
-stageNumber = '3'
+stageNumber = '4'
 previousStageNumber = str(int(stageNumber) - 1)
 
 #%%
 # Load in file names to be processed from the config.csv file
-dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber + '_In.csv').to_pandas_dataframe()
+dataFiles = dprep.read_csv('dataFileInventory.csv').to_pandas_dataframe()
 
 #%%
 # Output the inventory at this stage...

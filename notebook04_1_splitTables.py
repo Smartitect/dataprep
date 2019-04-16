@@ -17,13 +17,15 @@ from commonCode import savePackage, openPackage, createFullPackagePath, getTable
 #%%
 sourceFileName = 'USERDATA'
 lookupFileName = 'LOOKUPS'
-previousStageNumber = '2'
 stageNumber = '3'
+previousStageNumber = str(int(stageNumber) - 1)
+packagePath = './packages/'
 
 #%%
-dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber + '_In.csv').to_pandas_dataframe()
-dataFlow = Dataflow.open('./packages/' + sourceFileName + '/' + previousStageNumber + '/' + sourceFileName +'_A_package.dprep')
-lookupsDataFlow = Dataflow.open('./packages/' + lookupFileName + '/' + previousStageNumber + '/' + lookupFileName + '_A_package.dprep')
+dataFiles = dprep.read_csv('dataFileInventory.csv').to_pandas_dataframe()
+dataFlow = Dataflow.open(packagePath + sourceFileName + '/' + previousStageNumber + '/' + sourceFileName +'_A_package.dprep')
+lookupsDataFlow = Dataflow.open(packagePath + lookupFileName + '/' + previousStageNumber + '/' + lookupFileName + '_A_package.dprep')
+columnInventoryAllTables = dprep.read_csv('columnInventory_' + previousStageNumber + '_Out.csv').to_pandas_dataframe()
 
 #%%
 dataFlow = dataFlow.map_column('FORM', 'FORM2', {ReplacementsValue('EXITDEFERRED', 'EXITDEFERREDS'), ReplacementsValue('EXITRETIRED', 'EXITRETIREMENT'), ReplacementsValue('EXITDEFERRED', 'EXITDEFERREDS')})
@@ -41,7 +43,6 @@ for col in dataProfile.columns['FORM'].value_counts:
 
     filteredLookupsDataFlow = lookupsDataFlow.filter((lookupsDataFlow['LOOKTYPE'] == 'U') & (lookupsDataFlow['LFIELD'] == col.value))
     filteredLookupsDataFlow.head(100)
-    #joinedDataFlow = dprep.Dataflow.join(left_dataflow=newDataFlow, right_dataflow=lookupsDataFlow, join_key_pairs=[('FORM', 'LFIELD'), ('')]
     
     lookupsDataFrame = filteredLookupsDataFlow.to_pandas_dataframe()
 
@@ -66,38 +67,24 @@ for col in dataProfile.columns['FORM'].value_counts:
     if partitionOccurred:
         packageName = sourceFileName + '_' + col.value
 
-        if os.path.isdir('./packages/' + packageName):
-            shutil.rmtree('./packages/' + packageName)
+        if os.path.isdir(packagePath + packageName):
+            shutil.rmtree(packagePath + packageName)
 
-        os.mkdir('./packages/' + packageName)
+        os.mkdir(packagePath + packageName)
 
-        # builder = newDataFlow.builders.set_column_types()
-        # builder.ambiguous_date_conversions_drop()
-        # builder.learn()
-        # newDataFlow = builder.to_dataflow()
-
-        savePackage(newDataFlow, packageName, '2', 'A')
+        savePackage(newDataFlow, packageName, stageNumber, 'A')
 
         # Profile the table
         newDataProfile = newDataFlow.get_profile()
         newRowCounts.append(newDataFlow.row_count)
 
-        dataInventory = getTableStats(newDataProfile, packageName, stageNumber)
-        saveColumnInventoryForTable(dataInventory, packageName, stageNumber)
+        columnInventory = getTableStats(newDataProfile, packageName, stageNumber)
+        saveColumnInventoryForTable(columnInventory, packageName, stageNumber)
+        columnInventoryAllTables = columnInventoryAllTables.append(columnInventory)
     
 #%%
-for col in dataProfile.columns['FORM'].value_counts:
-    packageName = sourceFileName + '_' + col.value
+dataFiles.to_csv('dataFileInventory.csv', index = None)
 
-    lookupsDataFlow = Dataflow.open('./packages/' + packageName + '/2/' + packageName+ '_A_package.dprep')
+columnInventoryAllTables.to_csv('columnInventory_' + stageNumber + '_Out.csv', index = None)
 
-    print(lookupsDataFlow.get_profile())
-    print(lookupsDataFlow.head(1000))
-
-#%%
-lookupsDataFlow = Dataflow.open('./packages/USERDATA_BASIC_DATA/2/USERDATA_BASIC_DATA_A_package.dprep')
-lookupsDataFlow.head(10000)
-
-
-dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
 

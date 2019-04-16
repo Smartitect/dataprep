@@ -79,7 +79,7 @@ def createConfigFromDataFlow(dataFlow, dataName):
     configTargetColumn = pd.DataFrame({'TargetColumn':configTargetColumnNames})
     config = pd.concat([config, configTargetColumn], axis=1)
 
-    configPath = packagePath + '/' + dataName + '/' + dataName + '_Config.csv';
+    configPath = packagePath + '/' + dataName + '/' + dataName + '_Config.csv'
     config.to_csv(configPath, index = None)
     return configPath
 
