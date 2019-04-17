@@ -1,3 +1,10 @@
+#%% [markdown]
+# # Data Profiling Playbook
+# The intention of this notebook is to develop a generic approach to profiling a single column.
+# This will take into account:
+# - The primary data type of the column - eg if it's a date, we can generate more specialised analytics
+# - We may also be able to apply more specialised checks, for example based on REGEX to check national insurance numbers etc.
+
 #%%
 # Import all of the libraries we need to use...
 import pandas as pd
@@ -6,15 +13,76 @@ import os as os
 import re as re
 import collections
 import seaborn as sns
-import pandas_profiling
+import pandas_profiling as pp
 import datetime
+from datetime import datetime
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
 from commonCode import savePackage, openPackage, createFullPackagePath
 
+
 #%%
-dataFlow = Dataflow.open('./packages/PEOPLE/2/PEOPLE_A_package.dprep')
+# Not used fo now, but should be driven by:
+stageNumber = '1'
+dataName = 'PEOPLE'
+qualityFlag = 'A'
+noMissingFlag = True
+
+# For now, I'm cheating, just specifying file.  But will use helper function to build ultimately:
+dataFlowFile = './packages/PEOPLE/2/PEOPLE_A_package.dprep'
+indexColumn = 'ID'
+targetColumn = 'DOB'
+#%%
+dataFlow = Dataflow.open(dataFlowFile)
+
+#%%
+dataFlow = dataFlow.keep_columns([indexColumn, targetColumn])
+
+#%%
+dataProfile = dataFlow.get_profile()
+
+#%%
+dataProfile
+
+#%%
+columnDataProfile = dataProfile.columns[targetColumn]
+
+#%%
+columnDataProfile
+
+#%%
+if columnDataProfile.type == 'FieldType.DATE':
+    print('Date Field Detected!')
+    # NOTE - what do I need to do to detect date field?
+
+#%%
+# Add year
+columnByExampleBuilder = dataFlow.builders.derive_column_by_example(source_columns = [targetColumn], new_column_name = 'Year')
+columnByExampleBuilder.add_example(source_data = {targetColumn : '2008-10-25 00:00:00'}, example_value = '2008')
+columnByExampleBuilder.preview()
+dataFlow = columnByExampleBuilder.to_dataflow()
+
+#%%
+# Add month
+columnByExampleBuilder = dataFlow.builders.derive_column_by_example(source_columns = [targetColumn], new_column_name = 'Month')
+columnByExampleBuilder.add_example(source_data = {targetColumn : '2008-10-25 00:00:00'}, example_value = 'October')
+columnByExampleBuilder.preview()
+dataFlow = columnByExampleBuilder.to_dataflow()
+
+#%%
+# Add day of month
+columnByExampleBuilder = dataFlow.builders.derive_column_by_example(source_columns = [targetColumn], new_column_name = 'DayOfMonth')
+columnByExampleBuilder.add_example(source_data = {targetColumn : '2008-10-25 00:00:00'}, example_value = '25')
+columnByExampleBuilder.preview()
+dataFlow = columnByExampleBuilder.to_dataflow()
+
+#%%
+# Add day of month
+columnByExampleBuilder = dataFlow.builders.derive_column_by_example(source_columns = [targetColumn], new_column_name = 'DayOfWeek')
+columnByExampleBuilder.add_example(source_data = {targetColumn : '2008-10-25 00:00:00'}, example_value = 'Saturday')
+columnByExampleBuilder.preview()
+dataFlow = columnByExampleBuilder.to_dataflow()
 
 #%%
 dataProfile = dataFlow.get_profile()
@@ -26,44 +94,59 @@ dataProfile
 dataColumns = dataProfile.columns.keys()
 
 #%%
-for c in dataColumns:
-    print('Column {0} : value count {1}'.format(c, len(dataProfile.columns[c].value_counts)))
-    print(dataProfile.columns[c].value_counts)
+dataColumns
 
+#%%
+for c in dataColumns:
+    valueCounts = dataProfile.columns[c].value_counts
+    if valueCounts == None:
+        valueCountString = 'None'
+    else:
+        valueCountString = len(valueCounts)
+    print('Column {0} : value count {1}'.format(c, valueCountString))
+
+
+#%%
+
+#%%
+def plotValueCounts(dataProfile,columnName):
+    valueCounts = dataProfile.columns[columnName].value_counts
+    if valueCounts != None:
+        valueCountsDataFrame = pd.DataFrame(columns = ['ColumnName', 'Value', 'Count'])
+        for i in valueCounts:
+            valueCountsDataFrame = valueCountsDataFrame.append({ \
+                'Column' : c, \
+                'Value' : i.value, \
+                'Count' : i.count}, \
+                ignore_index = True)
+        plot = sns.countplot(x=columnName, data=valueCountsDataFrame)
+
+#%%
+plotCountValues(dataProfile, 'Year')
+
+#%%
+valueCountsDataFrame
 
 #%%
 dataProfileValues = dataProfile.columns.values()
 
 #%%
-columnStats = pd.DataFrame(columns = ['DataName', 'Stage', 'DateTIme', 'ColumnName', 'Type', 'Min', 'Max', 'RowCount', 'MissingCount', 'NotMissingCount', 'ErrorCount', 'EmptyCount', 'Mean'])
-
-for item in dataProfileValues:
-    print (item.column_name)
-    columnStats = columnStats.append({'DataName' : 'X', 'Stage' : 'Y', 'DateTIme' : 'Z', 'ColumnName' : item.column_name, 'Type' : item.type, 'Min' : item.min, 'Max' : item.max, 'RowCount' : item.count, 'MissingCount' : item.missing_count, 'NotMissingCount' : item.not_missing_count, 'ErrorCount' : item.error_count, 'EmptyCount' : item.empty_count, 'Mean' : item.mean}, ignore_index = True)
-
-
-
+dataProfileValues
 #%%
 df = dataFlow.to_pandas_dataframe()
-#%%
-dateOfBirth = df[['ID','DOB','TITLE','MTST']]
 
 #%%
-profileReport = pp.ProfileReport(dateOfBirth, check_correlation = True)
+df = df.sort_values([targetColumn]).reset_index(drop=True)
+
+#%%
+df
+
+#%%
+profileReport = pp.ProfileReport(df, check_correlation = False)
 profileReport.to_file('./profileReport.html')
 
 #%%
-dateOfBirth['DOB'] = pd.to_datetime(dateOfBirth['DOB'])
+plot = sns.countplot(x="Year", data=df)
 
 #%%
-dateOfBirth['Year'] = dateOfBirth['DOB'].dt.year
-dateOfBirth['Month'] = dateOfBirth['DOB'].dt.month
-dateOfBirth['Day'] = dateOfBirth['DOB'].dt.day
-dateOfBirth['WeekDay'] = dateOfBirth['DOB'].dt.dayofweek
-#%%
-dateOfBirth
-#%%
-dateOfBirth.dtypes
-
-#%%
-plot = sns.countplot(x="Year", data=dateOfBirth)
+plot
