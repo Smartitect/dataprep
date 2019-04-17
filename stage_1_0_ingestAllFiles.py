@@ -17,11 +17,11 @@ import collections
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
-from commonCode import savePackage, openPackage, createFullPackagePath, getTableStats, saveColumnInventoryForTable
+from commonCode import savePackage, openPackage, createFullPackagePath, getTableStats, saveColumnInventoryForTable, saveDataFileInventory, gatherEndStageStats
 
 # Let's also set up global variables...
-stageNumber = '1'
-previousStageNumber = str(int(stageNumber) - 1)
+stageNumber = '10'
+nextStageNumber = '20'
 
 #%%
 # Load in file names to be processed from the config.csv file
@@ -101,14 +101,7 @@ for index, row in dataFiles.iterrows():
 
 #%%
 # Capture the stats
-columnCountCol = pd.DataFrame({'ColumnCountStage' + stageNumber:columnCountList})
-dataFiles = pd.concat([dataFiles, columnCountCol], axis=1)
-
-rowCountCol = pd.DataFrame({'RowCountStartStage' + stageNumber:rowCountList})
-dataFiles = pd.concat([dataFiles, rowCountCol], axis=1)
-
-packageNameCol = pd.DataFrame({'PackageNameStage' + stageNumber:packageNameList})
-dataFiles = pd.concat([dataFiles, packageNameCol], axis=1)
+dataFiles = gatherEndStageStats(stageNumber, dataFiles, rowCountList, columnCountList, packageNameList)
 
 #%%
 dataFiles.insert(len(dataFiles.columns), 'RemoveFirstRow', 'Yes')
@@ -116,12 +109,7 @@ dataFiles.insert(len(dataFiles.columns), 'ParseNullString', 'Yes')
 
 #%%
 # Write the inventory out for the next stage in the process to pick up
-dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
-
-nextStageNumber = str(int(stageNumber) + 1)
-
-dataFiles.to_csv('dataFileInventory_' + nextStageNumber + '_In.csv', index = None)
-
+saveDataFileInventory(dataFiles, stageNumber, nextStageNumber)
 
 #%%
 dataInventoryAllTables.to_csv('columnInventory_' + stageNumber + '_Out.csv', index = None)

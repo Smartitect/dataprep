@@ -99,3 +99,26 @@ def getTableStats(dataProfile, dataName, stage):
 def openPackageFromFullPath(fullPath):
     dataFlow = Dataflow.open(fullPath)
     return dataFlow
+
+def saveDataFileInventory(dataFiles, stageNumber, nextStageNumber):
+    dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
+    dataFiles.to_csv('dataFileInventory_' + nextStageNumber + '_In.csv', index = None)
+
+def gatherStartStageStats(stageNumber, dataFiles, rowCountStartList, columnCountStartList):
+    rowCountStartCol = pd.DataFrame({'RowCountStartStage' + stageNumber:rowCountStartList})
+    dataFiles = pd.concat([dataFiles, rowCountStartCol], axis=1)
+
+    columnCountCol = pd.DataFrame({'ColumnCountStartStage'  + stageNumber:columnCountStartList})
+    dataFiles = pd.concat([dataFiles, columnCountCol], axis=1)
+    return dataFiles
+
+def gatherEndStageStats(stageNumber, dataFiles, rowCountEndList, columnCountEndList, packageNameList):
+    rowCountStartCol = pd.DataFrame({'RowCountEndStage' + stageNumber:rowCountEndList})
+    dataFiles = pd.concat([dataFiles, rowCountStartCol], axis=1)
+
+    columnCountCol = pd.DataFrame({'ColumnCountEndStage'  + stageNumber:columnCountEndList})
+    dataFiles = pd.concat([dataFiles, columnCountCol], axis=1)
+
+    packageNameCol = pd.DataFrame({'PackageNameStage'  + stageNumber:packageNameList})
+    dataFiles = pd.concat([dataFiles, packageNameCol], axis=1)
+    return dataFiles

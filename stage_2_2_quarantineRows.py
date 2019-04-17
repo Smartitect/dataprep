@@ -20,12 +20,13 @@ import collections
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
-from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath, getTableStats, saveColumnInventoryForTable
+from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath, getTableStats, saveColumnInventoryForTable, saveDataFileInventory, gatherStartStageStats, gatherEndStageStats
 from mappingCode import createConfigFromDataFlow, createDummyConfigFromDataFlow
 
 # Let's also set up global variables and common functions...
-stageNumber = '2'
+stageNumber = '22'
 previousStageNumber = str(int(stageNumber) - 1)
+nextStageNumber = str(int(stageNumber) + 1)
 
 #%%
 # Load in file names to be processed from the config.csv file
@@ -36,12 +37,12 @@ dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber +'_In.csv').to_pan
 dataFiles
 
 #%%
+columnCountStartList = []
 columnCountEndList = []
 rowCountStartList = []
 rowCountEndList = []
 quarantinedRowsList = []
 packageNameList = []
-configFileList = []
 dataInventoryAllTables = pd.DataFrame()
 for index, row in dataFiles.iterrows():
 
@@ -64,16 +65,9 @@ for index, row in dataFiles.iterrows():
     dataFlowColumns = list(dataFlow.get_profile().columns.keys())
     print('{0}: found {1} columns, expected {2}'.format(dataName, len(dataFlowColumns), headerCount))
 
-    if parseNullString == 'Yes':
-        # Replace any occurences of the <null> string with proper empty cells...
-        dataFlow = dataFlow.replace_na(dataFlowColumns, custom_na_list='<null>')
-    
-    if removeFirstRow == 'Yes':
-        # Remove the first row...
-        # NOTE : future modofication - it would be good to add check to this to make sure it is the blank row we anticipate that begins `SCHEME=AR` 
-        dataFlow = dataFlow.skip(1)
-        print('{0}: removed first row, down to {1} rows'.format(dataName, dataFlow.row_count))
-    
+    columnCountStart = len(dataFlowColumns)
+    columnCountStartList.append(columnCountStart)
+
     # Quarantine rows which don't have values in the extra columns
     if headerCount != len(dataFlowColumns):
         # NOTE - this logic assumes that all unwanted columns are on the far right, this could be improved!
@@ -110,12 +104,6 @@ for index, row in dataFiles.iterrows():
     dataFlow = dataFlow.drop_columns(dataFlowColumns[headerCount:])
     print('{0}: dropped {1} unwanted columns'.format(dataName, len(dataFlowColumns[headerCount:])))
     
-    # Detect and apply column types
-    builder = dataFlow.builders.set_column_types()
-    builder.learn()
-    builder.ambiguous_date_conversions_keep_month_day()
-    dataFlow = builder.to_dataflow()
-
     # Get a list of the columns and count them...
     dataFlowColumnsEnd = list(dataFlow.get_profile().columns.keys())
     columnCountEnd = len(dataFlowColumnsEnd)
@@ -123,10 +111,6 @@ for index, row in dataFiles.iterrows():
 
     # Capture number of columns found...
     print('{0}: at end there are now {1} columns, expected {2}'.format(dataName, columnCountEnd, headerCount))
-
-    # Create config file for table
-    configPath = createDummyConfigFromDataFlow(dataFlow, dataName)
-    configFileList.append(configPath)
 
     # Profile the table
     dataProfile = dataFlow.get_profile()
@@ -143,32 +127,16 @@ for index, row in dataFiles.iterrows():
 
 #%%
 # Capture the stats
-rowCountStartCol = pd.DataFrame({'RowCountStartStage' + stageNumber:rowCountStartList})
-dataFiles = pd.concat([dataFiles, rowCountStartCol], axis=1)
-
-rowCountEndCol = pd.DataFrame({'RowCountEndStage' + stageNumber:rowCountEndList})
-dataFiles = pd.concat([dataFiles, rowCountEndCol], axis=1)
+dataFiles = gatherStartStageStats(stageNumber, dataFiles, rowCountStartList, columnCountStartList)
 
 quarantinedRowsCol = pd.DataFrame({'QuarantinedRowsStage' + stageNumber:quarantinedRowsList})
 dataFiles = pd.concat([dataFiles, quarantinedRowsCol], axis=1)
 
-columnCountCol = pd.DataFrame({'ColumnCountEndStage'  + stageNumber:columnCountEndList})
-dataFiles = pd.concat([dataFiles, columnCountCol], axis=1)
-
-packageNameCol = pd.DataFrame({'PackageNameStage'  + stageNumber:packageNameList})
-dataFiles = pd.concat([dataFiles, packageNameCol], axis=1)
-
-configFilesCol = pd.DataFrame({'Config':configFileList})
-dataFiles = pd.concat([dataFiles, configFilesCol], axis=1)
+dataFiles = gatherEndStageStats(stageNumber, dataFiles, rowCountEndList, columnCountEndList, packageNameList)
 
 #%%
 # Write the inventory out for the next stage in the process to pick up
-dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
-
-nextStageNumber = str(int(stageNumber) + 1)
-
-dataFiles.to_csv('dataFileInventory_' + nextStageNumber + '_In.csv', index = None)
-
+saveDataFileInventory(dataFiles, stageNumber, nextStageNumber)
 
 #%%
 dataInventoryAllTables.to_csv('columnInventory_' + stageNumber + '_Out.csv', index = None)

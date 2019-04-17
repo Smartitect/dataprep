@@ -13,16 +13,17 @@ import collections
 from azureml.dataprep import value, ReplacementsValue
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
-from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath, getTableStats, saveColumnInventoryForTable
+from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath, getTableStats, saveColumnInventoryForTable, saveDataFileInventory, gatherEndStageStats
 from mappingCode import *
 
 # Let's also set up global variables and common functions...
-stageNumber = '4'
-previousStageNumber = str(int(stageNumber) - 1)
+stageNumber = '40'
+previousStageNumber = '30'
+nextStageNumber = '50'
 
 #%%
 # Load in file names to be processed from the config.csv file
-dataFiles = dprep.read_csv('dataFileInventory.csv').to_pandas_dataframe()
+dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber +'_In.csv').to_pandas_dataframe()
 
 #%%
 # Output the inventory at this stage...
@@ -42,7 +43,7 @@ for index, row in dataFiles.iterrows():
     transforms = load_transformation_configuration('./packages/' + dataName + '/' + dataName + '_Config.csv')
 
     if len(transforms) <= 1:
-        continue;
+        continue
     
     lookups = get_lookups_from_transforms(transforms)
 
@@ -60,3 +61,11 @@ for index, row in dataFiles.iterrows():
     fullPackagePath = savePackage(dataFlow, dataName, stageNumber, 'A')
     print('{0}: saved package to {1}'.format(dataName, fullPackagePath))
     packageNameList.append(fullPackagePath)
+
+#%%
+# Capture the stats
+dataFiles = gatherEndStageStats(stageNumber, dataFiles, [], [], packageNameList)
+
+#%%
+# Write the inventory out for the next stage in the process to pick up
+saveDataFileInventory(dataFiles, stageNumber, nextStageNumber)

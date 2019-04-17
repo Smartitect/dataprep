@@ -17,10 +17,12 @@ import shutil
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
+from commonCode import saveDataFileInventory
 
 # Let's also set up global variables...
 # NOTE - is there any way to set these up centrally?
 stageNumber = '0'
+nextStageNumber = '10'
 
 # Path to the source data
 # NOTE - ultimately this could point to other storage sources such as blob on Azure
@@ -58,9 +60,6 @@ dataFiles = pd.concat([dataFiles, dataNamesCol], axis=1)
 dataFiles = pd.concat([dataFiles, archivedCol], axis=1)
 
 #%%
-dataFiles
-
-#%%
 # Create folders to use as workspaces for each of the files
 for index, row in dataFiles.iterrows():
     if not os.path.isdir(packagePath):
@@ -73,8 +72,4 @@ for index, row in dataFiles.iterrows():
 
 #%%
 # Write inventory away as input for next stage in the process
-dataFiles.to_csv('dataFileInventory_' + stageNumber + '_Out.csv', index = None)
-
-nextStageNumber = str(int(stageNumber) + 1)
-
-dataFiles.to_csv('dataFileInventory_' + nextStageNumber + '_In.csv', index = None)
+saveDataFileInventory(dataFiles, stageNumber, nextStageNumber)
