@@ -1,3 +1,7 @@
+#%% [markdown]
+# # Stage: Split Tables
+# Purpose of this stage 
+
 #%%
 # Import all of the libraries we need to use...
 import pandas as pd

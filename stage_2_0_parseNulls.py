@@ -1,13 +1,7 @@
 
 #%% [markdown]
-# # Stage : Fix Systemic Issues
-# Purpose of this stage is to fix any common issues found across all files in the set.
-# This involves stepping through each file in the confiug file to extract and do a basic clean up:
+# # Stage : Remove Nulls
 # - Based on flag in config, replace the custom string `<null>` representing a null and any other empty cells to a real `null`;
-# - Based on flag in config, remove the first row;
-# - Quarantine rows (extract them and put them into a parallel data flow so that they can be fixed at a later stage) which have values in columns that are not listed in the header record;
-# - Drop any columns that we weren't expecting
-# - Try to detect data types in each column using **column types builder**
 # - Save the data flow that has been created for each file away so that it can be referenced and used later on
 
 #%%

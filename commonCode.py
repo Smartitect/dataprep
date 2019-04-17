@@ -28,6 +28,9 @@ def createFullPackagePath(packageName, stage, qualityFlag):
     if not os.path.isdir(packagePath):
         os.mkdir(packagePath)
 
+    if not os.path.isdir(packagePath + '/' + packageName):
+        os.mkdir(packagePath + '/' + packageName)
+
     if not os.path.isdir(thisStagePath):
         os.mkdir(thisStagePath)
 
