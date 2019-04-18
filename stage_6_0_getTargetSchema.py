@@ -21,10 +21,10 @@ from commonCode import savePackage, openPackage, createFullPackagePath
 
 
 #%%
-sourceFileName = 'PEOPLE'
-previousStageNumber = '40'
-stageNumber = '50'
-nextStageNumber = '60'
+sourceFileName = 'UPMPERSON'
+previousStageNumber = '50'
+stageNumber = '60'
+nextStageNumber = '70'
 
 #%%
 dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber + '_In.csv').to_pandas_dataframe()
@@ -87,9 +87,6 @@ for column in TargetTable.columns[:]:
 
 
 #%%
-dataFlow = dataFlow.drop_columns(dprep.ColumnSelector('NINO|DOB|FORENAME', True, True, invert=True))
-dataFlow = dataFlow.rename_columns({'FORENAME':'FORENAMES'})
-
 dataFlow.head(5)
 
 #%%

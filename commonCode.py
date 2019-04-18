@@ -37,6 +37,12 @@ def createFullPackagePath(packageName, stage, qualityFlag):
 
     return thisStagePath + '/' + packageName + '_' + qualityFlag + packageFileSuffix
 
+def createNewPackageDirectory(newPackageName):
+    if os.path.isdir(packagePath + '/' + newPackageName):
+        shutil.rmtree(packagePath + '/' + newPackageName)
+
+    os.mkdir(packagePath + '/' + newPackageName)
+
 # A save package helper function
 def savePackage(dataFlowToPackage, packageName, stage, qualityFlag):
     fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
