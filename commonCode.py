@@ -72,8 +72,11 @@ def saveColumnInventoryForTable(columnInventory, packageName, stage):
 # An open package helper function
 def openPackage(packageName, stage, qualityFlag):
     fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
-    dataFlow = Dataflow.open(fullPackagePath)
-    return dataFlow
+    if os.path.isfile(fullPackagePath):
+        dataFlow = Dataflow.open(fullPackagePath)
+        return dataFlow
+    else:
+        return None
 
 # A data profiling helper function to capture column metrics in a standard way
 def getTableStats(dataProfile, dataName, stage):

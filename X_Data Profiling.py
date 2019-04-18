@@ -30,11 +30,18 @@ qualityFlag = 'A'
 noMissingFlag = True
 
 # For now, I'm cheating, just specifying file.  But will use helper function to build ultimately:
-dataFlowFile = './packages/PEOPLE/2/PEOPLE_A_package.dprep'
+dataFlowFile = './packages/PEOPLE/20/PEOPLE_A_package.dprep'
 indexColumn = 'ID'
 targetColumn = 'DOB'
 #%%
 dataFlow = Dataflow.open(dataFlowFile)
+
+#%%
+dataFlow = dataFlow.distinct(['ID'])
+
+#%%
+dataFlow = dataFlow.distinct(['NINO'])
+
 
 #%%
 dataFlow = dataFlow.keep_columns([indexColumn, targetColumn])
@@ -78,7 +85,7 @@ columnByExampleBuilder.preview()
 dataFlow = columnByExampleBuilder.to_dataflow()
 
 #%%
-# Add day of month
+# Add day of week
 columnByExampleBuilder = dataFlow.builders.derive_column_by_example(source_columns = [targetColumn], new_column_name = 'DayOfWeek')
 columnByExampleBuilder.add_example(source_data = {targetColumn : '2008-10-25 00:00:00'}, example_value = 'Saturday')
 columnByExampleBuilder.preview()
@@ -119,13 +126,33 @@ def plotValueCounts(dataProfile,columnName):
                 'Value' : i.value, \
                 'Count' : i.count}, \
                 ignore_index = True)
-        plot = sns.countplot(x=columnName, data=valueCountsDataFrame)
+        if len(valueCountsDataFrame) > 40:
+            plot = sns.barplot(x='Value', y='Count', data=valueCountsDataFrame.head(20))
+            plot
+            plot = sns.barplot(x='Value', y='Count', data=valueCountsDataFrame.tail(20))
+            plot
+        else:
+            plot = sns.barplot(x='Value', y='Count', data=valueCountsDataFrame)
+            plot
+    return plot
 
 #%%
-plotCountValues(dataProfile, 'Year')
+plot = plotValueCounts(dataProfile, 'Year')
 
 #%%
-valueCountsDataFrame
+plot
+
+#%%
+plot = plotValueCounts(dataProfile, 'Month')
+
+#%%
+plot
+
+#%%
+plot = plotValueCounts(dataProfile, 'Day')
+
+#%%
+plot
 
 #%%
 dataProfileValues = dataProfile.columns.values()
