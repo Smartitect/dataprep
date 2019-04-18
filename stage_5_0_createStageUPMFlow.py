@@ -14,13 +14,12 @@ import shutil
 from azureml.dataprep import value, ReplacementsValue
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
-from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath, getTableStats, saveColumnInventoryForTable, saveDataFileInventory, gatherEndStageStats
+from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath, getTableStats, saveColumnInventoryForTable, saveDataFileInventory, gatherEndStageStats, createNewPackageDirectory
 
 # Let's also set up global variables and common functions...
 stageNumber = '50'
 previousStageNumber = '41'
 nextStageNumber = '60'
-packagePath = "./packages/"
 
 #%%
 # Load in file names to be processed from the config.csv file
@@ -59,11 +58,7 @@ for index, row in dataFiles.iterrows():
     targetDataFlow = targetDataFlow.drop_columns(dprep.ColumnSelector(columnsToKeep, True, True, invert=True))
     newPackageName = next(iter(mappingConfig[mappingConfig.SourceTable == dataName]['TargetTable'].unique()))
 
-    if os.path.isdir(packagePath + newPackageName):
-        shutil.rmtree(packagePath + newPackageName)
-
-    os.mkdir(packagePath + newPackageName)
-
+    createNewPackageDirectory(newPackageName)
     fullPackagePath = savePackage(targetDataFlow, newPackageName, stageNumber, 'A')
 
     # Profile the table

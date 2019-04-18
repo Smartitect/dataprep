@@ -16,7 +16,7 @@ import shutil
 from azureml.dataprep import value, ReplacementsValue
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
-from commonCode import savePackage, openPackage, openPackageFromFullPath, createFullPackagePath, getTableStats, saveColumnInventoryForTable, saveDataFileInventory, gatherStartStageStats, gatherEndStageStats
+from commonCode import savePackage, openPackage, openPackageFromFullPath, createFullPackagePath, getTableStats, saveColumnInventoryForTable, saveDataFileInventory, gatherStartStageStats, gatherEndStageStats, createNewPackageDirectory
 from mappingCode import createConfigFromDataFlow, createDummyConfigFromDataFlow
 
 #%%
@@ -73,11 +73,7 @@ for col in dataProfile.columns['FORM'].value_counts:
     if partitionOccurred:
         packageName = sourceFileName + '_' + col.value
 
-        if os.path.isdir(packagePath + packageName):
-            shutil.rmtree(packagePath + packageName)
-
-        os.mkdir(packagePath + packageName)
-
+        createNewPackageDirectory(packageName)
         packagePath = savePackage(newDataFlow, packageName, stageNumber, 'A')
 
         # Profile the table
