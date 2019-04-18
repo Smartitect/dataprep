@@ -5,6 +5,7 @@ import os as os
 import re as re
 import collections
 import datetime
+import shutil
 from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
@@ -40,7 +41,25 @@ def createFullPackagePath(packageName, stage, qualityFlag):
 def savePackage(dataFlowToPackage, packageName, stage, qualityFlag):
     fullPackagePath = createFullPackagePath(packageName, stage, qualityFlag)
     dataFlowToPackage.save(fullPackagePath)
+    savePendletonPackage(fullPackagePath, packageName, stage, qualityFlag)
     return fullPackagePath
+
+def savePendletonPackage(path, packageName, stage, qualityFlag):
+    pendeltonFolderPath = packagePath + '/' + packageName + '/' + stage + '/pendleton'
+    pendletonFilePath = pendeltonFolderPath + '/' + packageName + '_' + qualityFlag + packageFileSuffix
+
+    if os.path.isdir(pendeltonFolderPath):
+        shutil.rmtree(pendeltonFolderPath)
+
+    if not os.path.isdir(pendeltonFolderPath):
+        os.mkdir(pendeltonFolderPath)
+
+    with open(path, 'r+') as f:
+        f.seek(1,0)
+        a = f.read()
+        with open(pendletonFilePath, 'x') as f:
+            f.write('{"schemaVersion": 63,"id": "4d5dccfb-2c5f-488d-9b7a-be4071db9cac","activities": [{"id": "3be82a4a-d2d0-47b0-929d-d9d77215ac54","name": "'+ packageName + '",' + a + '],"runConfigurations": []}')
+
 
 def saveColumnInventoryForTable(columnInventory, packageName, stage):
     thisStagePath = packagePath + '/' + packageName + '/' + stage

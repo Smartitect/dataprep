@@ -1,6 +1,6 @@
 
 #%% [markdown]
-# # Stage : Remove Nulls
+# # Stage : Parse Nulls
 # - Based on flag in config, replace the custom string `<null>` representing a null and any other empty cells to a real `null`;
 # - Save the data flow that has been created for each file away so that it can be referenced and used later on
 
