@@ -14,7 +14,7 @@ from azureml.dataprep import value, ReplacementsValue
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
 from commonCode import savePackage, openPackage, createFullPackagePath, openPackageFromFullPath, getTableStats, saveColumnInventoryForTable, saveDataFileInventory, gatherEndStageStats
-from mappingCode import *
+from mappingCode import createUPMMappingConfigFromDataFlow
 
 # Let's also set up global variables and common functions...
 stageNumber = '41'
