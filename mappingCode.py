@@ -119,7 +119,7 @@ def createUPMMappingConfigFromDataFlow(dataFlow, dataName):
     configPath = packagePath + '/' + dataName + '/' + dataName + '_Target_Mapping_Config.csv'
 
     if os.path.isfile(configPath):
-        return configPath;
+        return configPath
 
     for configCol in list(dataFlow.get_profile().columns.keys()):
         configSourceTableNames.append(dataName)

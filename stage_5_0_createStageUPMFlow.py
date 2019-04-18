@@ -49,8 +49,6 @@ for index, row in dataFiles.iterrows():
 
     for sourceTable in mappingConfig[mappingConfig.SourceTable == dataName]['SourceTable'].unique():
         for sourceColumn, targetColumn in mappingConfig[mappingConfig.SourceTable == sourceTable][['SourceColumn', 'TargetColumn']].values:
-            print(sourceColumn)
-            print(targetColumn)
             if columnsToKeep is '':
                 columnsToKeep = targetColumn
             else:                
