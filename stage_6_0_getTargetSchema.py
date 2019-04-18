@@ -21,7 +21,7 @@ from commonCode import savePackage, openPackage, createFullPackagePath
 
 
 #%%
-sourceFileName = 'PEOPLE'
+sourceFileName = 'UPMPERSON'
 previousStageNumber = '50'
 stageNumber = '60'
 nextStageNumber = '70'
@@ -87,9 +87,6 @@ for column in TargetTable.columns[:]:
 
 
 #%%
-dataFlow = dataFlow.drop_columns(dprep.ColumnSelector('NINO|DOB|FORENAME', True, True, invert=True))
-dataFlow = dataFlow.rename_columns({'FORENAME':'FORENAMES'})
-
 dataFlow.head(5)
 
 #%%
