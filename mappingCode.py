@@ -109,3 +109,33 @@ def createDummyConfigFromDataFlow(dataFlow, dataName):
     configPath = packagePath + '/' + dataName + '/' + dataName + '_Config.csv'
     config.to_csv(configPath, index = None)
     return configPath
+
+def createUPMMappingConfigFromDataFlow(dataFlow, dataName):
+    configSourceTableNames = []
+    configSourceColumnNames = []
+    configTargetTableNames = []
+    configTargetColumnNames = []
+
+    configPath = packagePath + '/' + dataName + '/' + dataName + '_Target_Mapping_Config.csv'
+
+    if os.path.isfile(configPath):
+        return configPath;
+
+    for configCol in list(dataFlow.get_profile().columns.keys()):
+        configSourceTableNames.append(dataName)
+        configSourceColumnNames.append(configCol)
+        configTargetTableNames.append('UPM.' + dataName)
+        configTargetColumnNames.append('UPM_' + configCol)
+
+    config = pd.DataFrame()
+    configSourceTables = pd.DataFrame({'SourceTable':configSourceTableNames})
+    config = pd.concat([config, configSourceTables], axis=1)
+    configSourceColumns = pd.DataFrame({'SourceColumn':configSourceColumnNames})
+    config = pd.concat([config, configSourceColumns], axis=1)
+    configTargetTables = pd.DataFrame({'TargetTable':configTargetTableNames})
+    config = pd.concat([config, configTargetTables], axis=1)
+    configTargetColumn = pd.DataFrame({'TargetColumn':configTargetColumnNames})
+    config = pd.concat([config, configTargetColumn], axis=1)
+    
+    config.to_csv(configPath, index = None)
+    return configPath

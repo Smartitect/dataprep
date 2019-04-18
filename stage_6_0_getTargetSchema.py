@@ -22,9 +22,9 @@ from commonCode import savePackage, openPackage, createFullPackagePath
 
 #%%
 sourceFileName = 'PEOPLE'
-previousStageNumber = '40'
-stageNumber = '50'
-nextStageNumber = '60'
+previousStageNumber = '50'
+stageNumber = '60'
+nextStageNumber = '70'
 
 #%%
 dataFiles = dprep.read_csv('dataFileInventory_' + stageNumber + '_In.csv').to_pandas_dataframe()
