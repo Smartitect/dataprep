@@ -1,0 +1,3 @@
+SourceTable,SourceColumn,TargetTable,TargetColumn
+PEOPLE,DOB,UPMPERSON,DOB
+PEOPLE,NINO,UPMPERSON,NINO
