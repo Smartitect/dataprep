@@ -5,6 +5,8 @@
 
 # Data files results
 data/
+dataFlowInventory/
+columnInventory/
 
 # Temp output files
 output/
@@ -25,6 +27,3 @@ pacakges/
 .dprep
 packages/
 __pycache__/
-
-# CSV files
-*.CSV
