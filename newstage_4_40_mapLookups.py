@@ -1,5 +1,5 @@
 #%% [markdown]
-# # Map values to lookup dictionary
+# Map values to lookup dictionary
 # Uses a config file to drive mappings and looks at a mapping file to get the values to replace
 
 #%%
