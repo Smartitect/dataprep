@@ -68,7 +68,10 @@ join_builder.list_join_suggestions()
 join_builder.join_key_pairs=[(leftDataFlowJoinColumn, rightDataFlowJoinColumn)]
 
 #%%
-join_builder.preview()
+print(join_builder.preview())
+
+#%%
+dataFlowJoined = join_builder.to_dataflow()
 
 #%%
 dataFlowJoined = dprep.Dataflow.join(left_dataflow=leftDataFlow,
