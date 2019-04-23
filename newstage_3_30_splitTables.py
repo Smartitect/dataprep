@@ -83,40 +83,10 @@ def splitTableBasedOnSingleColumn(dataName, previousStageNumber, thisStageNumber
         print('{0}: no package file found at location {1}'.format(dataName, fullPackagePath))
         return None, None, None
 
+
+
 #%%
 dataFlowInventoryAll = dataFlowProcessingLoop(previousStageNumber, thisStageNumber, 'A', 'SplitTable', splitTableBasedOnSingleColumn)
 
 #%%
 dataFlowInventoryAll
-
-#%%
-# Still to add this logic in somewhere - looks like a "map lookups"?
-dataFlow = dataFlow.map_column('FORM', 'FORM2', {ReplacementsValue('EXITDEFERRED', 'EXITDEFERREDS'), ReplacementsValue('EXITRETIRED', 'EXITRETIREMENT'), ReplacementsValue('EXITDEFERRED', 'EXITDEFERREDS')})
-dataFlow = dataFlow.drop_columns('FORM')
-dataFlow = dataFlow.rename_columns({'FORM2': 'FORM'})
-
-#%%
-# Still to apply this logic too - looks like a more complex filter based on 
-filteredLookupsDataFlow = lookupsDataFlow.filter((lookupsDataFlow['LOOKTYPE'] == 'U') & (lookupsDataFlow['LFIELD'] == col.value))
-filteredLookupsDataFlow.head(100)
-    
-#%%
-# Finally this logic which is about renaming colummns...
-
-lookupsDataFrame = filteredLookupsDataFlow.to_pandas_dataframe()
-
-replacedColumns = []
-
-for index, row in lookupsDataFrame.iterrows():
-    partitionOccurred = True
-    originalValue = row['COMPNAME']
-    replacementValue = row['LDESC']
-
-    replacedColumns.append(replacementValue)
-    newDataFlow = newDataFlow.rename_columns({originalValue: replacementValue})
-
-newDataProfile = newDataFlow.get_profile()
-
-for column in newDataProfile.columns.values():
-    if column.min is None and column.max is None:
-        newDataFlow = newDataFlow.drop_columns(column.name)

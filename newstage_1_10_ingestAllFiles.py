@@ -22,7 +22,7 @@ from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
 from commonInventoryCreation import getColumnStats, getDataFlowStats, saveColumnInventory, saveDataFlowInventory
-from commonPackageHandling import savePackage
+from commonPackageHandling import saveDataFlowPackage
 
 # Let's also set up global variables...
 previousStageNumber = '00'
@@ -81,7 +81,7 @@ for index, row in dataFlows.iterrows():
         print('{0}: generated data flow inventory'.format(dataName))
 
         # Finally save the data flow so it can be passed onto the next stage of the process...
-        targetPackagePath = savePackage(newDataFlow, dataName, thisStageNumber, 'A')
+        targetPackagePath = saveDataFlowPackage(newDataFlow, dataName, thisStageNumber, 'A')
         print('{0}: saved package to {1}'.format(dataName, targetPackagePath))
     else:
         print('{0}: no package file created.'.format(dataName))
