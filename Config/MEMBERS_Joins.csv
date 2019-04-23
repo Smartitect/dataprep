@@ -1,0 +1,2 @@
+LeftDataName,LeftDataFlowJoinColumn,RightDataName,RightDataFlowJoinColumn
+MEMBERS,PEOPLEID,PEOPLE,ID

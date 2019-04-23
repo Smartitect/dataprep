@@ -116,7 +116,7 @@ def joinTables(dataName, previousStageNumber, thisStageNumber, qualityFlag, oper
         return None, None, None
 
 #%%
-dataFlowInventoryAll = dataFlowProcessingLoop(previousStageNumber, thisStageNumber, 'A', 'JoinTables', joinTables)
+dataFlowInventoryAll = dataFlowProcessingLoop(previousStageNumber, thisStageNumber, 'A', 'JoinTablesPass1', joinTables)
 
 #%%
 dataFlowInventoryAll

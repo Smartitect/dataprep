@@ -1,0 +1,2 @@
+LeftDataName,LeftDataFlowJoinColumn,RightDataName,RightDataFlowJoinColumn
+PEOPLE_MEMBERS,MEMBERS_MEMNO,EXITRETIREMENT,MEMNO

@@ -34,8 +34,10 @@ def removeDuplicates(dataName, previousStageNumber, thisStageNumber, qualityFlag
 
             columnsToKeep = operationFlag
 
-            dataFlow = dataFlow.distinct(dprep.ColumnSelector(columnsToKeep, True, True, invert=True))
-            print('{0}: removed duplicates from column {1}'.format(dataName, operationFlag))
+            numberOfRowsBefore = dataFlow.row_count
+
+            dataFlow = dataFlow.distinct(dprep.ColumnSelector(columnsToKeep, True, True, invert=False))
+            print('{0}: removed duplicates from column {1} rows before {2} rows afer {3}'.format(dataName, operationFlag, numberOfRowsBefore, dataFlow.row_count))
         
         else:
             print('{0}: no duplicate processing required'.format(dataName))
