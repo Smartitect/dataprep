@@ -20,7 +20,35 @@ from azureml.dataprep import value
 from azureml.dataprep import col
 from azureml.dataprep import Dataflow
 from commonCode import savePackage, openPackage, createFullPackagePath
+from commonPackageHandling import openDataFlowPackage
 
+#%%
+dataFlow = openDataFlowPackage('PEOPLE', '22', 'A')
+
+#%%
+dataFlow.head(10)
+
+#%%
+dataProfile = dataFlow.get_profile()
+dataProfile
+
+#%%
+dataFlow.row_count
+
+#%%
+builder = dataFlow.builders.set_column_types()
+
+#%%
+builder.learn()
+
+#%%
+builder.conversion_candidates
+
+#%%
+builder.ambiguous_date_columns
+
+#%%
+dataFlow = builder.to_dataflow()
 
 #%%
 # Not used fo now, but should be driven by:
