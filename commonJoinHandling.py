@@ -89,7 +89,7 @@ def joinTables(dataName, previousStageNumber, thisStageNumber, qualityFlag, oper
         targetPackagePath = saveDataFlowPackage(dataFlow, dataName, thisStageNumber, qualityFlag)
         print('{0}: saved package to {1}'.format(dataName, targetPackagePath))
 
-        return dataFlow, columnInventoryIntermediate, dataFlowInventory
+        return dataFlow, columnInventoryIntermediate, dataFlowInventoryIntermediate
 
     else:
         print('{0}: no package file found at location {1}'.format(dataName, fullPackagePath))
