@@ -22,7 +22,7 @@ previousStageNumber = '30'
 thisStageNumber = '31'
 
 #%%
-def parseNulls(dataName, previousStageNumber, thisStageNumber, qualityFlag, operatorToUse, operationFlag):
+def renameColumns(dataName, previousStageNumber, thisStageNumber, qualityFlag, operatorToUse, operationFlag):
 
     dataFlow, fullPackagePath = openDataFlowPackage(dataName, previousStageNumber, qualityFlag)
     
@@ -32,7 +32,9 @@ def parseNulls(dataName, previousStageNumber, thisStageNumber, qualityFlag, oper
 
         if operationFlag != '':
             # Do the operation on columns to rename them...
-            print('{0}: renameed {1} columns'.format(dataName, operationFlag))
+            print('{0}: renamed {1} columns'.format(dataName, operationFlag))
+        else:
+            print('{0}: no operation to perform'.format(dataName))
         
         dataProfile = dataFlow.get_profile()
 
@@ -51,7 +53,7 @@ def parseNulls(dataName, previousStageNumber, thisStageNumber, qualityFlag, oper
         return None, None, None
 
 #%%
-dataFlowInventoryAll = dataFlowProcessingLoop(previousStageNumber, thisStageNumber, 'A', 'ParseNullString', parseNulls)
+dataFlowInventoryAll = dataFlowProcessingLoop(previousStageNumber, thisStageNumber, 'A', 'RenameColumns', renameColumns)
 
 #%%
 dataFlowInventoryAll
