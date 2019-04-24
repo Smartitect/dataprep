@@ -16,18 +16,18 @@ from commonPackageHandling import openDataFlowPackage, saveDataFlowPackage, crea
 from mappingCode import load_transformation_configuration, get_lookups_from_transforms, get_destination_column_name
 
 # Let's also set up global variables and common functions...
-previousStageNumber = '40'
+previousStageNumber = '41'
 thisStageNumber = '50'
 
 #%%
 def createUPMDataflow(dataName, previousStageNumber, thisStageNumber, qualityFlag, operatorToUse, operationFlag):
 
     dataFlow, fullPackagePath = openDataFlowPackage(dataName, previousStageNumber, qualityFlag)
-    
     if dataFlow:
 
         print('{0}: loaded package from path {1}'.format(dataName, fullPackagePath))
 
+        columnInventoryIntermediate = pd.DataFrame()
         if operationFlag != '':
 
             mappingConfig = dprep.read_csv('./Config/' + operationFlag).to_pandas_dataframe()
@@ -50,6 +50,10 @@ def createUPMDataflow(dataName, previousStageNumber, thisStageNumber, qualityFla
             createNewPackageDirectory(newPackageName)
             saveDataFlowPackage(targetDataFlow, newPackageName, thisStageNumber, 'A')
 
+            profile = targetDataFlow.get_profile()
+
+            columnInventory = getColumnStats(profile, newPackageName, thisStageNumber, operatorToUse, operationFlag)
+            columnInventoryIntermediate = columnInventoryIntermediate.append(columnInventory)
 
         else:
             print('{0}: no duplicate processing required'.format(dataName))
@@ -60,11 +64,13 @@ def createUPMDataflow(dataName, previousStageNumber, thisStageNumber, qualityFla
         columnInventory = getColumnStats(dataProfile, dataName, thisStageNumber, operatorToUse, operationFlag)
         dataFlowInventory = getDataFlowStats(dataFlow, dataProfile, dataName, thisStageNumber, operatorToUse, operationFlag)
 
+        columnInventoryIntermediate.append(columnInventory)
+
         # Finally save the data flow so it can be passed onto the next stage of the process...
         targetPackagePath = saveDataFlowPackage(dataFlow, dataName, thisStageNumber, qualityFlag)
         print('{0}: saved package to {1}'.format(dataName, targetPackagePath))
 
-        return dataFlow, columnInventory, dataFlowInventory
+        return dataFlow, columnInventoryIntermediate, dataFlowInventory
 
     else:
         print('{0}: no package file found at location {1}'.format(dataName, fullPackagePath))

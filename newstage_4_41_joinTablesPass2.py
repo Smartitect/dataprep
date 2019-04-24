@@ -20,11 +20,11 @@ from commonPackageHandling import openDataFlowPackage, saveDataFlowPackage
 from commonJoinHandling import joinTables
 
 # Let's also set up global variables and common functions...
-previousStageNumber = '32'
-thisStageNumber = '33'
+previousStageNumber = '40'
+thisStageNumber = '41'
 
 #%%
-dataFlowInventoryAll = dataFlowProcessingLoop(previousStageNumber, thisStageNumber, 'A', 'JoinTablesPass1', joinTables)
+dataFlowInventoryAll = dataFlowProcessingLoop(previousStageNumber, thisStageNumber, 'A', 'JoinTablesPass2', joinTables)
 
 #%%
 dataFlowInventoryAll
