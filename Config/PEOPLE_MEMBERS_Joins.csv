@@ -1,2 +1,2 @@
-LeftDataName,LeftDataFlowJoinColumn,RightDataName,RightDataFlowJoinColumn
-PEOPLE_MEMBERS,MEMBERS_MEMNO,EXITRETIREMENT,MEMNO
+LeftDataName,LeftDataFlowJoinColumn,RightDataName,RightDataFlowJoinColumn,JoinType
+PEOPLE_MEMBERS,MEMBERS_MEMNO,EXITRETIREMENT,MEMNO,LEFT
