@@ -58,7 +58,7 @@ qualityFlag = 'A'
 noMissingFlag = True
 
 # For now, I'm cheating, just specifying file.  But will use helper function to build ultimately:
-dataFlowFile = './packages/PEOPLE/20/PEOPLE_A_package.dprep'
+dataFlowFile = './packages/PEOPLE/23/PEOPLE_A_package.dprep'
 indexColumn = 'ID'
 targetColumn = 'DOB'
 #%%

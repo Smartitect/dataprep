@@ -31,14 +31,15 @@ def splitTableBasedOnSingleColumn(dataName, previousStageNumber, thisStageNumber
 
         dataProfile = dataFlow.get_profile()
 
+        # Set up empty intermediate dataframes that we will use to build up inventories at both dataFlow and column level
+        dataFlowInventoryIntermediate = pd.DataFrame()
+        columnInventoryIntermediate = pd.DataFrame()
+
         if operationFlag != '':
 
             # First, grab the unique set of values in the column
             valuesInColumn = dataProfile.columns[operationFlag].value_counts
 
-            # Set up empty intermediate dataframes that we will use to build up inventories at both dataFlow and column level
-            dataFlowInventoryIntermediate = pd.DataFrame()
-            columnInventoryIntermediate = pd.DataFrame()
             # Now filter the original data flow based on each unique value in turn and fork a new data flow!
             for valueToSplitOn in valuesInColumn:
 
@@ -60,24 +61,25 @@ def splitTableBasedOnSingleColumn(dataName, previousStageNumber, thisStageNumber
                 dataFlowInventoryIntermediate = dataFlowInventoryIntermediate.append(dataFlowInventory)
                 
                 # Finally save the data flow so it can be passed onto the next stage of the process...
-                targetPackagePath = saveDataFlowPackage(newDataFlow, newDataName, thisStageNumber, 'A')
+                targetPackagePath = saveDataFlowPackage(newDataFlow, newDataName, thisStageNumber, qualityFlag)
                 print('{0}: saved package to {1}'.format(newDataName, targetPackagePath))
-
-            return None, columnInventoryIntermediate, dataFlowInventoryIntermediate
         
         else:
             print('{0}: no operation required'.format(dataName))
-            
-            # Generate column and data flow inventories for the source dataflow
-            columnInventory = getColumnStats(dataProfile, dataName, thisStageNumber, operatorToUse, operationFlag)
-            dataFlowInventory = getDataFlowStats(dataFlow, dataProfile, dataName, thisStageNumber, operatorToUse, operationFlag)
+    
+        # Generate column and data flow inventories for the source dataflow
+        columnInventory = getColumnStats(dataProfile, dataName, thisStageNumber, operatorToUse, operationFlag)
+        columnInventoryIntermediate = columnInventoryIntermediate.append(columnInventory)
 
-            # Finally save the data flow so it can be passed onto the next stage of the process...
-            targetPackagePath = saveDataFlowPackage(dataFlow, dataName, thisStageNumber, qualityFlag)
-            print('{0}: saved package to {1}'.format(dataName, targetPackagePath))
+        dataFlowInventory = getDataFlowStats(dataFlow, dataProfile, dataName, thisStageNumber, operatorToUse, operationFlag)
+        dataFlowInventoryIntermediate = dataFlowInventoryIntermediate.append(dataFlowInventory)
 
-            # Now return all of the components badk to the main loop...
-            return dataFlow, columnInventory, dataFlowInventory
+        # Finally save the data flow so it can be passed onto the next stage of the process...
+        targetPackagePath = saveDataFlowPackage(dataFlow, dataName, thisStageNumber, qualityFlag)
+        print('{0}: saved package to {1}'.format(dataName, targetPackagePath))
+
+        # Now return all of the components badk to the main loop...
+        return dataFlow, columnInventoryIntermediate, dataFlowInventoryIntermediate
 
     else:
         print('{0}: no package file found at location {1}'.format(dataName, fullPackagePath))
