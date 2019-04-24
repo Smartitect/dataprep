@@ -16,7 +16,7 @@ from commonPackageHandling import openDataFlowPackage, saveDataFlowPackage, crea
 from mappingCode import load_transformation_configuration, get_lookups_from_transforms, get_destination_column_name
 
 # Let's also set up global variables and common functions...
-previousStageNumber = '40'
+previousStageNumber = '41'
 thisStageNumber = '50'
 
 #%%

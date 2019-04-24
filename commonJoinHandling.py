@@ -27,13 +27,14 @@ def joinTables(dataName, previousStageNumber, thisStageNumber, qualityFlag, oper
                 leftDataFlowJoinColumn = row['LeftDataFlowJoinColumn']
                 rightDataName = row['RightDataName']
                 rightDataFlowJoinColumn = row['RightDataFlowJoinColumn']
-                print('{0}: ready to join {1} {2} -> {3} {4}'.format(dataName, leftDataName, leftDataFlowJoinColumn, rightDataName, rightDataFlowJoinColumn))
+                joinType = row['JoinType']
+                print('{0}: ready to join {1} {2} -> {3} {4} using jointype {5}'.format(dataName, leftDataName, leftDataFlowJoinColumn, rightDataName, rightDataFlowJoinColumn, joinType))
 
                 # Load right hand data flow
                 rightDataFlow, fullPackagePath = openDataFlowPackage(rightDataName, previousStageNumber, qualityFlag)
                 print('{0}: loaded package from path {1}'.format(rightDataName, fullPackagePath))
 
-                # Perform the join
+                # We always perform the inner "MATCH" stype join
                 join_builder = dataFlow.builders.join(right_dataflow=rightDataFlow, 
                                             left_column_prefix=dataName + '_',
                                             right_column_prefix=rightDataName + '_')
@@ -45,7 +46,20 @@ def joinTables(dataName, previousStageNumber, thisStageNumber, qualityFlag, oper
                 # UNMATCHLEFT = 4
                 # UNMATCHRIGHT = 8
                 join_builder.join_type = 2
-                newDataFlow = join_builder.to_dataflow()
+                innerDataFlow = join_builder.to_dataflow()
+                print('{0} created inner dataflow : Columns : {1}, Rows : {2}'.format(dataName, len(innerDataFlow.get_profile().columns), innerDataFlow.row_count))
+
+
+                if joinType == "LEFT":
+                    # Use the "UNMATCHLEFT" setting to grab the rows that haven't been joined from the left data flow
+                    join_builder.join_type = 4
+                    leftUnmatchedDataFlow = join_builder.to_dataflow()
+                    print('{0} created left unmatched dataflow : Columns : {1}, Rows : {2}'.format(dataName, len(leftUnmatchedDataFlow.get_profile().columns), leftUnmatchedDataFlow.row_count))
+
+                    # Now append this dataflow to the original inner join dataflow, to create a "left outer join"
+                    newDataFlow = innerDataFlow.append_rows([leftUnmatchedDataFlow])
+                else:
+                    newDataFlow = innerDataFlow
 
                 # Create a new name for this data flow based on concatenation of left dataflow and right
                 newDataName = dataName + '_' + rightDataName
@@ -72,10 +86,9 @@ def joinTables(dataName, previousStageNumber, thisStageNumber, qualityFlag, oper
                 targetPackagePath = saveDataFlowPackage(newDataFlow, newDataName, thisStageNumber, 'A')
                 print('{0}: saved package to {1}'.format(newDataName, targetPackagePath))
 
-
         else:
             print('{0}: no joining of tables required'.format(dataName))
-
+        
         dataProfile = dataFlow.get_profile()
 
         # Now generate column and data flow inventories
@@ -87,7 +100,7 @@ def joinTables(dataName, previousStageNumber, thisStageNumber, qualityFlag, oper
 
         # Finally save the data flow so it can be passed onto the next stage of the process...
         targetPackagePath = saveDataFlowPackage(dataFlow, dataName, thisStageNumber, qualityFlag)
-        print('{0}: saved package to {1}'.format(dataName, targetPackagePath))
+        print('{0}: saved source package to {1}'.format(dataName, targetPackagePath))
 
         return dataFlow, columnInventoryIntermediate, dataFlowInventoryIntermediate
 

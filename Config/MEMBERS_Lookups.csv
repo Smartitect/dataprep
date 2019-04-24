@@ -1,3 +1,4 @@
 CEPDATE,=>,UPM.Cep_Date
 DJC,=>,UPM.Date_Joined_Company
 DJS,=>,UPM.Date_Joined_Scheme
+SSTA,->,FOLDERSTATUSFG

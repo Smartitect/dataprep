@@ -1,2 +1,2 @@
 LeftDataName,LeftDataFlowJoinColumn,RightDataName,RightDataFlowJoinColumn,JoinType
-PEOPLE,ID,MEMBERS,PEOPLEID,INNER
+UPMFOLDER,PERSONID,UPMPERSON,PERSONID,INNER
