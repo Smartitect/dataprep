@@ -1,5 +1,5 @@
 #%% [markdown]
-# # Join Tables Pass 2
+# # Join Tables - Pass 2
 # To join two tables:
 # - Define left and right dataflows
 # - Define left and right join keys
