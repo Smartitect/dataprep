@@ -1,2 +1,0 @@
-LeftDataName,LeftDataFlowJoinColumn,RightDataName,RightDataFlowJoinColumn,JoinType
-MEMBERS,PEOPLEID,PEOPLE,ID,LEFT

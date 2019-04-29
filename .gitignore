@@ -7,6 +7,7 @@
 data/
 dataFlowInventory/
 columnInventory/
+dataValidation/
 
 # Temp output files
 output/
@@ -23,7 +24,6 @@ azureml-logs/dataprep
 .vscode/
 
 # Local data prep packages
-pacakges/
 .dprep
 packages/
 __pycache__/
