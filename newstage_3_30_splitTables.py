@@ -1,6 +1,9 @@
 #%% [markdown]
 # # Stage: Split Tables
-# Purpose of this stage 
+# Purpose of this stage is to enable a table to split into mutiple tables based on the values in a single identified column:
+# - The range of values in the identified column are identified;
+# - A filter is applied to the source table based on each of the values;
+# - A new table is created based with naming convention of source table + column used for split + value.
 
 #%%
 #%%
