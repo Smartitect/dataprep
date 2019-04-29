@@ -74,3 +74,7 @@ def checkDateOfBirthLessThanDateJoinedCompany(row, columnNameDOB, columnNameDJC)
         return row
 
 dataValidations = dataFrame[[columnWithID, columnNameDOB, columnNameDJC]].apply(lambda row: checkDateOfBirthLessThanDateJoinedCompany(row, columnNameDOB, columnNameDJC), axis=1)
+
+#%%
+# Now save the results
+logDataValidationChecks(dataValidations, columnWithID, checkGroup, 'DOB_LT_DJC')

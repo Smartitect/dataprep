@@ -1,5 +1,5 @@
 #%% [markdown]
-# # Stage : Create a list of members to run validations against
+# # Stage : Create a "dimension table" against whicht to perform analysis and enable slicing and dicing of data validations run against the membership of the scheme
 # Requires UPMFOLDER_UPMPERSON join to have occurred and data populated in the table
 #%%
 # Import all of the libraries we need to use...
@@ -18,7 +18,30 @@ from mappingCode import load_transformation_configuration, get_lookups_from_tran
 # Let's also set up global variables and common functions...
 previousStageNumber = '60'
 thisStageNumber = '61'
+qualityFlag = 'A'
+dataName = 'UPMFOLDER_UPMPERSON'
+dataAnalyticsPath = './dataAnalytics'
 
+#%%
+# Open the data flow package that has been prepared...
+dataFlow, fullPackagePath = openDataFlowPackage(dataName, previousStageNumber, qualityFlag)
+print('{0}: loaded package from path {1}'.format(dataName, fullPackagePath))
+
+# Now convert it to a pandas dataframe...
+dataFrame = dataFlow.to_pandas_dataframe()
+
+def createFilePath(dataAnalyticsPath, dataName, stage, qualityFlag):
+
+    if not os.path.isdir(dataAnalyticsPath):
+        os.mkdir(dataAnalyticsPath)
+
+    return dataAnalyticsPath + '/dataAnalyticsExtract_' + dataName + '_' + qualityFlag + '.csv'
+
+
+# Now save it as a CSV file so that it can be opened by PowerBI for analytics...
+dataFrame.to_csv(createFilePath(dataAnalyticsPath, dataName, thisStageNumber, qualityFlag), index=False)
+
+#%%
 def createMemberValidationList(dataName, previousStageNumber, thisStageNumber, qualityFlag, operatorToUse, operationFlag):
 
     dataFlow, fullPackagePath = openDataFlowPackage(dataName, previousStageNumber, qualityFlag)
@@ -64,7 +87,7 @@ def createMemberValidationList(dataName, previousStageNumber, thisStageNumber, q
         return None, None, None
 
 #%%
-dataFlowInventoryAll = dataFlowProcessingLoop(previousStageNumber, thisStageNumber, 'A', 'CreateMemberList', createMemberValidationList)
+# dataFlowInventoryAll = dataFlowProcessingLoop(previousStageNumber, thisStageNumber, 'A', 'CreateMemberList', createMemberValidationList)
 
 #%%
-dataFlowInventoryAll
+# dataFlowInventoryAll

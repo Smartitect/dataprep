@@ -8,6 +8,7 @@ data/
 dataFlowInventory/
 columnInventory/
 dataValidation/
+dataAnalytics/
 
 # Temp output files
 output/
