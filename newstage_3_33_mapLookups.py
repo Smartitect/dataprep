@@ -40,15 +40,18 @@ def mapLookups(dataName, previousStageNumber, thisStageNumber, qualityFlag, oper
                     lookupDictionary = lookups[key]
                     replacements = []
 
+                    dataFlow = dataFlow.set_column_types({key: dprep.FieldType.STRING})
+
                     for lookup in lookupDictionary:
-                        replacements.append(ReplacementsValue(lookup, lookupDictionary[lookup]))
+                        
+                       replacements.append(ReplacementsValue(lookup, lookupDictionary[lookup]))
 
                     destination_column = get_destination_column_name(key, transforms)
                     dataFlow = dataFlow.map_column(key, destination_column, replacements)
                     print(dataName + ': Transformed lookups for column - ' + key + '. Added new column ' + destination_column)    
         
         else:
-            print('{0}: no duplicate processing required'.format(dataName))
+            print('{0}: no look-up processing required'.format(dataName))
 
         dataProfile = dataFlow.get_profile()
 
