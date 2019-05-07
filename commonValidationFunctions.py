@@ -17,9 +17,9 @@ dataValidationPath = "./dataValidation"
 def createFullDataValidationPath(checkGroup, checkName):
     if not os.path.isdir(dataValidationPath):
         os.mkdir(dataValidationPath)
-    return dataValidationPath + '/' + 'columnInventory_' + checkGroup + '_' + checkName + '.csv'
+    return dataValidationPath + '/' + 'dataValidation_' + checkGroup + '_' + checkName + '.csv'
 
-# Save the column inventory
+# Save the data validations
 def saveDataValidations(dataValidationAll, checkGroup, checkName):
     fullDataValidationPath = createFullDataValidationPath(checkGroup, checkName)
     dataValidationAll.to_csv(fullDataValidationPath, index = None)
@@ -27,6 +27,8 @@ def saveDataValidations(dataValidationAll, checkGroup, checkName):
 
 # A function to capture metrics for all data validation checks in a standard way
 def logDataValidationChecks(dataValidations, columnWithID, checkGroup, checkName):
+
+    dataValidations = dataValidations[[columnWithID, 'Result', 'Comment']]
 
     # NOTE - should put some kind of check in here to make sure all of the expected columns are there...
               

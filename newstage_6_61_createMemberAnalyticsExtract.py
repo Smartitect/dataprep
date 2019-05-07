@@ -37,3 +37,6 @@ def createFilePath(dataAnalyticsPath, dataName, stage, qualityFlag):
 
     return dataAnalyticsPath + '/dataAnalyticsExtract_' + dataName + '_' + qualityFlag + '.csv'
 
+fileName = createFilePath(dataAnalyticsPath, dataName, thisStageNumber, qualityFlag)
+
+dataFrame.to_csv(fileName, index = None)

@@ -22,10 +22,22 @@ from azureml.dataprep import Dataflow
 from commonPackageHandling import openDataFlowPackage
 
 #%%
-dataFlow, fullPackagePath = openDataFlowPackage('PEOPLE', '32', 'A')
+dataFlow, fullPackagePath = openDataFlowPackage('UPMFOLDER_UPMPERSON', '60', 'A')
 
 #%%
 dataFlow.head(10)
+
+#%%
+builder = dataFlow.builders.split_column_by_example('ADDRESS')
+
+#%%
+builder.preview()
+
+#%%
+builder.keep_delimiters = False
+
+#%%
+builder.delimiters = r'\0d0a'
 
 #%%
 dataProfile = dataFlow.get_profile()

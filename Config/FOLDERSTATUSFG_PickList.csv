@@ -1,0 +1,34 @@
+﻿PICKLISTNAME,POSITION,PICKLISTCODE,PICKLISTDESC,PICKLISTTYPE,ONOFF,KEYOBJECT
+FOLDERSTATUSFG,1,J,Joiner,Pending,1,NULL
+FOLDERSTATUSFG,2,A,Active,Active,1,NULL
+FOLDERSTATUSFG,3,L,Leaver Options Decision Awaited (Under 2 Years),Pending,1,NULL
+FOLDERSTATUSFG,4,G,Group Life Only Active,Active,1,NULL
+FOLDERSTATUSFG,5,AVC,AVC Only Active,Active,1,NULL
+FOLDERSTATUSFG,6,D,Deferred,Deferred,1,NULL
+FOLDERSTATUSFG,7,DEX,Deferred Ex Spouse,Deferred,1,NULL
+FOLDERSTATUSFG,8,P,Pensioner,Pensioner,1,NULL
+FOLDERSTATUSFG,9,PEX,Pensioner Ex Spouse,Pensioner,1,NULL
+FOLDERSTATUSFG,10,B,Beneficiary Pensioner,Beneficiary,1,NULL
+FOLDERSTATUSFG,11,NL,No Liability,No Liability,1,NULL
+FOLDERSTATUSFG,12,R,Full Refund,No Liability,1,NULL
+FOLDERSTATUSFG,13,CS,Transfer Out - Company Sale,No Liability,1,NULL
+FOLDERSTATUSFG,14,T,Transfer Out,No Liability,1,NULL
+FOLDERSTATUSFG,15,F,Full Commutation,No Liability,1,NULL
+FOLDERSTATUSFG,16,PNOL,Pensioner (No Liability - Annuity Purchased),No Liability,1,NULL
+FOLDERSTATUSFG,17,PDB,Pensioner (No Liability - DC Pension through DB),No Liability,1,NULL
+FOLDERSTATUSFG,18,X,Deceased,No Liability,1,NULL
+FOLDERSTATUSFG,19,C,Pension Ceased,No Liability,1,NULL
+FOLDERSTATUSFG,20,N,Non Member,Non Member,1,NULL
+FOLDERSTATUSFG,21,DGP,Deferred (GMP or PR Only),Deferred,1,NULL
+FOLDERSTATUSFG,22,E,No Retained Benefits,No Liability,1,NULL
+FOLDERSTATUSFG,23,I,In Active,No Liability,1,NULL
+FOLDERSTATUSFG,24,S,Company Sale,No Liability,1,NULL
+FOLDERSTATUSFG,25,U,Unknown,No Liability,1,NULL
+FOLDERSTATUSFG,26,PR,Preserved Refund,Deferred,1,NULL
+FOLDERSTATUSFG,27,TB,Transfer Out - Benefits Retained,No Liability,1,NULL
+FOLDERSTATUSFG,28,PCS,Contingent Spouse,Pensioner,1,NULL
+FOLDERSTATUSFG,31,PCD,Pensioner CARE Deferred,Deferred,0,NULL
+FOLDERSTATUSFG,32,PI,Pensioner Insured,Pensioner,0,NULL
+FOLDERSTATUSFG,33,BI,Beneficiary Insured,Beneficiary,0,NULL
+FOLDERSTATUSFG,29,FP,Pensioner (Flexible),Pensioner,1,NULL
+FOLDERSTATUSFG,30,PD,Pensioner Deferred,Deferred,1,NULL
